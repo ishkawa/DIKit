@@ -10,6 +10,7 @@
 		7F0895461ED6BCCD00AA26A6 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F08953C1ED6BCCD00AA26A6 /* DIKit.framework */; };
 		7F08954B1ED6BCCD00AA26A6 /* DIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F08954A1ED6BCCD00AA26A6 /* DIKitTests.swift */; };
 		7F08954D1ED6BCCD00AA26A6 /* DIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F08953F1ED6BCCD00AA26A6 /* DIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F0899EE1ED6BFD800AA26A6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0899ED1ED6BFD800AA26A6 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,6 +23,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7F0899E91ED6BFD800AA26A6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7F08953C1ED6BCCD00AA26A6 /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F08953F1ED6BCCD00AA26A6 /* DIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIKit.h; sourceTree = "<group>"; };
@@ -29,6 +42,14 @@
 		7F0895451ED6BCCD00AA26A6 /* DIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F08954A1ED6BCCD00AA26A6 /* DIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIKitTests.swift; sourceTree = "<group>"; };
 		7F08954C1ED6BCCD00AA26A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F0899EB1ED6BFD800AA26A6 /* dikitgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dikitgen; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F0899ED1ED6BFD800AA26A6 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		7F0899F31ED6BFFA00AA26A6 /* Commandant.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Commandant.framework; path = Carthage/Checkouts/Commandant/build/Debug/Commandant.framework; sourceTree = "<group>"; };
+		7F605CC71ED6C7ED005B7D57 /* Commandant.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Commandant.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/DIKit-gdiyahdexylfpqehegkkpktcsvuw/Build/Products/Debug/Commandant.framework"; sourceTree = "<group>"; };
+		7F605CC91ED6C7F2005B7D57 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/DIKit-gdiyahdexylfpqehegkkpktcsvuw/Build/Products/Debug/Result.framework"; sourceTree = "<group>"; };
+		7F605CCB1ED6C814005B7D57 /* SourceKittenFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SourceKittenFramework.framework; path = Carthage/Checkouts/SourceKitten/build/Debug/SourceKittenFramework.framework; sourceTree = "<group>"; };
+		7F605CCD1ED6C821005B7D57 /* SWXMLHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SWXMLHash.framework; path = Carthage/Checkouts/SWXMLHash/build/Debug/SWXMLHash.framework; sourceTree = "<group>"; };
+		7F605CCF1ED6C826005B7D57 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = Carthage/Checkouts/Yams/build/Debug/Yams.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +68,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7F0899E81ED6BFD800AA26A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,7 +83,9 @@
 			children = (
 				7F08953E1ED6BCCD00AA26A6 /* DIKit */,
 				7F0895491ED6BCCD00AA26A6 /* DIKitTests */,
+				7F0899EC1ED6BFD800AA26A6 /* dikitgen */,
 				7F08953D1ED6BCCD00AA26A6 /* Products */,
+				7F0899F21ED6BFFA00AA26A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +94,7 @@
 			children = (
 				7F08953C1ED6BCCD00AA26A6 /* DIKit.framework */,
 				7F0895451ED6BCCD00AA26A6 /* DIKitTests.xctest */,
+				7F0899EB1ED6BFD800AA26A6 /* dikitgen */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +115,27 @@
 				7F08954C1ED6BCCD00AA26A6 /* Info.plist */,
 			);
 			path = DIKitTests;
+			sourceTree = "<group>";
+		};
+		7F0899EC1ED6BFD800AA26A6 /* dikitgen */ = {
+			isa = PBXGroup;
+			children = (
+				7F0899ED1ED6BFD800AA26A6 /* main.swift */,
+			);
+			path = dikitgen;
+			sourceTree = "<group>";
+		};
+		7F0899F21ED6BFFA00AA26A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F605CCF1ED6C826005B7D57 /* Yams.framework */,
+				7F605CCD1ED6C821005B7D57 /* SWXMLHash.framework */,
+				7F605CCB1ED6C814005B7D57 /* SourceKittenFramework.framework */,
+				7F605CC91ED6C7F2005B7D57 /* Result.framework */,
+				7F605CC71ED6C7ED005B7D57 /* Commandant.framework */,
+				7F0899F31ED6BFFA00AA26A6 /* Commandant.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +188,23 @@
 			productReference = 7F0895451ED6BCCD00AA26A6 /* DIKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		7F0899EA1ED6BFD800AA26A6 /* dikitgen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F0899EF1ED6BFD800AA26A6 /* Build configuration list for PBXNativeTarget "dikitgen" */;
+			buildPhases = (
+				7F0899E71ED6BFD800AA26A6 /* Sources */,
+				7F0899E81ED6BFD800AA26A6 /* Frameworks */,
+				7F0899E91ED6BFD800AA26A6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dikitgen;
+			productName = dikitgen;
+			productReference = 7F0899EB1ED6BFD800AA26A6 /* dikitgen */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -151,6 +220,10 @@
 						ProvisioningStyle = Automatic;
 					};
 					7F0895441ED6BCCD00AA26A6 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					7F0899EA1ED6BFD800AA26A6 = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -170,6 +243,7 @@
 			targets = (
 				7F08953B1ED6BCCD00AA26A6 /* DIKit */,
 				7F0895441ED6BCCD00AA26A6 /* DIKitTests */,
+				7F0899EA1ED6BFD800AA26A6 /* dikitgen */,
 			);
 		};
 /* End PBXProject section */
@@ -204,6 +278,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F08954B1ED6BCCD00AA26A6 /* DIKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F0899E71ED6BFD800AA26A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F0899EE1ED6BFD800AA26A6 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +462,24 @@
 			};
 			name = Release;
 		};
+		7F0899F01ED6BFD800AA26A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7F0899F11ED6BFD800AA26A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -406,6 +506,15 @@
 			buildConfigurations = (
 				7F0895541ED6BCCD00AA26A6 /* Debug */,
 				7F0895551ED6BCCD00AA26A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F0899EF1ED6BFD800AA26A6 /* Build configuration list for PBXNativeTarget "dikitgen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F0899F01ED6BFD800AA26A6 /* Debug */,
+				7F0899F11ED6BFD800AA26A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
