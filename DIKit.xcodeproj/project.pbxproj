@@ -399,6 +399,7 @@
 				7F0895521ED6BCCD00AA26A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F0895531ED6BCCD00AA26A6 /* Build configuration list for PBXNativeTarget "DIKitTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +408,7 @@
 				7F0895551ED6BCCD00AA26A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
