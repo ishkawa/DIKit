@@ -1,10 +1,15 @@
 import SourceKittenFramework
 
 protocol Injectable {}
+protocol ModuleBlueprint {}
 
 struct A: Injectable {}
 struct B: Injectable {
     init(a: A) {}
+}
+
+protocol AModuleBlueprint: ModuleBlueprint {
+    var b: B { get }
 }
 
 struct Function {
@@ -42,18 +47,28 @@ struct Function {
     }
 }
 
-struct ConcreteType {
+struct Type {
+    enum Kind: String {
+        case `struct`   = "source.lang.swift.decl.struct"
+        case `class`    = "source.lang.swift.decl.class"
+        case `enum`     = "source.lang.swift.decl.enum"
+        case `protocol` = "source.lang.swift.decl.protocol"
+    }
+    
     let name: String
+    let kind: Kind
     let fuctions: [Function]
     let inheritedTypes: [String]
 
     init?(structure: Structure) {
-        guard structure.kind == "source.lang.swift.decl.struct" || structure.kind == "source.lang.swift.decl.class",
+        guard
+            let kind = structure.kind.flatMap(Kind.init(rawValue:)),
             let name = structure.name else {
             return nil
         }
 
         self.name = name
+        self.kind = kind
         self.fuctions = structure.substructures.flatMap(Function.init)
         self.inheritedTypes = (structure.dictionary["key.inheritedtypes"] as? [[String: SourceKitRepresentable]])?
             .flatMap { $0["key.name"] as? String } ?? []
@@ -81,7 +96,7 @@ extension Structure {
 let file = File(path: #file)!
 let structure = Structure(file: file)
 let injectableTypes = structure.substructures
-    .flatMap(ConcreteType.init)
+    .flatMap(Type.init)
     .filter { $0.inheritedTypes.contains("Injectable") }
 
-print(injectableTypes)
+injectableTypes.forEach { print($0, "\n") }
