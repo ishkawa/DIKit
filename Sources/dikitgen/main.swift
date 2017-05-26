@@ -95,8 +95,17 @@ extension Structure {
 
 let file = File(path: #file)!
 let structure = Structure(file: file)
-let injectableTypes = structure.substructures
-    .flatMap(Type.init)
-    .filter { $0.inheritedTypes.contains("Injectable") }
+let types = structure.substructures.flatMap(Type.init)
 
-injectableTypes.forEach { print($0, "\n") }
+let injectables = types.filter { $0.inheritedTypes.contains("Injectable") }
+let parameters = injectables
+    .reduce([] as [String]) { parameters, injectable -> [String] in
+        return parameters + injectable.fuctions.reduce([] as [String]) { parameters, function -> [String] in
+            return parameters + function.parameters.reduce([] as [String]) { parameters, parameter -> [String] in
+                return parameters.contains(parameter.type) ? parameters : parameters + [parameter.type]
+            }
+        }
+    }
+
+injectables.forEach { print($0, "\n") }
+parameters.forEach { print($0, "\n") }
