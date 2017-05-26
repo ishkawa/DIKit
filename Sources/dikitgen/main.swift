@@ -18,7 +18,7 @@ struct Function {
         let type: String
 
         init?(structure: Structure) {
-            guard structure.kind == "source.lang.swift.decl.var.parameter",
+            guard structure.kind == .varParameter,
                 let name = structure.name,
                 let type = structure.dictionary["key.typename"] as? String else {
                 return nil
@@ -37,7 +37,7 @@ struct Function {
     }
 
     init?(structure: Structure) {
-        guard structure.kind == "source.lang.swift.decl.function.method.instance",
+        guard structure.kind == .functionMethodInstance,
             let name = structure.name else {
             return nil
         }
@@ -48,21 +48,18 @@ struct Function {
 }
 
 struct Type {
-    enum Kind: String {
-        case `struct`   = "source.lang.swift.decl.struct"
-        case `class`    = "source.lang.swift.decl.class"
-        case `enum`     = "source.lang.swift.decl.enum"
-        case `protocol` = "source.lang.swift.decl.protocol"
+    private static var declarationKinds: [SwiftDeclarationKind] {
+        return [.struct, .class, .enum, .protocol]
     }
-    
+
     let name: String
-    let kind: Kind
+    let kind: SwiftDeclarationKind
     let fuctions: [Function]
     let inheritedTypes: [String]
 
     init?(structure: Structure) {
         guard
-            let kind = structure.kind.flatMap(Kind.init(rawValue:)),
+            let kind = structure.kind, Type.declarationKinds.contains(kind),
             let name = structure.name else {
             return nil
         }
@@ -70,26 +67,37 @@ struct Type {
         self.name = name
         self.kind = kind
         self.fuctions = structure.substructures.flatMap(Function.init)
-        self.inheritedTypes = (structure.dictionary["key.inheritedtypes"] as? [[String: SourceKitRepresentable]])?
+        self.inheritedTypes = (structure[.inheritedtypes] as? [[String: SourceKitRepresentable]])?
             .flatMap { $0["key.name"] as? String } ?? []
     }
 }
 
 extension Structure {
-    var name: String? {
-        return dictionary["key.name"] as? String
+    subscript(key: SwiftDocKey) -> SourceKitRepresentable? {
+        get {
+            return dictionary[key.rawValue]
+        }
+        set {
+            var dictionary = self.dictionary
+            dictionary[key.rawValue] = newValue
+            self = Structure(sourceKitResponse: dictionary)
+        }
     }
 
-    var kind: String? {
-        return dictionary["key.kind"] as? String
+    var name: String? {
+        return self[.name] as? String
+    }
+
+    var kind: SwiftDeclarationKind? {
+        return (self[.kind] as? String).flatMap(SwiftDeclarationKind.init)
     }
 
     var substructures: [Structure] {
-        guard let dictionaries = dictionary["key.substructure"] as? [[String: SourceKitRepresentable]] else {
+        guard let dictionaries = self[.substructure] as? [[String: SourceKitRepresentable]] else {
             return []
         }
 
-        return dictionaries.map { Structure(sourceKitResponse: $0) }
+        return dictionaries.map(Structure.init(sourceKitResponse:))
     }
 }
 
@@ -109,3 +117,6 @@ let parameters = injectables
 
 injectables.forEach { print($0, "\n") }
 parameters.forEach { print($0, "\n") }
+
+let blueprints = types.filter { $0.inheritedTypes.contains("ModuleBlueprint") }
+print(blueprints)
