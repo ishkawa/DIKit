@@ -14,6 +14,8 @@ struct ModuleBuiler {
     let publicProperties: [Property]
     let privateProperties: [Property]
 
+    let blueprint: Type
+
     init(blueprint: Type, injectables: [Type]) throws {
         let suffix = "Blueprint"
         guard blueprint.name.hasSuffix(suffix) else {
@@ -48,5 +50,14 @@ struct ModuleBuiler {
         self.nodes.forEach { extractNode(node: $0) }
         self.publicProperties = publicProperties
         self.privateProperties = privateProperties
+        self.blueprint = blueprint
+    }
+
+    func build() -> String {
+        return "" +
+        "final class \(moduleName): \(blueprint.name) {\n" +
+        "\(publicProperties.map({ "    let \($0.name): \($0.typeName)" }).joined())\n" +
+        "\(privateProperties.map({ "    private let \($0.name): \($0.typeName)" }).joined())\n" +
+        "}"
     }
 }

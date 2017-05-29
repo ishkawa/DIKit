@@ -29,10 +29,5 @@ let blueprints = types.filter { $0.inheritedTypes.contains("ModuleBlueprint") }
 
 for blueprint in blueprints {
     let builder = try! ModuleBuiler(blueprint: blueprint, injectables: injectables)
-    print(
-        "final class \(builder.moduleName): \(blueprint.name) {\n" +
-        "\(builder.publicProperties.map({ "    let \($0.name): \($0.typeName)"}).joined())\n" +
-        "\(builder.privateProperties.map({ "    private let \($0.name): \($0.typeName)"}).joined())\n" +
-        "}"
-    )
+    print(builder.build())
 }
