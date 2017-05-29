@@ -9,11 +9,17 @@
 import Foundation
 
 struct Node {
+    enum AccessControl {
+        case `private`
+        case `public`
+    }
+    
     let name: String
     let type: Type
+    let accessControl: AccessControl
     let dependencies: [Node]
 
-    init(name: String, typeName: String, injectables: [Type]) throws {
+    init(name: String, typeName: String, accessControl: AccessControl, injectables: [Type]) throws {
         guard let type = injectables.filter({ $0.name == typeName }).first else {
             throw GraphError(message: "Injectable type named \(typeName) is not found.")
         }
@@ -32,6 +38,7 @@ struct Node {
             let node = try Node(
                 name: type.name.firstCharacterLowerCased,
                 typeName: type.name,
+                accessControl: .private,
                 injectables: injectables)
             
             dependencies.append(node)
@@ -39,6 +46,7 @@ struct Node {
 
         self.name = name
         self.type = type
+        self.accessControl = accessControl
         self.dependencies = dependencies
     }
 }

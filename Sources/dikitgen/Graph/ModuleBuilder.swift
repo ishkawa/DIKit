@@ -9,12 +9,9 @@
 import Foundation
 
 struct ModuleBuiler {
-    let moduleName: String
-    let nodes: [Node]
-    let publicProperties: [Property]
-    let privateProperties: [Property]
-
     let blueprint: Type
+    let nodes: [Node]
+    let moduleName: String
 
     init(blueprint: Type, injectables: [Type]) throws {
         let suffix = "Blueprint"
@@ -22,30 +19,31 @@ struct ModuleBuiler {
             throw GraphError(message: "Blueprint type must have suffix \(suffix).")
         }
 
-        self.moduleName = {
-            let name = blueprint.name
-            return name[name.startIndex..<name.index(name.endIndex, offsetBy: -suffix.characters.count)]
-        }()
+        self.moduleName = blueprint.name.trimmingSuffix("Blueprint")
+        self.blueprint = blueprint
 
-        self.nodes = try blueprint.properties.map { try Node(name: $0.name, typeName: $0.typeName, injectables: injectables) }
+        var nodes = try blueprint.properties
+            .map { property -> Node in
+                return try Node(
+                    name: property.name,
+                    typeName: property.typeName,
+                    accessControl: .public,
+                    injectables: injectables)
+            }
 
-        let publicProperties = blueprint.properties
-        var privateProperties = [Property]()
-        func extractNode(node: Node) {
-            node.dependencies.forEach(extractNode(node:))
-
-            let resolvedTypeNames = publicProperties.map { $0.typeName } + privateProperties.map { $0.typeName }
-
-            if !resolvedTypeNames.contains(node.type.name) {
-                let property = Property(name: node.name, typeName: node.type.name)
-                privateProperties.append(property)
+        func appendDependencies(of node: Node) {
+            node.dependencies.forEach { node in
+                let typeNames = nodes.map { $0.type.name }
+                if !typeNames.contains(node.type.name) {
+                    nodes.append(node)
+                }
+                appendDependencies(of: node)
             }
         }
 
-        self.nodes.forEach { extractNode(node: $0) }
-        self.publicProperties = publicProperties
-        self.privateProperties = privateProperties
-        self.blueprint = blueprint
+        nodes.forEach(appendDependencies(of:))
+
+        self.nodes = nodes
     }
 
     func build() -> String {
@@ -58,10 +56,18 @@ struct ModuleBuiler {
                 code.decrementIndentDepth()
                 code.append("}")
             }
+
+            let publicPropertyDeclarations = nodes
+                .filter { $0.accessControl == .public }
+                .map { "let \($0.name): \($0.type.name)" }
+
+            let privatePropertyDeclarations = nodes
+                .filter { $0.accessControl == .private }
+                .map { "private let \($0.name): \($0.type.name)" }
             
-            code.append(publicProperties.map({ "let \($0.name): \($0.typeName)" }).joined())
+            code.append(publicPropertyDeclarations.joined(separator: "\n"))
             code.append("")
-            code.append(privateProperties.map({ "private let \($0.name): \($0.typeName)" }).joined())
+            code.append(privatePropertyDeclarations.joined(separator: "\n"))
             code.append("")
 
             do {

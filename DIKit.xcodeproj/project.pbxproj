@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7FB1CF281EDBE7ED00A1C514 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1CF261EDBE7E700A1C514 /* Code.swift */; };
-		7FB1CF2B1EDBF5A300A1C514 /* String+Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1CF291EDBF4E100A1C514 /* String+Case.swift */; };
+		7FB1CF2B1EDBF5A300A1C514 /* String+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1CF291EDBF4E100A1C514 /* String+Name.swift */; };
 		OBJ_136 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_119 /* Result.swift */; };
 		OBJ_137 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_120 /* ResultProtocol.swift */; };
 		OBJ_144 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* Argument.swift */; };
@@ -313,7 +313,7 @@
 
 /* Begin PBXFileReference section */
 		7FB1CF261EDBE7E700A1C514 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
-		7FB1CF291EDBF4E100A1C514 /* String+Case.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Case.swift"; sourceTree = "<group>"; };
+		7FB1CF291EDBF4E100A1C514 /* String+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Name.swift"; sourceTree = "<group>"; };
 		OBJ_10 /* ModuleBlueprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBlueprint.swift; sourceTree = "<group>"; };
 		OBJ_100 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		OBJ_101 /* YamlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlError.swift; sourceTree = "<group>"; };
@@ -552,7 +552,7 @@
 			children = (
 				OBJ_12 /* main.swift */,
 				7FB1CF261EDBE7E700A1C514 /* Code.swift */,
-				7FB1CF291EDBF4E100A1C514 /* String+Case.swift */,
+				7FB1CF291EDBF4E100A1C514 /* String+Name.swift */,
 				OBJ_13 /* Declaration */,
 				OBJ_18 /* Graph */,
 			);
@@ -1182,7 +1182,7 @@
 				OBJ_305 /* Function.swift in Sources */,
 				OBJ_306 /* Property.swift in Sources */,
 				OBJ_307 /* Structure+TypedProperties.swift in Sources */,
-				7FB1CF2B1EDBF5A300A1C514 /* String+Case.swift in Sources */,
+				7FB1CF2B1EDBF5A300A1C514 /* String+Name.swift in Sources */,
 				OBJ_308 /* Type.swift in Sources */,
 				OBJ_309 /* GraphError.swift in Sources */,
 				OBJ_310 /* ModuleBuilder.swift in Sources */,
