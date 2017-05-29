@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_129"
+               BlueprintIdentifier = "OBJ_131"
                BuildableName = "Result.framework"
                BlueprintName = "Result"
                ReferencedContainer = "container:DIKit.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_137"
+               BlueprintIdentifier = "OBJ_139"
                BuildableName = "Commandant.framework"
                BlueprintName = "Commandant"
                ReferencedContainer = "container:DIKit.xcodeproj">
@@ -42,7 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_155"
+               BlueprintIdentifier = "OBJ_157"
                BuildableName = "SWXMLHash.framework"
                BlueprintName = "SWXMLHash"
                ReferencedContainer = "container:DIKit.xcodeproj">
@@ -56,7 +56,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_163"
+               BlueprintIdentifier = "OBJ_165"
                BuildableName = "CYaml.framework"
                BlueprintName = "CYaml"
                ReferencedContainer = "container:DIKit.xcodeproj">
@@ -70,7 +70,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_178"
+               BlueprintIdentifier = "OBJ_180"
                BuildableName = "Yams.framework"
                BlueprintName = "Yams"
                ReferencedContainer = "container:DIKit.xcodeproj">
@@ -84,7 +84,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_199"
+               BlueprintIdentifier = "OBJ_201"
                BuildableName = "sourcekitten"
                BlueprintName = "sourcekitten"
                ReferencedContainer = "container:DIKit.xcodeproj">
@@ -98,7 +98,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_227"
+               BlueprintIdentifier = "OBJ_229"
                BuildableName = "SourceKittenFramework.framework"
                BlueprintName = "SourceKittenFramework"
                ReferencedContainer = "container:DIKit.xcodeproj">
@@ -112,7 +112,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_277"
+               BlueprintIdentifier = "OBJ_279"
                BuildableName = "DIKit.framework"
                BlueprintName = "DIKit"
                ReferencedContainer = "container:DIKit.xcodeproj">
@@ -126,7 +126,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_297"
+               BlueprintIdentifier = "OBJ_299"
                BuildableName = "dikitgen"
                BlueprintName = "dikitgen"
                ReferencedContainer = "container:DIKit.xcodeproj">
@@ -157,7 +157,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "OBJ_129"
+            BlueprintIdentifier = "OBJ_131"
             BuildableName = "Result.framework"
             BlueprintName = "Result"
             ReferencedContainer = "container:DIKit.xcodeproj">
