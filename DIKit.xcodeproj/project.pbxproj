@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FB1CF281EDBE7ED00A1C514 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1CF261EDBE7E700A1C514 /* Code.swift */; };
 		OBJ_136 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_119 /* Result.swift */; };
 		OBJ_137 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_120 /* ResultProtocol.swift */; };
 		OBJ_144 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* Argument.swift */; };
@@ -310,6 +311,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7FB1CF261EDBE7E700A1C514 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		OBJ_10 /* ModuleBlueprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBlueprint.swift; sourceTree = "<group>"; };
 		OBJ_100 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		OBJ_101 /* YamlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlError.swift; sourceTree = "<group>"; };
@@ -547,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_12 /* main.swift */,
+				7FB1CF261EDBE7E700A1C514 /* Code.swift */,
 				OBJ_13 /* Declaration */,
 				OBJ_18 /* Graph */,
 			);
@@ -1179,6 +1182,7 @@
 				OBJ_308 /* Type.swift in Sources */,
 				OBJ_309 /* GraphError.swift in Sources */,
 				OBJ_310 /* ModuleBuilder.swift in Sources */,
+				7FB1CF281EDBE7ED00A1C514 /* Code.swift in Sources */,
 				OBJ_311 /* Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

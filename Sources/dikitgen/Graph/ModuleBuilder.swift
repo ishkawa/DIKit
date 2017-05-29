@@ -54,10 +54,20 @@ struct ModuleBuiler {
     }
 
     func build() -> String {
-        return "" +
-        "final class \(moduleName): \(blueprint.name) {\n" +
-        "\(publicProperties.map({ "    let \($0.name): \($0.typeName)" }).joined())\n" +
-        "\(privateProperties.map({ "    private let \($0.name): \($0.typeName)" }).joined())\n" +
-        "}"
+        var code = Code()
+
+        do {
+            code.append("final class \(moduleName): \(blueprint.name) {")
+            code.incrementIndentDepth()
+            defer {
+                code.decrementIndentDepth()
+                code.append("}")
+            }
+            
+            code.append(publicProperties.map({ "let \($0.name): \($0.typeName)" }).joined())
+            code.append(privateProperties.map({ "private let \($0.name): \($0.typeName)" }).joined())
+        }
+
+        return code.content
     }
 }
