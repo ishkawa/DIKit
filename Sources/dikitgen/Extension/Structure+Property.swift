@@ -1,5 +1,5 @@
 //
-//  Structure+TypedProperties.swift
+//  Structure+Property.swift
 //  DIKit
 //
 //  Created by ishkawa on 2017/05/29.
