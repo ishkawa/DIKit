@@ -14,9 +14,17 @@ struct C: Injectable {
     init(ca: A) {}
 }
 
+struct D {}
+
 protocol AModuleBlueprint: ModuleBlueprint {
     var b: B { get }
     var c: C { get }
+}
+
+extension AModuleBlueprint {
+    static func provideD() -> D {
+        return D()
+    }
 }
 
 let file = File(path: #file)!
