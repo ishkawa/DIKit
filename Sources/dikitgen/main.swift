@@ -2,13 +2,21 @@ import Foundation
 import DIKit
 import SourceKittenFramework
 
-struct A: Injectable {}
+struct A: Injectable {
+    init() {}
+}
+
 struct B: Injectable {
-    init(a: A) {}
+    init(ba: A) {}
+}
+
+struct C: Injectable {
+    init(ca: A) {}
 }
 
 protocol AModuleBlueprint: ModuleBlueprint {
     var b: B { get }
+    var c: C { get }
 }
 
 let file = File(path: #file)!

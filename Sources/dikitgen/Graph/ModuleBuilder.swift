@@ -78,7 +78,30 @@ struct ModuleBuiler {
                     code.append("}")
                 }
 
-                code.append("")
+                var resolvedNodes = [] as [Node]
+                while resolvedNodes.count < nodes.count {
+                    var resolved = false
+                    for node in nodes {
+                        let resolvedTypeNames = resolvedNodes.map { $0.type.name }
+                        guard !resolvedTypeNames.contains(node.type.name) else {
+                            continue
+                        }
+                        
+                        let isResolvable = node.dependencies
+                            .reduce(true) { $0 && resolvedTypeNames.contains($1.type.name) }
+
+                        if isResolvable {
+                            code.append(node.generateInstatiation(withResolvedNodes: nodes))
+                            resolvedNodes.append(node)
+                            resolved = true
+                            break
+                        }
+                    }
+
+                    if !resolved {
+                        fatalError("TODO: throw error")
+                    }
+                }
             }
         }
 
