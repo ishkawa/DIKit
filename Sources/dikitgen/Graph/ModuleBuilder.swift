@@ -65,7 +65,20 @@ struct ModuleBuiler {
             }
             
             code.append(publicProperties.map({ "let \($0.name): \($0.typeName)" }).joined())
+            code.append("")
             code.append(privateProperties.map({ "private let \($0.name): \($0.typeName)" }).joined())
+            code.append("")
+
+            do {
+                code.append("init() {")
+                code.incrementIndentDepth()
+                defer {
+                    code.decrementIndentDepth()
+                    code.append("}")
+                }
+
+                code.append("")
+            }
         }
 
         return code.content
