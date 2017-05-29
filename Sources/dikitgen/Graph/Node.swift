@@ -9,12 +9,13 @@
 import Foundation
 
 struct Node {
+    let name: String
     let type: Type
     let dependencies: [Node]
 
-    init(name: String, injectables: [Type]) throws {
-        guard let type = injectables.filter({ $0.name == name }).first else {
-            throw GraphError(message: "Injectable type named \(name) is not found.")
+    init(name: String, typeName: String, injectables: [Type]) throws {
+        guard let type = injectables.filter({ $0.name == typeName }).first else {
+            throw GraphError(message: "Injectable type named \(typeName) is not found.")
         }
 
         let initializerParameters = Array(type.functions
@@ -25,13 +26,18 @@ struct Node {
         var dependencies: [Node] = []
         for parameter in initializerParameters {
             guard let type = injectables.filter({ $0.name == parameter.typeName}).first else {
-                throw GraphError(message: "Injectable type named \(name) is not found.")
+                throw GraphError(message: "Injectable type named \(parameter.typeName) is not found.")
             }
 
-            let node = try Node(name: type.name, injectables: injectables)
+            let node = try Node(
+                name: type.name.firstCharacterLowerCased,
+                typeName: type.name,
+                injectables: injectables)
+            
             dependencies.append(node)
         }
 
+        self.name = name
         self.type = type
         self.dependencies = dependencies
     }

@@ -27,7 +27,7 @@ struct ModuleBuiler {
             return name[name.startIndex..<name.index(name.endIndex, offsetBy: -suffix.characters.count)]
         }()
 
-        self.nodes = try blueprint.properties.map { try Node(name: $0.typeName, injectables: injectables) }
+        self.nodes = try blueprint.properties.map { try Node(name: $0.name, typeName: $0.typeName, injectables: injectables) }
 
         let publicProperties = blueprint.properties
         var privateProperties = [Property]()
@@ -37,12 +37,7 @@ struct ModuleBuiler {
             let resolvedTypeNames = publicProperties.map { $0.typeName } + privateProperties.map { $0.typeName }
 
             if !resolvedTypeNames.contains(node.type.name) {
-                var name = node.type.name
-                name = name.replacingCharacters(
-                    in: name.startIndex..<name.index(name.startIndex, offsetBy: 1),
-                    with: String(name[name.startIndex]).lowercased())
-
-                let property = Property(name: name, typeName: node.type.name)
+                let property = Property(name: node.name, typeName: node.type.name)
                 privateProperties.append(property)
             }
         }
