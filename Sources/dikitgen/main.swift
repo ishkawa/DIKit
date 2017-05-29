@@ -29,6 +29,7 @@ extension AModuleBlueprint {
 
 let file = File(path: #file)!
 let structure = Structure(file: file)
+print(structure)
 let types = structure.substructures.flatMap(Type.init)
 
 let injectables = types.filter { $0.inheritedTypes.contains("Injectable") }

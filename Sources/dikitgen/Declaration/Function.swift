@@ -10,6 +10,11 @@ import Foundation
 import SourceKittenFramework
 
 struct Function {
+    private static var declarationKinds: [SwiftDeclarationKind] {
+        return [.functionMethodInstance, .functionMethodStatic]
+    }
+
+    
     struct Parameter {
         let name: String
         let typeName: String
@@ -27,6 +32,7 @@ struct Function {
     }
 
     let name: String
+    let kind: SwiftDeclarationKind
     let parameters: [Parameter]
 
     var isInitializer: Bool {
@@ -34,12 +40,14 @@ struct Function {
     }
 
     init?(structure: Structure) {
-        guard structure.kind == .functionMethodInstance,
+        guard
+            let kind = structure.kind, Function.declarationKinds.contains(kind),
             let name = structure.name else {
             return nil
         }
 
         self.name = name
+        self.kind = kind
         self.parameters = structure.substructures.flatMap(Parameter.init)
     }
 }
