@@ -36,6 +36,7 @@ let parameters = injectables
 let blueprints = types.filter { $0.inheritedTypes.contains("ModuleBlueprint") }
 
 for blueprint in blueprints {
-    let builder = try! ModuleBuiler(blueprint: blueprint, injectables: injectables)
-    print(builder.build())
+    let graph = Graph(blueprint: blueprint, injectables: injectables)
+    let code = try graph.generateCode()
+    print(code.content)
 }

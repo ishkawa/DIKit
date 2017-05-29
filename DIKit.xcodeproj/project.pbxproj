@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7FB1CF281EDBE7ED00A1C514 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1CF261EDBE7E700A1C514 /* Code.swift */; };
 		7FB1CF2B1EDBF5A300A1C514 /* String+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1CF291EDBF4E100A1C514 /* String+Name.swift */; };
+		7FB1CF2D1EDC1B5000A1C514 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1CF2C1EDC1B5000A1C514 /* Graph.swift */; };
 		OBJ_136 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_119 /* Result.swift */; };
 		OBJ_137 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_120 /* ResultProtocol.swift */; };
 		OBJ_144 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* Argument.swift */; };
@@ -115,7 +116,6 @@
 		OBJ_307 /* Structure+TypedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Structure+TypedProperties.swift */; };
 		OBJ_308 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Type.swift */; };
 		OBJ_309 /* GraphError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* GraphError.swift */; };
-		OBJ_310 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* ModuleBuilder.swift */; };
 		OBJ_311 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Node.swift */; };
 		OBJ_313 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_122 /* Result.framework */; };
 		OBJ_314 /* Commandant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_123 /* Commandant.framework */; };
@@ -314,6 +314,7 @@
 /* Begin PBXFileReference section */
 		7FB1CF261EDBE7E700A1C514 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		7FB1CF291EDBF4E100A1C514 /* String+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Name.swift"; sourceTree = "<group>"; };
+		7FB1CF2C1EDC1B5000A1C514 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		OBJ_10 /* ModuleBlueprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBlueprint.swift; sourceTree = "<group>"; };
 		OBJ_100 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		OBJ_101 /* YamlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlError.swift; sourceTree = "<group>"; };
@@ -346,7 +347,6 @@
 		OBJ_16 /* Structure+TypedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Structure+TypedProperties.swift"; sourceTree = "<group>"; };
 		OBJ_17 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		OBJ_19 /* GraphError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphError.swift; sourceTree = "<group>"; };
-		OBJ_20 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		OBJ_21 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		OBJ_26 /* CompleteCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCommand.swift; sourceTree = "<group>"; };
 		OBJ_27 /* DocCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocCommand.swift; sourceTree = "<group>"; };
@@ -609,7 +609,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_19 /* GraphError.swift */,
-				OBJ_20 /* ModuleBuilder.swift */,
+				7FB1CF2C1EDC1B5000A1C514 /* Graph.swift */,
 				OBJ_21 /* Node.swift */,
 			);
 			path = Graph;
@@ -1185,7 +1185,7 @@
 				7FB1CF2B1EDBF5A300A1C514 /* String+Name.swift in Sources */,
 				OBJ_308 /* Type.swift in Sources */,
 				OBJ_309 /* GraphError.swift in Sources */,
-				OBJ_310 /* ModuleBuilder.swift in Sources */,
+				7FB1CF2D1EDC1B5000A1C514 /* Graph.swift in Sources */,
 				7FB1CF281EDBE7ED00A1C514 /* Code.swift in Sources */,
 				OBJ_311 /* Node.swift in Sources */,
 			);

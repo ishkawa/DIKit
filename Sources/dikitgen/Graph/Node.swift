@@ -53,7 +53,7 @@ struct Node {
         self.initializer = initializer
     }
 
-    func generateInstatiation(withResolvedNodes resolvedNodes: [Node]) -> String {
+    func generateInstatiationCode(withResolvedNodes resolvedNodes: [Node]) -> Code {
         let parameters = initializer.parameters
             .map { parameter -> String in
                 guard let node = resolvedNodes.filter({ $0.type.name == parameter.typeName }).first else {
@@ -62,7 +62,7 @@ struct Node {
                 return "\(parameter.name): \(node.name)"
             }
             .joined(separator: ", ")
-        
-        return "\(name) = \(type.name)(\(parameters))"
+
+        return Code(content: "\(name) = \(type.name)(\(parameters))", indentDepth: 0)
     }
 }
