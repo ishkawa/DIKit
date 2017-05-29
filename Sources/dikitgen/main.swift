@@ -1,8 +1,6 @@
 import Foundation
+import DIKit
 import SourceKittenFramework
-
-protocol Injectable {}
-protocol ModuleBlueprint {}
 
 struct A: Injectable {}
 struct B: Injectable {

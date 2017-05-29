@@ -3,7 +3,8 @@ import PackageDescription
 let package = Package(
   name: "DIKit",
   targets: [
-    Target(name: "dikitgen"),
+    Target(name: "DIKit"),
+    Target(name: "dikitgen", dependencies: [.Target(name: "DIKit")]),
   ],
   dependencies: [
     .Package(url: "https://github.com/jpsim/SourceKitten.git", Version(0, 17, 6)),
