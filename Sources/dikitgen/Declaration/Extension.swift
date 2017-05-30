@@ -1,36 +1,28 @@
 //
-//  Type.swift
+//  Extension.swift
 //  DIKit
 //
-//  Created by ishkawa on 2017/05/29.
+//  Created by ishkawa on 2017/05/30.
 //
 //
 
 import Foundation
 import SourceKittenFramework
 
-struct Type {
-    private static var declarationKinds: [SwiftDeclarationKind] {
-        return [.struct, .class, .enum, .protocol]
-    }
-
+struct Extension {
     let name: String
     let kind: SwiftDeclarationKind
     let functions: [Function]
     let properties: [Property]
     let inheritedTypes: [String]
 
-    var isInjectable: Bool {
-        return inheritedTypes.contains("Injectable")
-    }
-
     init?(structure: Structure) {
         guard
-            let kind = structure.kind, Type.declarationKinds.contains(kind),
+            let kind = structure.kind, kind == .extension,
             let name = structure.name else {
             return nil
         }
-
+        
         self.name = name
         self.kind = kind
         self.functions = structure.substructures.flatMap(Function.init)

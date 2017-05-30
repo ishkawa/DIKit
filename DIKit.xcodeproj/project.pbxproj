@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FB1CF4A1EDD1BEB00A1C514 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1CF481EDD1BE500A1C514 /* Extension.swift */; };
 		OBJ_139 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_122 /* Result.swift */; };
 		OBJ_140 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_123 /* ResultProtocol.swift */; };
 		OBJ_147 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* Argument.swift */; };
@@ -312,6 +313,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7FB1CF481EDD1BE500A1C514 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		OBJ_10 /* ModuleBlueprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBlueprint.swift; sourceTree = "<group>"; };
 		OBJ_100 /* Representer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Representer.swift; sourceTree = "<group>"; };
 		OBJ_101 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
@@ -600,6 +602,7 @@
 				OBJ_15 /* Function.swift */,
 				OBJ_16 /* Property.swift */,
 				OBJ_17 /* Type.swift */,
+				7FB1CF481EDD1BE500A1C514 /* Extension.swift */,
 			);
 			path = Declaration;
 			sourceTree = "<group>";
@@ -1190,6 +1193,7 @@
 				OBJ_308 /* main.swift in Sources */,
 				OBJ_309 /* Function.swift in Sources */,
 				OBJ_310 /* Property.swift in Sources */,
+				7FB1CF4A1EDD1BEB00A1C514 /* Extension.swift in Sources */,
 				OBJ_311 /* Type.swift in Sources */,
 				OBJ_312 /* String+Name.swift in Sources */,
 				OBJ_313 /* Structure+Property.swift in Sources */,

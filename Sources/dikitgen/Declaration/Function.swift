@@ -34,6 +34,7 @@ struct Function {
     let name: String
     let kind: SwiftDeclarationKind
     let parameters: [Parameter]
+    let returnTypeName: String?
 
     var isInitializer: Bool {
         return name.hasPrefix("init(")
@@ -49,5 +50,13 @@ struct Function {
         self.name = name
         self.kind = kind
         self.parameters = structure.substructures.flatMap(Parameter.init)
+        self.returnTypeName = structure.substructures
+            .flatMap { structure -> String? in
+                guard structure.dictionary["key.kind"] as? String == "source.lang.swift.expr.call" else {
+                    return nil
+                }
+                return structure.name
+            }
+            .first
     }
 }

@@ -11,7 +11,7 @@ struct B: Injectable {
 }
 
 struct C: Injectable {
-    init(ca: A) {}
+    init(ca: A, cd: D) {}
 }
 
 struct D {}
@@ -30,12 +30,16 @@ extension AModuleBlueprint {
 let file = File(path: #file)!
 let structure = Structure(file: file)
 let types = structure.substructures.flatMap(Type.init)
+let extensions = structure.substructures.flatMap(Extension.init)
 
-let injectables = types.filter { $0.inheritedTypes.contains("Injectable") }
 let blueprints = types.filter { $0.inheritedTypes.contains("ModuleBlueprint") }
 
 for blueprint in blueprints {
-    let graph = Graph(blueprint: blueprint, injectables: injectables)
+    let blueprintExtension = extensions
+        .filter { $0.name == blueprint.name }
+        .first
+    
+    let graph = Graph(blueprint: blueprint, blueprintExtension: blueprintExtension, types: types)
     let code = try graph.generateCode()
     print(code.content)
 }

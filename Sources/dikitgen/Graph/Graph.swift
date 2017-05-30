@@ -10,11 +10,25 @@ import Foundation
 
 struct Graph {
     let blueprint: Type
+    let blueprintExtension: Extension?
     let injectables: [Type]
 
-    init(blueprint: Type, injectables: [Type]) {
+    init(blueprint: Type, blueprintExtension: Extension?, types: [Type]) {
         self.blueprint = blueprint
-        self.injectables = injectables
+        self.blueprintExtension = blueprintExtension
+
+        let injectables = types.filter { $0.inheritedTypes.contains("Injectable") }
+        let providables = types
+            .filter { type in
+                let providedTypeNames = blueprintExtension?.functions
+                    .filter { $0.kind == .functionMethodStatic }
+                    .filter { $0.name.hasPrefix("provide") }
+                    .flatMap { $0.returnTypeName } ?? []
+
+                return providedTypeNames.contains(type.name)
+            }
+        
+        self.injectables = injectables + providables
     }
 
     private func buildModuleName() throws -> String {
