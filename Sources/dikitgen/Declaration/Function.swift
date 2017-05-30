@@ -14,7 +14,6 @@ struct Function {
         return [.functionMethodInstance, .functionMethodStatic]
     }
 
-    
     struct Parameter {
         let name: String
         let typeName: String
@@ -34,7 +33,7 @@ struct Function {
     let name: String
     let kind: SwiftDeclarationKind
     let parameters: [Parameter]
-    let returnTypeName: String?
+    let returnTypeName: String
 
     var isInitializer: Bool {
         return name.hasPrefix("init(")
@@ -57,6 +56,6 @@ struct Function {
                 }
                 return structure.name
             }
-            .first
+            .first ?? "Void"
     }
 }

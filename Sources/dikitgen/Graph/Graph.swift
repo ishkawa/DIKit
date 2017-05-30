@@ -8,27 +8,55 @@
 
 import Foundation
 
+struct Providable {
+    let type: Type
+    let provider: Function
+
+    init(type: Type, provider: Function) {
+        self.type = type
+        self.provider = provider
+    }
+
+    init(injectableType: Type) throws {
+        guard injectableType.inheritedTypes.contains("Injectable") else {
+            throw GraphError(message: "\(injectableType.name) does not conform to Injectable.")
+        }
+
+        let initializers = injectableType.functions.filter({ $0.isInitializer })
+        guard initializers.count == 1, let initializer = initializers.first else {
+            throw GraphError(message: "Number of initializer of injectable type must be 1.")
+        }
+
+        self.type = injectableType
+        self.provider = initializer
+    }
+}
+
 struct Graph {
     let blueprint: Type
     let blueprintExtension: Extension?
-    let injectables: [Type]
+    let providables: [Providable]
 
     init(blueprint: Type, blueprintExtension: Extension?, types: [Type]) {
         self.blueprint = blueprint
         self.blueprintExtension = blueprintExtension
 
-        let injectables = types.filter { $0.inheritedTypes.contains("Injectable") }
+        // TODO: handle error
+        let injectables = types
+            .filter { $0.inheritedTypes.contains("Injectable") }
+            .flatMap { try? Providable(injectableType: $0) }
+        
         let providables = types
-            .filter { type in
-                let providedTypeNames = blueprintExtension?.functions
+            .flatMap { type -> Providable? in
+                return blueprintExtension?.functions
                     .filter { $0.kind == .functionMethodStatic }
                     .filter { $0.name.hasPrefix("provide") }
-                    .flatMap { $0.returnTypeName } ?? []
-
-                return providedTypeNames.contains(type.name)
+                    .filter { $0.returnTypeName == type.name }
+                    .first
+                    .map { Providable(type: type, provider: $0) }
             }
-        
-        self.injectables = injectables + providables
+
+        self.providables = injectables + providables
     }
 
     private func buildModuleName() throws -> String {
@@ -48,7 +76,7 @@ struct Graph {
                         name: property.name,
                         typeName: property.typeName,
                         accessControl: .public,
-                        injectables: injectables)
+                        providables: providables)
                 }
 
             func appendDependencies(of node: Node) {
@@ -133,7 +161,7 @@ struct Graph {
                 }
 
                 for node in nodes {
-                    code.append(node.generateInstatiationCode(withResolvedNodes: nodes).content)
+                    code.append(node.generateInstatiationCode(withResolvedNodes: nodes, moduleName: moduleName).content)
                 }
             }
         }
