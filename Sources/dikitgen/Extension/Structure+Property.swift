@@ -49,11 +49,11 @@ extension Structure {
         return dictionaries.map(Structure.init(sourceKitResponse:))
     }
 
-    var offset: Int? {
-        return self[.offset] as? Int
+    var offset: Int64? {
+        return self[.offset] as? Int64
     }
     
-    var length: Int? {
-        return self[.length] as? Int
+    var length: Int64? {
+        return self[.length] as? Int64
     }
 }

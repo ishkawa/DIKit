@@ -74,21 +74,6 @@ struct Graph {
         var code = Code()
 
         do {
-            code.append("protocol Resolver {")
-            code.incrementIndentDepth()
-            defer {
-                code.decrementIndentDepth()
-                code.append("}")
-            }
-
-            for case .providable(let type) in resolvedNodes {
-                code.append("func provide\(type.name)() -> \(type.name)")
-            }
-        }
-
-        code.append("")
-        
-        do {
             code.append("extension Resolver {")
             code.incrementIndentDepth()
             defer {
