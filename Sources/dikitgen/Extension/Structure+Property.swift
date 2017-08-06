@@ -40,4 +40,20 @@ extension Structure {
 
         return dictionaries.map(Structure.init(sourceKitResponse:))
     }
+
+    var elements: [Structure] {
+        guard let dictionaries = self.dictionary["key.elements"] as? [[String: SourceKitRepresentable]] else {
+            return []
+        }
+
+        return dictionaries.map(Structure.init(sourceKitResponse:))
+    }
+
+    var offset: Int? {
+        return self[.offset] as? Int
+    }
+    
+    var length: Int? {
+        return self[.length] as? Int
+    }
 }

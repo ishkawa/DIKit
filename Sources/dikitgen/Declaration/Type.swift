@@ -19,6 +19,8 @@ struct Type {
     let functions: [Function]
     let properties: [Property]
     let inheritedTypes: [String]
+    let typerefs: [Structure]
+    let structure: Structure
 
     var isInjectable: Bool {
         return inheritedTypes.contains("Injectable")
@@ -37,5 +39,8 @@ struct Type {
         self.properties = structure.substructures.flatMap(Property.init)
         self.inheritedTypes = (structure[.inheritedtypes] as? [[String: SourceKitRepresentable]])?
             .flatMap { $0["key.name"] as? String } ?? []
+
+        self.typerefs = structure.elements.filter { $0[.kind] as? String == "source.lang.swift.structure.elem.typeref" }
+        self.structure = structure
     }
 }

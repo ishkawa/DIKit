@@ -39,6 +39,10 @@ struct Function {
         return name.hasPrefix("init(")
     }
 
+    var isStatic: Bool {
+        return kind == .functionMethodStatic
+    }
+
     init?(structure: Structure) {
         guard
             let kind = structure.kind, Function.declarationKinds.contains(kind),
@@ -57,5 +61,12 @@ struct Function {
                 return structure.name
             }
             .first ?? "Void"
+    }
+    
+    init(providableTypeName: String) {
+        name = "provide\(providableTypeName)"
+        kind = .functionMethodStatic
+        parameters = []
+        returnTypeName = providableTypeName
     }
 }

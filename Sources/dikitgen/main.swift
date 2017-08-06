@@ -3,43 +3,46 @@ import DIKit
 import SourceKittenFramework
 
 struct A: Injectable {
-    init() {}
+    struct Dependency {}
+    init(dependency: Dependency) {}
 }
 
 struct B: Injectable {
-    init(ba: A) {}
+    struct Dependency {
+        let a: A
+    }
+    
+    init(dependency: Dependency) {}
 }
 
 struct C: Injectable {
-    init(ca: A, cd: D) {}
+    struct Dependency {
+        let a: A
+        let d: D
+    }
+    
+    init(dependency: Dependency) {}
 }
 
 struct D {}
 
-protocol AModuleBlueprint: ModuleBlueprint {
-    var b: B { get }
-    var c: C { get }
-}
-
-extension AModuleBlueprint {
-    static func provideD() -> D {
-        return D()
-    }
+final class Configuration: ResolverConfiguration {
+    typealias ProvidableTypes = (D)
 }
 
 let file = File(path: #file)!
 let structure = Structure(file: file)
 let types = structure.substructures.flatMap(Type.init)
-let extensions = structure.substructures.flatMap(Extension.init)
+let configurations = types.filter { $0.inheritedTypes.contains("ResolverConfiguration") }
 
-let blueprints = types.filter { $0.inheritedTypes.contains("ModuleBlueprint") }
-
-for blueprint in blueprints {
-    let blueprintExtension = extensions
-        .filter { $0.name == blueprint.name }
-        .first
-    
-    let graph = Graph(blueprint: blueprint, blueprintExtension: blueprintExtension, types: types)
-    let code = try graph.generateCode()
-    print(code.content)
+guard let configuration = configurations.first, configurations.count == 1 else {
+    fatalError("Number of ResolverConfiguration conformers must be exact 1.")
 }
+
+// TODO: Get D from cofiguration.
+let providableTypeNames = ["D"]
+
+let providables = types.filter { providableTypeNames.contains($0.name) }
+let injectables = types.filter { $0.isInjectable }
+let graph = try! Graph(injectables: injectables, providables: providables)
+print(graph.generateCode().content)

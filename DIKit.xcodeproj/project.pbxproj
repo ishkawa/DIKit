@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F9F2CEE1F37683000BE097F /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9F2CED1F37683000BE097F /* Graph.swift */; };
+		7F9F2CF01F376B6F00BE097F /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9F2CEF1F376B6F00BE097F /* Node.swift */; };
 		7FB1CF4A1EDD1BEB00A1C514 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1CF481EDD1BE500A1C514 /* Extension.swift */; };
 		OBJ_139 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_122 /* Result.swift */; };
 		OBJ_140 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_123 /* ResultProtocol.swift */; };
@@ -101,7 +103,6 @@
 		OBJ_275 /* CYaml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_128 /* CYaml.framework */; };
 		OBJ_276 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_129 /* Yams.framework */; };
 		OBJ_287 /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Injectable.swift */; };
-		OBJ_288 /* ModuleBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* ModuleBlueprint.swift */; };
 		OBJ_290 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* Result.framework */; };
 		OBJ_291 /* Commandant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_126 /* Commandant.framework */; };
 		OBJ_292 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_127 /* SWXMLHash.framework */; };
@@ -115,9 +116,6 @@
 		OBJ_311 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Type.swift */; };
 		OBJ_312 /* String+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* String+Name.swift */; };
 		OBJ_313 /* Structure+Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Structure+Property.swift */; };
-		OBJ_314 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Graph.swift */; };
-		OBJ_315 /* GraphError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* GraphError.swift */; };
-		OBJ_316 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Node.swift */; };
 		OBJ_318 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* Result.framework */; };
 		OBJ_319 /* Commandant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_126 /* Commandant.framework */; };
 		OBJ_320 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_127 /* SWXMLHash.framework */; };
@@ -313,8 +311,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F9F2CED1F37683000BE097F /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		7F9F2CEF1F376B6F00BE097F /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		7FB1CF481EDD1BE500A1C514 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		OBJ_10 /* ModuleBlueprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBlueprint.swift; sourceTree = "<group>"; };
 		OBJ_100 /* Representer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Representer.swift; sourceTree = "<group>"; };
 		OBJ_101 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		OBJ_102 /* String+Yams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Yams.swift"; sourceTree = "<group>"; };
@@ -350,9 +349,6 @@
 		OBJ_17 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		OBJ_19 /* String+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Name.swift"; sourceTree = "<group>"; };
 		OBJ_20 /* Structure+Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Structure+Property.swift"; sourceTree = "<group>"; };
-		OBJ_22 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
-		OBJ_23 /* GraphError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphError.swift; sourceTree = "<group>"; };
-		OBJ_24 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		OBJ_29 /* CompleteCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCommand.swift; sourceTree = "<group>"; };
 		OBJ_30 /* DocCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocCommand.swift; sourceTree = "<group>"; };
 		OBJ_31 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -513,6 +509,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F9F2CEC1F37683000BE097F /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				7F9F2CED1F37683000BE097F /* Graph.swift */,
+				7F9F2CEF1F376B6F00BE097F /* Node.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
 		OBJ_105 /* SWXMLHash 3.1.0 */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,9 +559,9 @@
 			children = (
 				OBJ_12 /* Code.swift */,
 				OBJ_13 /* main.swift */,
+				7F9F2CEC1F37683000BE097F /* Graph */,
 				OBJ_14 /* Declaration */,
 				OBJ_18 /* Extension */,
-				OBJ_21 /* Graph */,
 			);
 			name = dikitgen;
 			path = Sources/dikitgen;
@@ -614,16 +619,6 @@
 				OBJ_20 /* Structure+Property.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		OBJ_21 /* Graph */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_22 /* Graph.swift */,
-				OBJ_23 /* GraphError.swift */,
-				OBJ_24 /* Node.swift */,
-			);
-			path = Graph;
 			sourceTree = "<group>";
 		};
 		OBJ_25 /* Tests */ = {
@@ -790,7 +785,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* Injectable.swift */,
-				OBJ_10 /* ModuleBlueprint.swift */,
 			);
 			name = DIKit;
 			path = Sources/DIKit;
@@ -1180,7 +1174,6 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_287 /* Injectable.swift in Sources */,
-				OBJ_288 /* ModuleBlueprint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1189,16 +1182,15 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_307 /* Code.swift in Sources */,
+				7F9F2CF01F376B6F00BE097F /* Node.swift in Sources */,
 				OBJ_308 /* main.swift in Sources */,
 				OBJ_309 /* Function.swift in Sources */,
 				OBJ_310 /* Property.swift in Sources */,
 				7FB1CF4A1EDD1BEB00A1C514 /* Extension.swift in Sources */,
 				OBJ_311 /* Type.swift in Sources */,
+				7F9F2CEE1F37683000BE097F /* Graph.swift in Sources */,
 				OBJ_312 /* String+Name.swift in Sources */,
 				OBJ_313 /* Structure+Property.swift in Sources */,
-				OBJ_314 /* Graph.swift in Sources */,
-				OBJ_315 /* GraphError.swift in Sources */,
-				OBJ_316 /* Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

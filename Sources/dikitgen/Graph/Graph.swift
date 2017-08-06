@@ -1,168 +1,142 @@
 //
-//  Graph.swift
+//  Function.swift
 //  DIKit
 //
-//  Created by ishkawa on 2017/05/29.
+//  Created by ishkawa on 2018/08/07.
 //
 //
-
-import Foundation
-
-struct Providable {
-    let type: Type
-    let provider: Function
-
-    init(type: Type, provider: Function) {
-        self.type = type
-        self.provider = provider
-    }
-
-    init(injectableType: Type) throws {
-        guard injectableType.inheritedTypes.contains("Injectable") else {
-            throw GraphError(message: "\(injectableType.name) does not conform to Injectable.")
-        }
-
-        let initializers = injectableType.functions.filter({ $0.isInitializer })
-        guard initializers.count == 1, let initializer = initializers.first else {
-            throw GraphError(message: "Number of initializer of injectable type must be 1.")
-        }
-
-        self.type = injectableType
-        self.provider = initializer
-    }
-}
 
 struct Graph {
-    let blueprint: Type
-    let blueprintExtension: Extension?
-    let providables: [Providable]
-
-    init(blueprint: Type, blueprintExtension: Extension?, types: [Type]) {
-        self.blueprint = blueprint
-        self.blueprintExtension = blueprintExtension
-
-        // TODO: handle error
-        let injectables = types
-            .filter { $0.inheritedTypes.contains("Injectable") }
-            .flatMap { try? Providable(injectableType: $0) }
-        
-        let providables = types
-            .flatMap { type -> Providable? in
-                return blueprintExtension?.functions
-                    .filter { $0.kind == .functionMethodStatic }
-                    .filter { $0.name.hasPrefix("provide") }
-                    .filter { $0.returnTypeName == type.name }
-                    .first
-                    .map { Providable(type: type, provider: $0) }
-            }
-
-        self.providables = injectables + providables
+    enum Error: Swift.Error {
+        case dependencyTypeNotFound
+        case unresolvableGraph
+        case injectableInitializerNotFound
     }
 
-    private func buildModuleName() throws -> String {
-        let suffix = "Blueprint"
-        guard blueprint.name.hasSuffix(suffix) else {
-            throw GraphError(message: "Blueprint type must have suffix \(suffix).")
+    let resolvedNodes: [Node]
+    
+    init(injectables: [Type], providables: [Type]) throws {
+        struct Backlog {
+            let injectable: Type
+            let dependencyNames: [String]
         }
 
-        return blueprint.name.trimmingSuffix("Blueprint")
-    }
-
-    private func buildNodes() throws -> [Node] {
-        let unorderedUniqueNodes: [Node] = try {
-            var nodes = try blueprint.properties
-                .map { property -> Node in
-                    return try Node(
-                        name: property.name,
-                        typeName: property.typeName,
-                        accessControl: .public,
-                        providables: providables)
-                }
-
-            func appendDependencies(of node: Node) {
-                node.dependencies.forEach { node in
-                    let typeNames = nodes.map { $0.type.name }
-                    if !typeNames.contains(node.type.name) {
-                        nodes.append(node)
-                    }
-                    appendDependencies(of: node)
-                }
+        var nodes = providables
+            .map { providable -> Node in
+                let provider = Function(providableTypeName: providable.name)
+                return Node(type: providable, dependencies: [], provider: provider)
             }
 
-            nodes.forEach(appendDependencies(of:))
+        var backlogs = try injectables
+            .map { injectable -> Backlog in
+                let nestedTypes = injectable.structure.substructures.flatMap(Type.init)
+                guard let dependencyType = nestedTypes.filter({ $0.name == "Dependency" }).first else {
+                    throw Error.dependencyTypeNotFound
+                }
 
-            return nodes
-        }()
+                return Backlog(
+                    injectable: injectable,
+                    dependencyNames: dependencyType.properties.map { $0.typeName })
+            }
 
-        let orderedUniqueNodes: [Node] = try {
-            var resolvedNodes = [] as [Node]
-            while resolvedNodes.count < unorderedUniqueNodes.count {
-                var resolved = false
-                for node in unorderedUniqueNodes {
-                    let resolvedTypeNames = resolvedNodes.map { $0.type.name }
-                    guard !resolvedTypeNames.contains(node.type.name) else {
-                        continue
+        resolve: while !backlogs.isEmpty {
+            for (index, backlog) in backlogs.enumerated() {
+                let resolvedDependencies = backlog.dependencyNames
+                    .flatMap { dependencyName -> Node? in
+                        return nodes
+                            .index { $0.type.name == dependencyName }
+                            .map { nodes[$0] }
+                    }
+
+                if backlog.dependencyNames.count == resolvedDependencies.count {
+                    let matchedProvider = backlog.injectable.functions
+                        .filter { $0.isInitializer }
+                        .filter { $0.parameters.count == 1 && $0.parameters[0].name == "dependency" && $0.parameters[0].typeName == "Dependency" }
+                        .first
+
+                    guard let provider = matchedProvider else {
+                        throw Error.injectableInitializerNotFound
                     }
                     
-                    let isResolvable = node.dependencies
-                        .reduce(true) { $0 && resolvedTypeNames.contains($1.type.name) }
+                    let node = Node(
+                        type: backlog.injectable,
+                        dependencies: resolvedDependencies,
+                        provider: provider)
 
-                    if isResolvable {
-                        resolvedNodes.append(node)
-                        resolved = true
-                        break
-                    }
-                }
-
-                if !resolved {
-                    throw GraphError(message: "Could not resolve dependencies.")
+                    nodes.append(node)
+                    backlogs.remove(at: index)
+                    continue resolve
                 }
             }
 
-            return resolvedNodes
-        }()
+            throw Error.unresolvableGraph
+        }
 
-        return orderedUniqueNodes
+        resolvedNodes = nodes
     }
 
-    func generateCode() throws -> Code {
-        let moduleName = try buildModuleName()
-        let nodes = try buildNodes()
-
+    func generateCode() -> Code {
         var code = Code()
 
         do {
-            code.append("final class \(moduleName): \(blueprint.name) {")
+            code.append("protocol Resolver {")
             code.incrementIndentDepth()
             defer {
                 code.decrementIndentDepth()
                 code.append("}")
             }
 
-            let publicPropertyDeclarations = nodes
-                .filter { $0.accessControl == .public }
-                .map { "let \($0.name): \($0.type.name)" }
+            for node in resolvedNodes where !node.provider.isInitializer && node.provider.isStatic {
+                code.append("func \(node.provider.name)() -> \(node.provider.returnTypeName)")
+            }
+        }
 
-            let privatePropertyDeclarations = nodes
-                .filter { $0.accessControl == .private }
-                .map { "private let \($0.name): \($0.type.name)" }
-            
-            code.append(publicPropertyDeclarations.joined(separator: "\n"))
-            code.append("")
-            code.append(privatePropertyDeclarations.joined(separator: "\n"))
-            code.append("")
+        code.append("")
+        
+        do {
+            code.append("extension Resolver {")
+            code.incrementIndentDepth()
+            defer {
+                code.decrementIndentDepth()
+                code.append("}")
+            }
 
-            do {
-                code.append("init() {")
+            for (index, node) in resolvedNodes.enumerated() where node.type.isInjectable {
+                code.append("func make\(node.type.name)() -> \(node.type.name) {")
                 code.incrementIndentDepth()
                 defer {
                     code.decrementIndentDepth()
                     code.append("}")
+                    
+                    if index != resolvedNodes.indices.last {
+                        code.append("")
+                    }
                 }
 
-                for node in nodes {
-                    code.append(node.generateInstatiationCode(withResolvedNodes: nodes, moduleName: moduleName).content)
+                let returnNode = node
+                var instantiatedNodes = [] as [Node]
+                func appendDependencyInstantiation(of node: Node) {
+                    node.dependencies.forEach(appendDependencyInstantiation(of:))
+
+                    if !instantiatedNodes.contains(where: { $0.type.name == node.type.name }) {
+                        instantiatedNodes.append(node)
+
+                        let variable = node.type.name.firstCharacterLowerCased
+                        let parameters = node.dependencies
+                            .map { "\($0.type.name.firstCharacterLowerCased): \($0.type.name.firstCharacterLowerCased)" }
+                            .joined(separator: ", ")
+
+                        if node.type.name == returnNode.type.name {
+                            code.append("return \(node.type.name)(dependency: .init(\(parameters)))")
+                        } else if node.type.isInjectable {
+                            code.append("let \(variable) = \(node.type.name)(dependency: .init(\(parameters)))")
+                        } else {
+                            code.append("let \(variable) = \(node.provider.name)(\(parameters))")
+                        }
+                    }
                 }
+
+                appendDependencyInstantiation(of: node)
             }
         }
 
