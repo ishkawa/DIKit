@@ -18,15 +18,10 @@ struct Graph {
     init(injectables: [Type], providables: [Type]) throws {
         struct Backlog {
             let injectable: Type
-            let dependencyNames: [String]
+            let dependencies: [Property]
         }
 
-        var nodes = providables
-            .map { providable -> Node in
-                let provider = Function(providableTypeName: providable.name)
-                return Node(type: providable, dependencies: [], provider: provider)
-            }
-
+        var nodes = providables.map { Node.providable(type: $0) }
         var backlogs = try injectables
             .map { injectable -> Backlog in
                 let nestedTypes = injectable.structure.substructures.flatMap(Type.init)
@@ -34,35 +29,35 @@ struct Graph {
                     throw Error.dependencyTypeNotFound
                 }
 
-                return Backlog(
-                    injectable: injectable,
-                    dependencyNames: dependencyType.properties.map { $0.typeName })
+                return Backlog(injectable: injectable, dependencies: dependencyType.properties)
             }
 
         resolve: while !backlogs.isEmpty {
             for (index, backlog) in backlogs.enumerated() {
-                let resolvedDependencies = backlog.dependencyNames
-                    .flatMap { dependencyName -> Node? in
-                        return nodes
-                            .index { $0.type.name == dependencyName }
-                            .map { nodes[$0] }
+                let resolvedDependencies = backlog.dependencies
+                    .reduce([] as [(Property, Node)]) { resolved, property in
+                        if let index = nodes.index(where: { $0.type.name == property.typeName }) {
+                            return resolved + [(property, nodes[index])]
+                        } else {
+                            return resolved
+                        }
                     }
 
-                if backlog.dependencyNames.count == resolvedDependencies.count {
-                    let matchedProvider = backlog.injectable.functions
+                if backlog.dependencies.count == resolvedDependencies.count {
+                    let matchedInitializer = backlog.injectable.functions
                         .filter { $0.isInitializer }
                         .filter { $0.parameters.count == 1 && $0.parameters[0].name == "dependency" && $0.parameters[0].typeName == "Dependency" }
                         .first
 
-                    guard let provider = matchedProvider else {
+                    guard let initializer = matchedInitializer else {
                         throw Error.injectableInitializerNotFound
                     }
-                    
-                    let node = Node(
+
+                    let node = Node.injectable(
                         type: backlog.injectable,
                         dependencies: resolvedDependencies,
-                        provider: provider)
-
+                        initializer: initializer)
+                    
                     nodes.append(node)
                     backlogs.remove(at: index)
                     continue resolve
@@ -86,8 +81,8 @@ struct Graph {
                 code.append("}")
             }
 
-            for node in resolvedNodes where !node.provider.isInitializer && node.provider.isStatic {
-                code.append("func \(node.provider.name)() -> \(node.provider.returnTypeName)")
+            for case .providable(let type) in resolvedNodes {
+                code.append("func provide\(type.name)() -> \(type.name)")
             }
         }
 
@@ -101,8 +96,12 @@ struct Graph {
                 code.append("}")
             }
 
-            for (index, node) in resolvedNodes.enumerated() where node.type.isInjectable {
-                code.append("func make\(node.type.name)() -> \(node.type.name) {")
+            for (index, node) in resolvedNodes.enumerated() {
+                guard case .injectable(let type, let dependencies, let intializer) = node else {
+                    continue
+                }
+                
+                code.append("func make\(type.name)() -> \(type.name) {")
                 code.incrementIndentDepth()
                 defer {
                     code.decrementIndentDepth()
@@ -113,25 +112,33 @@ struct Graph {
                     }
                 }
 
-                let returnNode = node
+                let returnType = type
                 var instantiatedNodes = [] as [Node]
                 func appendDependencyInstantiation(of node: Node) {
-                    node.dependencies.forEach(appendDependencyInstantiation(of:))
+                    if case .injectable(_, let dependencies, _) = node {
+                        dependencies
+                            .map { $1 }
+                            .forEach(appendDependencyInstantiation(of:))
+                    }
 
                     if !instantiatedNodes.contains(where: { $0.type.name == node.type.name }) {
                         instantiatedNodes.append(node)
 
                         let variable = node.type.name.firstCharacterLowerCased
-                        let parameters = node.dependencies
-                            .map { "\($0.type.name.firstCharacterLowerCased): \($0.type.name.firstCharacterLowerCased)" }
-                            .joined(separator: ", ")
 
-                        if node.type.name == returnNode.type.name {
-                            code.append("return \(node.type.name)(dependency: .init(\(parameters)))")
-                        } else if node.type.isInjectable {
-                            code.append("let \(variable) = \(node.type.name)(dependency: .init(\(parameters)))")
-                        } else {
-                            code.append("let \(variable) = \(node.provider.name)(\(parameters))")
+                        switch node {
+                        case .providable(let type):
+                            code.append("let \(variable) = provide\(type.name)()")
+                        case .injectable(let type, let dependencies, _):
+                            let parameters = dependencies
+                                .map { "\($0.name): \($1.type.name.firstCharacterLowerCased)" }
+                                .joined(separator: ", ")
+
+                            if type.name == returnType.name {
+                                code.append("return \(node.type.name)(dependency: .init(\(parameters)))")
+                            } else {
+                                code.append("let \(variable) = \(node.type.name)(dependency: .init(\(parameters)))")
+                            }
                         }
                     }
                 }

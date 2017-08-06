@@ -9,7 +9,7 @@ struct A: Injectable {
 
 struct B: Injectable {
     struct Dependency {
-        let a: A
+        let ba: A
     }
     
     init(dependency: Dependency) {}
@@ -17,8 +17,8 @@ struct B: Injectable {
 
 struct C: Injectable {
     struct Dependency {
-        let a: A
-        let d: D
+        let ca: A
+        let cd: D
     }
     
     init(dependency: Dependency) {}
@@ -46,3 +46,5 @@ let providables = types.filter { providableTypeNames.contains($0.name) }
 let injectables = types.filter { $0.isInjectable }
 let graph = try! Graph(injectables: injectables, providables: providables)
 print(graph.generateCode().content)
+
+

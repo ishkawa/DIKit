@@ -8,8 +8,16 @@
 
 import Foundation
 
-struct Node {
-    let type: Type
-    let dependencies: [Node]
-    let provider: Function
+enum Node {
+    case injectable(type: Type, dependencies: [(Property, Node)], initializer: Function)
+    case providable(type: Type)
+
+    var type: Type {
+        switch self {
+        case .injectable(let type, _, _):
+            return type
+        case .providable(let type):
+            return type
+        }
+    }
 }
