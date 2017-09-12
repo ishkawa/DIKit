@@ -1,14 +1,14 @@
+// swift-tools-version:4.0
 import PackageDescription
 
 let package = Package(
   name: "DIKit",
-  targets: [
-    Target(name: "DIKit"),
-    Target(name: "dikitgen", dependencies: [.Target(name: "DIKit")]),
-  ],
   dependencies: [
-    .Package(url: "https://github.com/jpsim/SourceKitten.git", Version(0, 17, 6)),
-    .Package(url: "https://github.com/Carthage/Commandant.git", versions: Version(0, 12, 0)..<Version(0, 12, .max)),
+    .package(url: "https://github.com/jpsim/SourceKitten.git", from: "0.18.1"),
+    .package(url: "https://github.com/Carthage/Commandant.git", from: "0.12.0"),
+  ],
+  targets: [
+    .target(name: "DIKit"),
+    .target(name: "dikitgen", dependencies: ["DIKit", "SourceKittenFramework"]),
   ]
 )
-
