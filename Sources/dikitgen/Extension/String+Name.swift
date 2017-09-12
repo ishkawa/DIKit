@@ -16,6 +16,6 @@ extension String {
     }
 
     func trimmingSuffix(_ suffix: String) -> String {
-        return self[startIndex..<index(endIndex, offsetBy: -suffix.characters.count)]
+        return String(self[startIndex..<index(endIndex, offsetBy: -suffix.characters.count)])
     }
 }

@@ -44,10 +44,6 @@ let resolverFunctions = Array(types
 let providableTypeNames = resolverFunctions
     .filter { !$0.isInitializer && !$0.isStatic && $0.name.hasPrefix("provide") }
     .flatMap { provider -> String? in
-        guard let offset = provider.structure.offset, let length = provider.structure.length else {
-            return nil
-        }
-        
         let start = file.contents.index(file.contents.startIndex, offsetBy: 449)
         let end = file.contents.index(start, offsetBy: 20)
         let components = file.contents[start..<end].components(separatedBy: "->")
