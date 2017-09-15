@@ -7,8 +7,9 @@
 
 struct Resolver {
     let name: String
+    let nodes: [Node]
 
-    init?(type: Type) {
+    init?(type: Type, injectableTypeNodes: [Node]) {
         guard 
             type.inheritedTypeNames.contains("Resolver") ||
             type.inheritedTypeNames.contains("DIKit.Resolver") else {
@@ -16,5 +17,6 @@ struct Resolver {
         }
 
         name = type.name
+        nodes = injectableTypeNodes + type.functions.flatMap(Node.init(providerMethod:))
     }
 }

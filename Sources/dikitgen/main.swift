@@ -33,13 +33,13 @@ protocol DemoResolver: DIKit.Resolver {
 
 let file = File(path: #file)!
 let structure = Structure(file: file)
-let resolvers = structure.substructures
-    .flatMap(Type.init)
-    .flatMap(Resolver.init)
-
-let injectableNodes = structure.substructures
+let injectableTypeNodes = structure.substructures
     .flatMap(Type.init(structure:))
     .flatMap(Node.init(injectableType:))
+
+let resolvers = structure.substructures
+    .flatMap(Type.init(structure:))
+    .flatMap { Resolver(type: $0, injectableTypeNodes: injectableTypeNodes ) }
 
 let context = [
     "resolvers": resolvers,
