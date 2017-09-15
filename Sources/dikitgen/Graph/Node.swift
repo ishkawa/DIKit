@@ -12,7 +12,7 @@ struct Node {
     }
 
     let name: String?
-    let type: Type
+    let typeName: String
     let dependencyIdentifier: [Identifier]
 
     init?(injectableType: Type) {
@@ -28,7 +28,7 @@ struct Node {
             .joined())
 
         self.name = nil
-        self.type = injectableType
+        self.typeName = injectableType.name
         self.dependencyIdentifier = properties.map { Identifier(name: $0.name, typeName: $0.typeName) }
     }
 
