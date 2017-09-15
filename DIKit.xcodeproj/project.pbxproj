@@ -447,6 +447,7 @@
 		7F23880B1F6C2F45004C370A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_20 /* Structure+Property.swift */,
 				7F23880C1F6C2F6F004C370A /* String+Name.swift */,
 			);
 			path = Extension;
@@ -528,7 +529,6 @@
 				OBJ_17 /* Extension.swift */,
 				OBJ_18 /* Function.swift */,
 				OBJ_19 /* Property.swift */,
-				OBJ_20 /* Structure+Property.swift */,
 				OBJ_21 /* Type.swift */,
 			);
 			path = Structure;
