@@ -13,9 +13,11 @@ struct Node {
 
     let identifier: Identifier
     let dependencyIdentifiers: [Identifier]
+    let instantiatingFunction: Function
 
     init?(injectableType: Type) {
         guard
+            let initializer = injectableType.functions.filter({ $0.name == "init(dependency:)" }).first,
             injectableType.inheritedTypeNames.contains("Injectable") ||
             injectableType.inheritedTypeNames.contains("DIKit.Injectable") else {
             return nil
@@ -28,6 +30,7 @@ struct Node {
 
         identifier = Identifier(name: nil, typeName: injectableType.name)
         dependencyIdentifiers = properties.map { Identifier(name: $0.name, typeName: $0.typeName) }
+        instantiatingFunction = initializer
     }
 
     init?(providerMethod: Function) {
@@ -43,5 +46,7 @@ struct Node {
 
         dependencyIdentifiers = providerMethod.parameters
             .map { Identifier(name: $0.name, typeName: $0.typeName) }
+
+        instantiatingFunction = providerMethod
     }
 }
