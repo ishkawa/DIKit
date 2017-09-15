@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F1228031F6C14BE00685C50 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1228011F6C14B800685C50 /* Resolver.swift */; };
 		OBJ_146 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_152 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* Package.swift */; };
 		OBJ_158 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Package.swift */; };
@@ -233,6 +234,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F1228011F6C14B800685C50 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		"DIKit::DIKit::Product" /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::dikitgen::Product" /* dikitgen */ = {isa = PBXFileReference; lastKnownFileType = text; path = dikitgen; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
@@ -429,6 +431,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F1228001F6C14AF00685C50 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				7F1228011F6C14B800685C50 /* Resolver.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
 		OBJ_108 /* include */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +452,7 @@
 		OBJ_11 /* dikitgen */ = {
 			isa = PBXGroup;
 			children = (
+				7F1228001F6C14AF00685C50 /* Graph */,
 				OBJ_16 /* Structure */,
 				OBJ_22 /* main.swift */,
 			);
@@ -1089,6 +1100,7 @@
 				OBJ_193 /* Property.swift in Sources */,
 				OBJ_194 /* Structure+Property.swift in Sources */,
 				OBJ_195 /* Type.swift in Sources */,
+				7F1228031F6C14BE00685C50 /* Resolver.swift in Sources */,
 				OBJ_196 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
