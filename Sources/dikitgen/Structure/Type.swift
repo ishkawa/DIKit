@@ -22,9 +22,7 @@ struct Type {
     let inheritedTypeNames: [String]
 
     var instanceName: String {
-        return name.replacingCharacters(
-            in: name.startIndex..<name.index(name.startIndex, offsetBy: 1),
-            with: String(name[name.startIndex]).lowercased())
+        return name.firstWordLowercased
     }
 
     init?(structure: Structure) {
