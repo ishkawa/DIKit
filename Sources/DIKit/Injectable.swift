@@ -26,5 +26,3 @@ public protocol MethodInjectable {
     associatedtype Dependency
     func inject(dependency: Dependency)
 }
-
-public protocol Resolver {}
