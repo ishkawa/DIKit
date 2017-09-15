@@ -11,9 +11,8 @@ struct Node {
         let typeName: String
     }
 
-    let name: String?
-    let typeName: String
-    let dependencyIdentifier: [Identifier]
+    let identifier: Identifier
+    let dependencyIdentifiers: [Identifier]
 
     init?(injectableType: Type) {
         guard
@@ -27,9 +26,8 @@ struct Node {
             .map { $0.properties.filter { !$0.isStatic } }
             .joined())
 
-        self.name = nil
-        self.typeName = injectableType.name
-        self.dependencyIdentifier = properties.map { Identifier(name: $0.name, typeName: $0.typeName) }
+        identifier = Identifier(name: nil, typeName: injectableType.name)
+        dependencyIdentifiers = properties.map { Identifier(name: $0.name, typeName: $0.typeName) }
     }
 
     init?(providerMethod: Function) {
