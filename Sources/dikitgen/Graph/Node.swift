@@ -6,9 +6,14 @@
 //
 
 struct Node {
+    struct Identifier {
+        let name: String?
+        let typeName: String
+    }
+
     let name: String?
     let type: Type
-    let dependencyProperties: [Property]
+    let dependencyIdentifier: [Identifier]
 
     init?(injectableType: Type) {
         guard
@@ -17,11 +22,17 @@ struct Node {
             return nil
         }
 
-        self.name = nil
-        self.type = injectableType
-        self.dependencyProperties = Array(injectableType.nestedTypes
+        let properties = Array(injectableType.nestedTypes
             .filter { $0.name == "Dependency" }
             .map { $0.properties.filter { !$0.isStatic } }
             .joined())
+
+        self.name = nil
+        self.type = injectableType
+        self.dependencyIdentifier = properties.map { Identifier(name: $0.name, typeName: $0.typeName) }
+    }
+
+    init?(providerMethod: Function) {
+        fatalError("to be implemented")
     }
 }
