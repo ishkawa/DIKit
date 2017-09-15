@@ -14,7 +14,6 @@
 		OBJ_170 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* Package.swift */; };
 		OBJ_176 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_126 /* Package.swift */; };
 		OBJ_182 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_128 /* Package.swift */; };
-		OBJ_188 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Code.swift */; };
 		OBJ_191 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Extension.swift */; };
 		OBJ_192 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Function.swift */; };
 		OBJ_193 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Property.swift */; };
@@ -255,7 +254,6 @@
 		OBJ_117 /* Node.Scalar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.Scalar.swift; sourceTree = "<group>"; };
 		OBJ_118 /* Node.Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.Sequence.swift; sourceTree = "<group>"; };
 		OBJ_119 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		OBJ_12 /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		OBJ_120 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		OBJ_121 /* Representer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Representer.swift; sourceTree = "<group>"; };
 		OBJ_122 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
@@ -444,7 +442,6 @@
 		OBJ_11 /* dikitgen */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_12 /* Code.swift */,
 				OBJ_16 /* Structure */,
 				OBJ_22 /* main.swift */,
 			);
@@ -1087,7 +1084,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_188 /* Code.swift in Sources */,
 				OBJ_191 /* Extension.swift in Sources */,
 				OBJ_192 /* Function.swift in Sources */,
 				OBJ_193 /* Property.swift in Sources */,
