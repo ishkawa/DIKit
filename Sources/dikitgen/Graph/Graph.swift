@@ -109,14 +109,14 @@ struct Graph {
                     if !instantiatedNodes.contains(where: { $0.type.name == node.type.name }) {
                         instantiatedNodes.append(node)
 
-                        let variable = node.type.name.firstCharacterLowerCased
+                        let variable = node.type.instanceName
 
                         switch node {
                         case .providable(let type):
                             code.append("let \(variable) = provide\(type.name)()")
                         case .injectable(let type, let dependencies, _):
                             let parameters = dependencies
-                                .map { "\($0.name): \($1.type.name.firstCharacterLowerCased)" }
+                                .map { "\($0.name): \($1.type.instanceName)" }
                                 .joined(separator: ", ")
 
                             if type.name == returnType.name {

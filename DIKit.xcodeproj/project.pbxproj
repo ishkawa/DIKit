@@ -17,7 +17,6 @@
 		OBJ_136 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Function.swift */; };
 		OBJ_137 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Property.swift */; };
 		OBJ_138 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Type.swift */; };
-		OBJ_139 /* String+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* String+Name.swift */; };
 		OBJ_140 /* Structure+Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Structure+Property.swift */; };
 		OBJ_141 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Graph.swift */; };
 		OBJ_142 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Node.swift */; };
@@ -166,7 +165,6 @@
 		OBJ_14 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		OBJ_15 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		OBJ_16 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
-		OBJ_18 /* String+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Name.swift"; sourceTree = "<group>"; };
 		OBJ_19 /* Structure+Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Structure+Property.swift"; sourceTree = "<group>"; };
 		OBJ_21 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		OBJ_22 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 			children = (
 				OBJ_11 /* Code.swift */,
 				OBJ_12 /* Structure */,
-				OBJ_17 /* Extension */,
 				OBJ_20 /* Graph */,
 				OBJ_23 /* main.swift */,
 			);
@@ -320,14 +317,6 @@
 				OBJ_16 /* Type.swift */,
 			);
 			path = Structure;
-			sourceTree = "<group>";
-		};
-		OBJ_17 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_18 /* String+Name.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		OBJ_20 /* Graph */ = {
@@ -781,7 +770,6 @@
 				OBJ_136 /* Function.swift in Sources */,
 				OBJ_137 /* Property.swift in Sources */,
 				OBJ_138 /* Type.swift in Sources */,
-				OBJ_139 /* String+Name.swift in Sources */,
 				OBJ_140 /* Structure+Property.swift in Sources */,
 				OBJ_141 /* Graph.swift in Sources */,
 				OBJ_142 /* Node.swift in Sources */,

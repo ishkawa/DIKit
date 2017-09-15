@@ -26,6 +26,12 @@ struct Type {
         return inheritedTypes.contains("Injectable")
     }
 
+    var instanceName: String {
+        return name.replacingCharacters(
+            in: name.startIndex..<name.index(name.startIndex, offsetBy: 1),
+            with: String(name[name.startIndex]).lowercased())
+    }
+
     init?(structure: Structure) {
         guard
             let kind = structure.kind, Type.declarationKinds.contains(kind),
