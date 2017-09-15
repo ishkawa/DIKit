@@ -31,6 +31,17 @@ struct Node {
     }
 
     init?(providerMethod: Function) {
-        fatalError("to be implemented")
+        guard
+            providerMethod.name.hasPrefix("provide"),
+            providerMethod.returnTypeName != "Void" else {
+            return nil
+        }
+
+        identifier = Identifier(
+            name: providerMethod.name.replacingOccurrences(of: "provide", with: "").firstWordLowercased,
+            typeName: providerMethod.returnTypeName)
+
+        dependencyIdentifiers = providerMethod.parameters
+            .map { Identifier(name: $0.name, typeName: $0.typeName) }
     }
 }
