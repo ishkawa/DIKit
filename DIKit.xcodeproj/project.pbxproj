@@ -301,7 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_11 /* Code.swift */,
-				OBJ_12 /* Declaration */,
+				OBJ_12 /* Structure */,
 				OBJ_17 /* Extension */,
 				OBJ_20 /* Graph */,
 				OBJ_23 /* main.swift */,
@@ -310,22 +310,22 @@
 			path = Sources/dikitgen;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_12 /* Declaration */ = {
+		OBJ_12 /* Structure */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_19 /* Structure+Property.swift */,
 				OBJ_13 /* Extension.swift */,
 				OBJ_14 /* Function.swift */,
 				OBJ_15 /* Property.swift */,
 				OBJ_16 /* Type.swift */,
 			);
-			path = Declaration;
+			path = Structure;
 			sourceTree = "<group>";
 		};
 		OBJ_17 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_18 /* String+Name.swift */,
-				OBJ_19 /* Structure+Property.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
