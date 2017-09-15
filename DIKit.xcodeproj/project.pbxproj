@@ -406,7 +406,7 @@
 			path = ".build/checkouts/SourceKitten.git-6484296299232452758/Source/SourceKittenFramework";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -415,7 +415,6 @@
 				OBJ_25 /* Dependencies */,
 				OBJ_98 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_62 /* sourcekitten */ = {
@@ -718,7 +717,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_98 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
