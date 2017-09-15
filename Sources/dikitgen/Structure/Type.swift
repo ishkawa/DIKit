@@ -18,12 +18,8 @@ struct Type {
     let kind: SwiftDeclarationKind
     let functions: [Function]
     let properties: [Property]
+    let nestedTypes: [Type]
     let inheritedTypeNames: [String]
-    let typerefs: [Structure]
-
-    var isInjectable: Bool {
-        return inheritedTypeNames.contains("Injectable")
-    }
 
     var instanceName: String {
         return name.replacingCharacters(
@@ -42,9 +38,8 @@ struct Type {
         self.kind = kind
         self.functions = structure.substructures.flatMap(Function.init)
         self.properties = structure.substructures.flatMap(Property.init)
+        self.nestedTypes = structure.substructures.flatMap(Type.init)
         self.inheritedTypeNames = (structure[.inheritedtypes] as? [[String: SourceKitRepresentable]])?
             .flatMap { $0["key.name"] as? String } ?? []
-
-        self.typerefs = structure.elements.filter { $0[.kind] as? String == "source.lang.swift.structure.elem.typeref" }
     }
 }

@@ -37,6 +37,10 @@ let resolvers = structure.substructures
     .flatMap(Type.init)
     .flatMap(Resolver.init)
 
+let injectableNodes = structure.substructures
+    .flatMap(Type.init(structure:))
+    .flatMap(Node.init(injectableType:))
+
 let context = [
     "resolvers": resolvers,
 ]

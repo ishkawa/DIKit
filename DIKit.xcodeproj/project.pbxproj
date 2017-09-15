@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F1228031F6C14BE00685C50 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1228011F6C14B800685C50 /* Resolver.swift */; };
+		7F1A26DF1F6C1B44000818AD /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10B3A11F6C19E100087588 /* Node.swift */; };
 		OBJ_146 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_152 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* Package.swift */; };
 		OBJ_158 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Package.swift */; };
@@ -234,6 +235,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F10B3A11F6C19E100087588 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		7F1228011F6C14B800685C50 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		"DIKit::DIKit::Product" /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::dikitgen::Product" /* dikitgen */ = {isa = PBXFileReference; lastKnownFileType = text; path = dikitgen; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -435,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				7F1228011F6C14B800685C50 /* Resolver.swift */,
+				7F10B3A11F6C19E100087588 /* Node.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -1098,6 +1101,7 @@
 				OBJ_191 /* Extension.swift in Sources */,
 				OBJ_192 /* Function.swift in Sources */,
 				OBJ_193 /* Property.swift in Sources */,
+				7F1A26DF1F6C1B44000818AD /* Node.swift in Sources */,
 				OBJ_194 /* Structure+Property.swift in Sources */,
 				OBJ_195 /* Type.swift in Sources */,
 				7F1228031F6C14BE00685C50 /* Resolver.swift in Sources */,
