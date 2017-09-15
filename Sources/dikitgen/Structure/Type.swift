@@ -20,7 +20,6 @@ struct Type {
     let properties: [Property]
     let inheritedTypeNames: [String]
     let typerefs: [Structure]
-    let structure: Structure
 
     var isInjectable: Bool {
         return inheritedTypeNames.contains("Injectable")
@@ -47,6 +46,5 @@ struct Type {
             .flatMap { $0["key.name"] as? String } ?? []
 
         self.typerefs = structure.elements.filter { $0[.kind] as? String == "source.lang.swift.structure.elem.typeref" }
-        self.structure = structure
     }
 }
