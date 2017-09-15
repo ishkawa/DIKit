@@ -6,13 +6,8 @@
 //
 
 struct Node {
-    struct Identifier {
-        let name: String?
-        let typeName: String
-    }
-
-    let identifier: Identifier
-    let dependencyIdentifiers: [Identifier]
+    let typeName: String
+    let dependencyTypeNames: [String]
     let instantiatingFunction: Function
 
     init?(injectableType: Type) {
@@ -28,8 +23,8 @@ struct Node {
             .map { $0.properties.filter { !$0.isStatic } }
             .joined())
 
-        identifier = Identifier(name: nil, typeName: injectableType.name)
-        dependencyIdentifiers = properties.map { Identifier(name: $0.name, typeName: $0.typeName) }
+        typeName = injectableType.name
+        dependencyTypeNames = properties.map { $0.typeName }
         instantiatingFunction = initializer
     }
 
@@ -40,13 +35,8 @@ struct Node {
             return nil
         }
 
-        identifier = Identifier(
-            name: providerMethod.name.replacingOccurrences(of: "provide", with: "").firstWordLowercased,
-            typeName: providerMethod.returnTypeName)
-
-        dependencyIdentifiers = providerMethod.parameters
-            .map { Identifier(name: $0.name, typeName: $0.typeName) }
-
+        typeName = providerMethod.returnTypeName
+        dependencyTypeNames = providerMethod.parameters.map { $0.typeName }
         instantiatingFunction = providerMethod
     }
 }
