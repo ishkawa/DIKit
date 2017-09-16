@@ -3,6 +3,31 @@ import DIKit
 import SourceKittenFramework
 import Stencil
 
+func files(atPath path: String) -> [File] {
+    let url = URL(fileURLWithPath: path)
+    let fileManager = FileManager.default
+    let enumerator = fileManager.enumerator(atPath: path)
+
+    var files = [] as [File]
+    while let subpath = enumerator?.nextObject() as? String {
+        let url = url.appendingPathComponent(subpath)
+        guard url.lastPathComponent != ".DS_Store" else {
+            continue
+        }
+
+        var isDirectory = false as ObjCBool
+        if fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) {
+            if isDirectory.boolValue {
+                files.append(contentsOf: dikitgen.files(atPath: url.path))
+            } else if let file = File(path: url.path) {
+                files.append(file)
+            }
+        }
+    }
+
+    return files
+}
+
 struct A: Injectable {
     struct Dependency {}
     init(dependency: Dependency) {}
@@ -31,15 +56,23 @@ protocol DemoResolver: DIKit.Resolver {
     func provideD() -> D
 }
 
-let file = File(path: #file)!
-let structure = Structure(file: file)
-let injectableTypeNodes = structure.substructures
-    .flatMap { Type(structure: $0, file: file) }
-    .flatMap(Node.init(injectableType:))
+guard CommandLine.arguments.count == 2 else {
+    print("error: invalid arguments")
+    print("usage: dikitgen <path to source code directory>")
+    exit(1)
+}
 
-let resolvers = structure.substructures
-    .flatMap { Type(structure: $0, file: file) }
-    .flatMap { Resolver(type: $0, injectableTypeNodes: injectableTypeNodes ) }
+let path = CommandLine.arguments[1]
+let types = Array(files(atPath: path)
+    .map { file in
+        return Structure(file: file)
+            .substructures
+            .flatMap { Type(structure: $0, file: file) }
+    }
+    .joined())
+
+let injectableTypeNodes = types.flatMap(Node.init(injectableType:))
+let resolvers = types.flatMap { Resolver(type: $0, injectableTypeNodes: injectableTypeNodes ) }
 
 let context = [
     "resolvers": resolvers,
@@ -63,4 +96,3 @@ extension {{ resolver.name }} { {% for factoryMethod in resolver.factoryMethods 
 
 let rendered = try template.render(context)
 print(rendered)
-
