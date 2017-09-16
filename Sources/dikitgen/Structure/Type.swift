@@ -25,7 +25,7 @@ struct Type {
         return name.firstWordLowercased
     }
 
-    init?(structure: Structure) {
+    init?(structure: Structure, file: File) {
         guard
             let kind = structure.kind, Type.declarationKinds.contains(kind),
             let name = structure.name else {
@@ -34,9 +34,9 @@ struct Type {
 
         self.name = name
         self.kind = kind
-        self.functions = structure.substructures.flatMap(Function.init)
-        self.properties = structure.substructures.flatMap(Property.init)
-        self.nestedTypes = structure.substructures.flatMap(Type.init)
+        self.functions = structure.substructures.flatMap { Function(structure: $0, file: file) }
+        self.properties = structure.substructures.flatMap { Property(structure: $0, file: file) }
+        self.nestedTypes = structure.substructures.flatMap { Type(structure: $0, file: file) }
         self.inheritedTypeNames = (structure[.inheritedtypes] as? [[String: SourceKitRepresentable]])?
             .flatMap { $0["key.name"] as? String } ?? []
     }

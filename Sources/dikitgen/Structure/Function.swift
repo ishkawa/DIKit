@@ -43,23 +43,30 @@ struct Function {
         return kind == .functionMethodStatic
     }
 
-    init?(structure: Structure) {
+    init?(structure: Structure, file: File) {
         guard
             let kind = structure.kind, Function.declarationKinds.contains(kind),
-            let name = structure.name else {
+            let name = structure.name,
+            let offset = structure.offset,
+            let length = structure.length else {
             return nil
         }
+
+        let view = file.contents.utf16
+        let startIndex = view.index(view.startIndex, offsetBy: Int(offset))
+        let endIndex = view.index(startIndex, offsetBy: Int(length))
+        guard let function = String(view[startIndex..<endIndex]) else {
+            return nil
+        }
+
+        let declarationEndIndex = function.range(of: "{")?.lowerBound ?? function.endIndex
+        let declaration = function[function.startIndex..<declarationEndIndex]
+        self.returnTypeName = declaration
+            .components(separatedBy: "->").last?
+            .trimmingCharacters(in: .whitespaces) ?? "Void"
 
         self.name = name
         self.kind = kind
         self.parameters = structure.substructures.flatMap(Parameter.init)
-        self.returnTypeName = structure.substructures
-            .flatMap { structure -> String? in
-                guard structure.dictionary["key.kind"] as? String == "source.lang.swift.expr.call" else {
-                    return nil
-                }
-                return structure.name
-            }
-            .first ?? "Void"
     }
 }

@@ -20,7 +20,7 @@ struct Property {
         self.isStatic = isStatic
     }
 
-    init?(structure: Structure) {
+    init?(structure: Structure, file: File) {
         guard structure.kind == .varInstance || structure.kind == .varStatic,
             let name = structure.name,
             let typeName = structure.typeName else {
