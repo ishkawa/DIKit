@@ -16,13 +16,17 @@ struct Resolver {
             return nil
         }
 
-        var unresolvedNodes = injectableTypeNodes + type.functions.flatMap(Node.init(providerMethod:))
+        let allNodes = injectableTypeNodes + type.functions.flatMap(Node.init(providerMethod:))
+        var unresolvedNodes = allNodes
         var resolvedFactoryMethods = [] as [FactoryMethod]
 
         while !unresolvedNodes.isEmpty {
             var resolved = false
             for (index, unresolvedNode) in unresolvedNodes.enumerated() {
-                guard let factoryMethod = FactoryMethod(node: unresolvedNode, factoryMethods: resolvedFactoryMethods) else {
+                guard let factoryMethod = FactoryMethod(
+                    node: unresolvedNode,
+                    allNodes: allNodes,
+                    factoryMethods: resolvedFactoryMethods) else {
                     continue
                 }
 

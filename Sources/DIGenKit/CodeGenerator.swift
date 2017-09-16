@@ -35,7 +35,7 @@ public final class CodeGenerator {
             {% for resolver in resolvers %}
             extension {{ resolver.name }} {
             {% for factoryMethod in resolver.factoryMethods %}
-                func {{ factoryMethod.name }}() -> {{ factoryMethod.returnTypeName }} {
+                func {{ factoryMethod.name }}({{ factoryMethod.parametersDeclaration }}) -> {{ factoryMethod.returnTypeName }} {
                     {% for line in factoryMethod.bodyLines %}{{ line }}{% if not forloop.last %}
                     {% endif %}{% endfor %}
                 }
