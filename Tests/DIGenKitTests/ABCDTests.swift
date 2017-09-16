@@ -49,22 +49,22 @@ final class ABCDTests: XCTestCase {
 
             extension ABCDResolver {
 
-                func makeA() -> A {
+                func resolveA() -> A {
                     return A(dependency: .init())
                 }
 
-                func makeB() -> B {
-                    let a = makeA()
+                func resolveB() -> B {
+                    let a = resolveA()
                     return B(dependency: .init(ba: a))
                 }
 
-                func makeD() -> D {
+                func resolveD() -> D {
                     return provideD()
                 }
 
-                func makeC() -> C {
-                    let a = makeA()
-                    let d = makeD()
+                func resolveC() -> C {
+                    let a = resolveA()
+                    let d = resolveD()
                     return C(dependency: .init(ca: a, cd: d))
                 }
 

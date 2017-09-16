@@ -68,7 +68,7 @@ struct FactoryMethod {
             .filter { !$0.isEmpty }
 
         returnTypeName = node.typeName
-        name = "make" + node.typeName
+        name = "resolve" + node.typeName
 
         let selfParameters = nonInjectableDependencies.map { Parameter(name: $0.name, typeName: $0.typeName) }
         let inheritedParameters = Array(factoryMethods

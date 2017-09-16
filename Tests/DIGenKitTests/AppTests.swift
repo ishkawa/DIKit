@@ -44,17 +44,17 @@ final class AppTests: XCTestCase {
 
             extension AppResolver {
 
-                func makeAPIClient() -> APIClient {
+                func resolveAPIClient() -> APIClient {
                     return provideAPIClient()
                 }
 
-                func makeUserProfileViewModel(userID: Int64) -> UserProfileViewModel {
-                    let apiClient = makeAPIClient()
+                func resolveUserProfileViewModel(userID: Int64) -> UserProfileViewModel {
+                    let apiClient = resolveAPIClient()
                     return UserProfileViewModel(dependency: .init(userID: userID, apiClient: apiClient))
                 }
 
-                func makeUserProfileViewCotroller(userID: Int64) -> UserProfileViewCotroller {
-                    let userProfileViewModel = makeUserProfileViewModel(userID: userID)
+                func resolveUserProfileViewCotroller(userID: Int64) -> UserProfileViewCotroller {
+                    let userProfileViewModel = resolveUserProfileViewModel(userID: userID)
                     return UserProfileViewCotroller(dependency: .init(viewModel: userProfileViewModel))
                 }
 
