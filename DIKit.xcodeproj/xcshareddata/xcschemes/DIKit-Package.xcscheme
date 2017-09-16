@@ -28,6 +28,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DIKit::DIGenKit"
+               BuildableName = "DIGenKit.framework"
+               BlueprintName = "DIGenKit"
+               ReferencedContainer = "container:DIKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "Stencil::Stencil"
                BuildableName = "Stencil.framework"
                BlueprintName = "Stencil"
@@ -145,9 +159,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DIKit::dikitgenTests"
-               BuildableName = "dikitgenTests.xctest"
-               BlueprintName = "dikitgenTests"
+               BlueprintIdentifier = "DIKit::DIGenKitTests"
+               BuildableName = "DIGenKitTests.xctest"
+               BlueprintName = "DIGenKitTests"
                ReferencedContainer = "container:DIKit.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -62,7 +62,7 @@ private func files(atPath path: String) -> [File] {
         var isDirectory = false as ObjCBool
         if fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) {
             if isDirectory.boolValue {
-                files.append(contentsOf: dikitgen.files(atPath: url.path))
+                files.append(contentsOf: DIGenKit.files(atPath: url.path))
             } else if let file = File(path: url.path) {
                 files.append(file)
             }

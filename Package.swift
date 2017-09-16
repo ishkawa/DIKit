@@ -9,7 +9,8 @@ let package = Package(
   ],
   targets: [
     .target(name: "DIKit"),
-    .target(name: "dikitgen", dependencies: ["DIKit", "SourceKittenFramework", "Stencil"]),
-    .testTarget(name: "dikitgenTests", dependencies: ["dikitgen"])
+    .target(name: "DIGenKit", dependencies: ["DIKit", "SourceKittenFramework", "Stencil"]),
+    .target(name: "dikitgen", dependencies: ["DIGenKit"]),
+    .testTarget(name: "DIGenKitTests", dependencies: ["DIGenKit"])
   ]
 )
