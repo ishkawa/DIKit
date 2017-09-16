@@ -31,6 +31,7 @@ struct Function {
     }
 
     let name: String
+    let nameWithoutParameters: String
     let kind: SwiftDeclarationKind
     let parameters: [Parameter]
     let returnTypeName: String
@@ -64,6 +65,10 @@ struct Function {
         self.returnTypeName = declaration
             .components(separatedBy: "->").last?
             .trimmingCharacters(in: .whitespaces) ?? "Void"
+
+        self.nameWithoutParameters = name
+            .components(separatedBy: "(").first?
+            .trimmingCharacters(in: .whitespaces) ?? name
 
         self.name = name
         self.kind = kind
