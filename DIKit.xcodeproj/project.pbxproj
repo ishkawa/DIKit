@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		7F3C5AA91F6D5C7C00842641 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C5AA81F6D5C7C00842641 /* Tests.swift */; };
+		7F3C5AAE1F6D5DB000842641 /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C5AAC1F6D5D2A00842641 /* CodeGenerator.swift */; };
 		OBJ_151 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_157 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* Package.swift */; };
 		OBJ_163 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* Package.swift */; };
@@ -331,6 +332,7 @@
 
 /* Begin PBXFileReference section */
 		7F3C5AA81F6D5C7C00842641 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		7F3C5AAC1F6D5D2A00842641 /* CodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGenerator.swift; sourceTree = "<group>"; };
 		"DIKit::DIKit::Product" /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::dikitgen::Product" /* dikitgen */ = {isa = PBXFileReference; lastKnownFileType = text; path = dikitgen; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::dikitgenTests::Product" /* dikitgenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = dikitgenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -589,6 +591,7 @@
 				OBJ_15 /* Graph */,
 				OBJ_19 /* Structure */,
 				OBJ_24 /* main.swift */,
+				7F3C5AAC1F6D5D2A00842641 /* CodeGenerator.swift */,
 			);
 			name = dikitgen;
 			path = Sources/dikitgen;
@@ -1269,6 +1272,7 @@
 				OBJ_231 /* Function.swift in Sources */,
 				OBJ_232 /* Property.swift in Sources */,
 				OBJ_233 /* Type.swift in Sources */,
+				7F3C5AAE1F6D5DB000842641 /* CodeGenerator.swift in Sources */,
 				OBJ_234 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
