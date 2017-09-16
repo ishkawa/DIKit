@@ -22,9 +22,9 @@ struct Resolver {
         while !unresolvedNodes.isEmpty {
             var resolved = false
             for (index, unresolvedNode) in unresolvedNodes.enumerated() {
-                let resolvable = unresolvedNode.dependencyTypeNames
-                    .reduce(true) { result, unresolvedNode in
-                        return result && resolvedNodes.contains { $0.typeName == unresolvedNode }
+                let resolvable = unresolvedNode.dependencies
+                    .reduce(true) { result, dependency in
+                        return result && resolvedNodes.contains { $0.typeName == dependency.typeName }
                     }
 
                 if resolvable {

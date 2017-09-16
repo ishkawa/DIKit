@@ -6,8 +6,13 @@
 //
 
 struct Node {
+    struct Dependency {
+        let name: String
+        let typeName: String
+    }
+
     let typeName: String
-    let dependencyTypeNames: [String]
+    let dependencies: [Dependency]
     let instantiatingFunction: Function
 
     init?(injectableType: Type) {
@@ -24,7 +29,7 @@ struct Node {
             .joined())
 
         typeName = injectableType.name
-        dependencyTypeNames = properties.map { $0.typeName }
+        dependencies = properties.map { Dependency(name: $0.name, typeName: $0.typeName) }
         instantiatingFunction = initializer
     }
 
@@ -36,7 +41,7 @@ struct Node {
         }
 
         typeName = providerMethod.returnTypeName
-        dependencyTypeNames = providerMethod.parameters.map { $0.typeName }
+        dependencies = providerMethod.parameters.map { Dependency(name: $0.name, typeName: $0.typeName) }
         instantiatingFunction = providerMethod
     }
 }
