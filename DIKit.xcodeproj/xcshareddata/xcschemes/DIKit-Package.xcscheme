@@ -141,6 +141,16 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DIKit::dikitgenTests"
+               BuildableName = "dikitgenTests.xctest"
+               BlueprintName = "dikitgenTests"
+               ReferencedContainer = "container:DIKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <AdditionalOptions>
       </AdditionalOptions>
