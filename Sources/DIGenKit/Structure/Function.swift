@@ -53,12 +53,15 @@ struct Function {
             return nil
         }
 
-        let view = file.contents.utf16
+        let view = file.contents.utf8
         let startIndex = view.index(view.startIndex, offsetBy: Int(offset))
         let endIndex = view.index(startIndex, offsetBy: Int(length))
-        guard let function = String(view[startIndex..<endIndex]) else {
-            return nil
-        }
+        let function = String(view[startIndex..<endIndex])!
+        let f = (file.contents as NSString).substring(with: NSRange(
+            location: Int(offset),
+            length: Int(length)))
+        print(function)
+        print(f)
 
         let declarationEndIndex = function.range(of: "{")?.lowerBound ?? function.endIndex
         let declaration = function[function.startIndex..<declarationEndIndex]
