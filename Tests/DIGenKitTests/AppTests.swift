@@ -9,18 +9,29 @@ import XCTest
 import DIGenKit
 import DIKit
 
-final class UserProfileViewCotroller: Injectable {
+final class DetailViewController: Injectable {
     struct Dependency {
-        let userID: Int64
+        let index: Int
         let apiClient: APIClient
     }
 
     init(dependency: Dependency) {}
 }
 
+final class ListViewController: Injectable {
+    struct Dependency {
+        let apiClient: APIClient
+        let resolver: AppResolver
+    }
+
+    init(dependency: Dependency) {}
+}
+
+
 final class APIClient {}
 
 protocol AppResolver: Resolver {
+    func provideAppResolver() -> AppResolver
     func provideAPIClient() -> APIClient
 }
 
@@ -36,13 +47,23 @@ final class AppTests: XCTestCase {
 
             extension AppResolver {
 
+                func resolveAppResolver() -> AppResolver {
+                    return provideAppResolver()
+                }
+
                 func resolveAPIClient() -> APIClient {
                     return provideAPIClient()
                 }
 
-                func resolveUserProfileViewCotroller(userID: Int64) -> UserProfileViewCotroller {
+                func resolveDetailViewController(index: Int) -> DetailViewController {
                     let apiClient = resolveAPIClient()
-                    return UserProfileViewCotroller(dependency: .init(userID: userID, apiClient: apiClient))
+                    return DetailViewController(dependency: .init(index: index, apiClient: apiClient))
+                }
+
+                func resolveListViewController() -> ListViewController {
+                    let apiClient = resolveAPIClient()
+                    let appResolver = resolveAppResolver()
+                    return ListViewController(dependency: .init(apiClient: apiClient, resolver: appResolver))
                 }
 
             }
