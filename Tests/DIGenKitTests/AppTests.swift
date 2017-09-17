@@ -11,14 +11,6 @@ import DIKit
 
 final class UserProfileViewCotroller: Injectable {
     struct Dependency {
-        let viewModel: UserProfileViewModel
-    }
-
-    init(dependency: Dependency) {}
-}
-
-final class UserProfileViewModel: Injectable {
-    struct Dependency {
         let userID: Int64
         let apiClient: APIClient
     }
@@ -48,14 +40,9 @@ final class AppTests: XCTestCase {
                     return provideAPIClient()
                 }
 
-                func resolveUserProfileViewModel(userID: Int64) -> UserProfileViewModel {
-                    let apiClient = resolveAPIClient()
-                    return UserProfileViewModel(dependency: .init(userID: userID, apiClient: apiClient))
-                }
-
                 func resolveUserProfileViewCotroller(userID: Int64) -> UserProfileViewCotroller {
-                    let userProfileViewModel = resolveUserProfileViewModel(userID: userID)
-                    return UserProfileViewCotroller(dependency: .init(viewModel: userProfileViewModel))
+                    let apiClient = resolveAPIClient()
+                    return UserProfileViewCotroller(dependency: .init(userID: userID, apiClient: apiClient))
                 }
 
             }
