@@ -74,6 +74,7 @@ struct FactoryMethod {
         let inheritedParameters = Array(factoryMethods
             .map { $0.parameters }
             .joined())
+            .filter { parameter in node.dependencies.contains(where: { $0.typeName == parameter.typeName }) }
 
         parameters = selfParameters + inheritedParameters
         parametersDeclaration = parameters
