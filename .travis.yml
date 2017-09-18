@@ -1,0 +1,11 @@
+os: osx
+osx_image: xcode9
+language: objective-c
+
+script:
+  - swift --version
+  - swift build
+  - swift test
+
+notifications:
+  email: false
