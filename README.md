@@ -1,5 +1,7 @@
 # DIKit
 
+[![Build Status](https://travis-ci.org/ishkawa/DIKit.svg?branch=master)](https://travis-ci.org/ishkawa/DIKit)
+
 An experimental project that provides static dependency injection by code generation.
 
 ## Overview
