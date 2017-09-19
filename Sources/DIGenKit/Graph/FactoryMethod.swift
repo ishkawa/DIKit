@@ -59,6 +59,8 @@ struct FactoryMethod {
         switch node.kind {
         case .initializer:
             selfInstantiationCode = "return \(node.typeName)(dependency: .init(\(selfInstantiationParameters)))"
+        case .factoryMethod:
+            selfInstantiationCode = "return \(node.typeName).makeInstance(dependency: .init(\(selfInstantiationParameters)))"
         case .providerMethod:
             selfInstantiationCode = "return \(functionName)(\(selfInstantiationParameters))"
         }

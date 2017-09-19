@@ -22,7 +22,11 @@ public final class CodeGenerator {
             .joined())
 
         let injectableTypeNodes = types.flatMap(Node.init(injectableType:))
-        let resolvers = types.flatMap { Resolver(type: $0, injectableTypeNodes: injectableTypeNodes ) }
+        let factoryMethodInjectableTypeNods = types.flatMap(Node.init(factoryMethodInjectableType:))
+        let resolvers = types.flatMap {
+            return Resolver(type: $0, injectableTypeNodes: injectableTypeNodes + factoryMethodInjectableTypeNods )
+
+        }
         context = ["resolvers": resolvers]
     }
 
