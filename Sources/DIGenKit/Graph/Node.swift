@@ -6,11 +6,17 @@
 //
 
 struct Node {
+    enum Kind {
+        case initializer
+        case providerMethod
+    }
+
     struct Dependency {
         let name: String
         let typeName: String
     }
 
+    let kind: Kind
     let typeName: String
     let dependencies: [Dependency]
     let instantiatingFunction: Function
@@ -28,6 +34,7 @@ struct Node {
             .map { $0.properties.filter { !$0.isStatic } }
             .joined())
 
+        kind = .initializer
         typeName = injectableType.name
         dependencies = properties.map { Dependency(name: $0.name, typeName: $0.typeName) }
         instantiatingFunction = initializer
@@ -40,6 +47,7 @@ struct Node {
             return nil
         }
 
+        kind = .providerMethod
         typeName = providerMethod.returnTypeName
         dependencies = providerMethod.parameters.map { Dependency(name: $0.name, typeName: $0.typeName) }
         instantiatingFunction = providerMethod
