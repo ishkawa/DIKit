@@ -62,9 +62,13 @@ struct Method {
 
         let declarationEndIndex = function.range(of: "{")?.lowerBound ?? function.endIndex
         let declaration = function[function.startIndex..<declarationEndIndex]
-        self.returnTypeName = declaration
-            .components(separatedBy: "->").last?
-            .trimmingCharacters(in: .whitespaces) ?? "Void"
+        let declarationComponents = declaration.components(separatedBy: "->")
+
+        if declarationComponents.count == 2 {
+            self.returnTypeName = declarationComponents[1].trimmingCharacters(in: .whitespaces)
+        } else {
+            self.returnTypeName = "Void"
+        }
 
         self.nameWithoutParameters = name
             .components(separatedBy: "(").first?

@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		7F3C5B0F1F6D707700842641 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C5B0D1F6D701A00842641 /* AppTests.swift */; };
+		7F540C8B1F73F1970045CC12 /* MethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8A1F73F1970045CC12 /* MethodTests.swift */; };
 		OBJ_155 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_161 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* Package.swift */; };
 		OBJ_167 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* Package.swift */; };
@@ -405,6 +406,7 @@
 
 /* Begin PBXFileReference section */
 		7F3C5B0D1F6D701A00842641 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		7F540C8A1F73F1970045CC12 /* MethodTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodTests.swift; sourceTree = "<group>"; };
 		"DIKit::DIGenKit::Product" /* DIGenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIGenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIGenKitTests::Product" /* DIGenKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIGenKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIKit::Product" /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -640,6 +642,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F540C891F73F1970045CC12 /* Structure */ = {
+			isa = PBXGroup;
+			children = (
+				7F540C8A1F73F1970045CC12 /* MethodTests.swift */,
+			);
+			path = Structure;
+			sourceTree = "<group>";
+		};
 		OBJ_102 /* sourcekitten */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,6 +816,7 @@
 			children = (
 				OBJ_30 /* ABCDTests.swift */,
 				7F3C5B0D1F6D701A00842641 /* AppTests.swift */,
+				7F540C891F73F1970045CC12 /* Structure */,
 			);
 			name = DIGenKitTests;
 			path = Tests/DIGenKitTests;
@@ -1378,6 +1389,7 @@
 			files = (
 				OBJ_197 /* ABCDTests.swift in Sources */,
 				7F3C5B0F1F6D707700842641 /* AppTests.swift in Sources */,
+				7F540C8B1F73F1970045CC12 /* MethodTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
