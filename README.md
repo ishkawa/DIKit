@@ -44,3 +44,27 @@ extension AppResolver {
 ```
 
 This generated code resolves dependency graph that `ViewController` depends on `APIClient`.
+
+## Installation
+
+Install code generator `dikitgen` first.
+
+```swift
+git clone https://github.com/ishkawa/DIKit.git
+cd DIKit
+make install
+```
+
+Then, integrate DIKit.framework to your project. There are some option to install DIKit.framework.
+
+### Manual
+
+Clone this repository and add `DIKit.xcodeproj` to your project.
+
+### Carthage
+
+Add following line into your Cartfile and run `carthage update`.
+
+```swift
+github "ishkawa/DIKit"
+```
