@@ -9,7 +9,7 @@
 import Foundation
 import SourceKittenFramework
 
-struct Function {
+struct Method {
     private static var declarationKinds: [SwiftDeclarationKind] {
         return [.functionMethodInstance, .functionMethodStatic]
     }
@@ -46,7 +46,7 @@ struct Function {
 
     init?(structure: Structure, file: File) {
         guard
-            let kind = structure.kind, Function.declarationKinds.contains(kind),
+            let kind = structure.kind, Method.declarationKinds.contains(kind),
             let name = structure.name,
             let offset = structure.offset,
             let length = structure.length else {

@@ -20,7 +20,7 @@ struct Node {
     let kind: Kind
     let typeName: String
     let dependencies: [Dependency]
-    let instantiatingFunction: Function
+    let instantiatingFunction: Method
 
     init?(injectableType: Type) {
         guard
@@ -61,7 +61,7 @@ struct Node {
         instantiatingFunction = factoryMethod
     }
 
-    init?(providerMethod: Function) {
+    init?(providerMethod: Method) {
         guard
             providerMethod.name.hasPrefix("provide"),
             providerMethod.returnTypeName != "Void" else {

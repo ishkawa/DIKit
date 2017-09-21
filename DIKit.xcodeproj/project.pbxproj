@@ -56,7 +56,7 @@
 		OBJ_260 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Node.swift */; };
 		OBJ_261 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Resolver.swift */; };
 		OBJ_262 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Extension.swift */; };
-		OBJ_263 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Function.swift */; };
+		OBJ_263 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Method.swift */; };
 		OBJ_264 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Property.swift */; };
 		OBJ_265 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Type.swift */; };
 		OBJ_267 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Stencil::Stencil::Product" /* Stencil.framework */; };
@@ -449,7 +449,7 @@
 		OBJ_18 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		OBJ_19 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		OBJ_21 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		OBJ_22 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		OBJ_22 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		OBJ_23 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		OBJ_24 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		OBJ_27 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -780,7 +780,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_21 /* Extension.swift */,
-				OBJ_22 /* Function.swift */,
+				OBJ_22 /* Method.swift */,
 				OBJ_23 /* Property.swift */,
 				OBJ_24 /* Type.swift */,
 			);
@@ -855,7 +855,7 @@
 			path = ".build/checkouts/Stencil.git-7635584243355970173/Sources";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -864,7 +864,6 @@
 				OBJ_31 /* Dependencies */,
 				OBJ_138 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_53 /* PathKit 0.8.0 */ = {
@@ -1291,7 +1290,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_138 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1404,7 +1403,7 @@
 				OBJ_260 /* Node.swift in Sources */,
 				OBJ_261 /* Resolver.swift in Sources */,
 				OBJ_262 /* Extension.swift in Sources */,
-				OBJ_263 /* Function.swift in Sources */,
+				OBJ_263 /* Method.swift in Sources */,
 				OBJ_264 /* Property.swift in Sources */,
 				OBJ_265 /* Type.swift in Sources */,
 			);
