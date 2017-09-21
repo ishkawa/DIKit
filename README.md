@@ -49,7 +49,7 @@ This generated code resolves dependency graph that `ViewController` depends on `
 
 Install code generator `dikitgen` first.
 
-```swift
+```
 git clone https://github.com/ishkawa/DIKit.git
 cd DIKit
 make install
@@ -65,6 +65,6 @@ Clone this repository and add `DIKit.xcodeproj` to your project.
 
 Add following line into your Cartfile and run `carthage update`.
 
-```swift
+```
 github "ishkawa/DIKit"
 ```
