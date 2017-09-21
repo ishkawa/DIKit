@@ -25,6 +25,8 @@
 		7F540C8B1F73F1970045CC12 /* MethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8A1F73F1970045CC12 /* MethodTests.swift */; };
 		7F540C8D1F73F2210045CC12 /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8C1F73F2210045CC12 /* PropertyTests.swift */; };
 		7F540C8F1F73F5340045CC12 /* TypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8E1F73F5340045CC12 /* TypeTests.swift */; };
+		7F540C951F740C930045CC12 /* InitializerInjectableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C931F740C210045CC12 /* InitializerInjectableType.swift */; };
+		7F540C981F740FD10045CC12 /* InitializerInjectableTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C971F740FD10045CC12 /* InitializerInjectableTypeTests.swift */; };
 		OBJ_155 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_161 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* Package.swift */; };
 		OBJ_167 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* Package.swift */; };
@@ -411,6 +413,8 @@
 		7F540C8A1F73F1970045CC12 /* MethodTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodTests.swift; sourceTree = "<group>"; };
 		7F540C8C1F73F2210045CC12 /* PropertyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTests.swift; sourceTree = "<group>"; };
 		7F540C8E1F73F5340045CC12 /* TypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTests.swift; sourceTree = "<group>"; };
+		7F540C931F740C210045CC12 /* InitializerInjectableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializerInjectableType.swift; sourceTree = "<group>"; };
+		7F540C971F740FD10045CC12 /* InitializerInjectableTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializerInjectableTypeTests.swift; sourceTree = "<group>"; };
 		"DIKit::DIGenKit::Product" /* DIGenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIGenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIGenKitTests::Product" /* DIGenKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIGenKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIKit::Product" /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -656,6 +660,14 @@
 			path = Structure;
 			sourceTree = "<group>";
 		};
+		7F540C961F740FD10045CC12 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				7F540C971F740FD10045CC12 /* InitializerInjectableTypeTests.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
 		OBJ_102 /* sourcekitten */ = {
 			isa = PBXGroup;
 			children = (
@@ -786,6 +798,7 @@
 				OBJ_17 /* ResolveMethod.swift */,
 				OBJ_18 /* Node.swift */,
 				OBJ_19 /* Resolver.swift */,
+				7F540C931F740C210045CC12 /* InitializerInjectableType.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -822,6 +835,7 @@
 			children = (
 				OBJ_30 /* ABCDTests.swift */,
 				7F3C5B0D1F6D701A00842641 /* AppTests.swift */,
+				7F540C961F740FD10045CC12 /* Graph */,
 				7F540C891F73F1970045CC12 /* Structure */,
 			);
 			name = DIGenKitTests;
@@ -1396,6 +1410,7 @@
 				7F540C8F1F73F5340045CC12 /* TypeTests.swift in Sources */,
 				OBJ_197 /* ABCDTests.swift in Sources */,
 				7F3C5B0F1F6D707700842641 /* AppTests.swift in Sources */,
+				7F540C981F740FD10045CC12 /* InitializerInjectableTypeTests.swift in Sources */,
 				7F540C8D1F73F2210045CC12 /* PropertyTests.swift in Sources */,
 				7F540C8B1F73F1970045CC12 /* MethodTests.swift in Sources */,
 			);
@@ -1414,6 +1429,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_256 /* CodeGenerator.swift in Sources */,
+				7F540C951F740C930045CC12 /* InitializerInjectableType.swift in Sources */,
 				OBJ_257 /* String+Name.swift in Sources */,
 				OBJ_258 /* Structure+Property.swift in Sources */,
 				OBJ_259 /* ResolveMethod.swift in Sources */,
