@@ -22,6 +22,9 @@
 
 /* Begin PBXBuildFile section */
 		7F3C5B0F1F6D707700842641 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C5B0D1F6D701A00842641 /* AppTests.swift */; };
+		7F540C8B1F73F1970045CC12 /* MethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8A1F73F1970045CC12 /* MethodTests.swift */; };
+		7F540C8D1F73F2210045CC12 /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8C1F73F2210045CC12 /* PropertyTests.swift */; };
+		7F540C8F1F73F5340045CC12 /* TypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8E1F73F5340045CC12 /* TypeTests.swift */; };
 		OBJ_155 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_161 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* Package.swift */; };
 		OBJ_167 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* Package.swift */; };
@@ -52,11 +55,10 @@
 		OBJ_256 /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CodeGenerator.swift */; };
 		OBJ_257 /* String+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* String+Name.swift */; };
 		OBJ_258 /* Structure+Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Structure+Property.swift */; };
-		OBJ_259 /* FactoryMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* FactoryMethod.swift */; };
+		OBJ_259 /* ResolveMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* ResolveMethod.swift */; };
 		OBJ_260 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Node.swift */; };
 		OBJ_261 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Resolver.swift */; };
-		OBJ_262 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Extension.swift */; };
-		OBJ_263 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Function.swift */; };
+		OBJ_263 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Method.swift */; };
 		OBJ_264 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Property.swift */; };
 		OBJ_265 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Type.swift */; };
 		OBJ_267 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Stencil::Stencil::Product" /* Stencil.framework */; };
@@ -406,6 +408,9 @@
 
 /* Begin PBXFileReference section */
 		7F3C5B0D1F6D701A00842641 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		7F540C8A1F73F1970045CC12 /* MethodTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodTests.swift; sourceTree = "<group>"; };
+		7F540C8C1F73F2210045CC12 /* PropertyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTests.swift; sourceTree = "<group>"; };
+		7F540C8E1F73F5340045CC12 /* TypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTests.swift; sourceTree = "<group>"; };
 		"DIKit::DIGenKit::Product" /* DIGenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIGenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIGenKitTests::Product" /* DIGenKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIGenKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIKit::Product" /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -445,11 +450,10 @@
 		OBJ_137 /* SWXMLHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		OBJ_14 /* String+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Name.swift"; sourceTree = "<group>"; };
 		OBJ_15 /* Structure+Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Structure+Property.swift"; sourceTree = "<group>"; };
-		OBJ_17 /* FactoryMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMethod.swift; sourceTree = "<group>"; };
+		OBJ_17 /* ResolveMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveMethod.swift; sourceTree = "<group>"; };
 		OBJ_18 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		OBJ_19 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
-		OBJ_21 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		OBJ_22 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		OBJ_22 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		OBJ_23 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		OBJ_24 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		OBJ_27 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -642,6 +646,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F540C891F73F1970045CC12 /* Structure */ = {
+			isa = PBXGroup;
+			children = (
+				7F540C8A1F73F1970045CC12 /* MethodTests.swift */,
+				7F540C8C1F73F2210045CC12 /* PropertyTests.swift */,
+				7F540C8E1F73F5340045CC12 /* TypeTests.swift */,
+			);
+			path = Structure;
+			sourceTree = "<group>";
+		};
 		OBJ_102 /* sourcekitten */ = {
 			isa = PBXGroup;
 			children = (
@@ -769,7 +783,7 @@
 		OBJ_16 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_17 /* FactoryMethod.swift */,
+				OBJ_17 /* ResolveMethod.swift */,
 				OBJ_18 /* Node.swift */,
 				OBJ_19 /* Resolver.swift */,
 			);
@@ -779,8 +793,7 @@
 		OBJ_20 /* Structure */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_21 /* Extension.swift */,
-				OBJ_22 /* Function.swift */,
+				OBJ_22 /* Method.swift */,
 				OBJ_23 /* Property.swift */,
 				OBJ_24 /* Type.swift */,
 			);
@@ -809,6 +822,7 @@
 			children = (
 				OBJ_30 /* ABCDTests.swift */,
 				7F3C5B0D1F6D701A00842641 /* AppTests.swift */,
+				7F540C891F73F1970045CC12 /* Structure */,
 			);
 			name = DIGenKitTests;
 			path = Tests/DIGenKitTests;
@@ -855,7 +869,7 @@
 			path = ".build/checkouts/Stencil.git-7635584243355970173/Sources";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -864,7 +878,6 @@
 				OBJ_31 /* Dependencies */,
 				OBJ_138 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_53 /* PathKit 0.8.0 */ = {
@@ -1291,7 +1304,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_138 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1380,8 +1393,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				7F540C8F1F73F5340045CC12 /* TypeTests.swift in Sources */,
 				OBJ_197 /* ABCDTests.swift in Sources */,
 				7F3C5B0F1F6D707700842641 /* AppTests.swift in Sources */,
+				7F540C8D1F73F2210045CC12 /* PropertyTests.swift in Sources */,
+				7F540C8B1F73F1970045CC12 /* MethodTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1400,11 +1416,10 @@
 				OBJ_256 /* CodeGenerator.swift in Sources */,
 				OBJ_257 /* String+Name.swift in Sources */,
 				OBJ_258 /* Structure+Property.swift in Sources */,
-				OBJ_259 /* FactoryMethod.swift in Sources */,
+				OBJ_259 /* ResolveMethod.swift in Sources */,
 				OBJ_260 /* Node.swift in Sources */,
 				OBJ_261 /* Resolver.swift in Sources */,
-				OBJ_262 /* Extension.swift in Sources */,
-				OBJ_263 /* Function.swift in Sources */,
+				OBJ_263 /* Method.swift in Sources */,
 				OBJ_264 /* Property.swift in Sources */,
 				OBJ_265 /* Type.swift in Sources */,
 			);

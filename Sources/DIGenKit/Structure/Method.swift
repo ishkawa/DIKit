@@ -9,7 +9,7 @@
 import Foundation
 import SourceKittenFramework
 
-struct Function {
+struct Method {
     private static var declarationKinds: [SwiftDeclarationKind] {
         return [.functionMethodInstance, .functionMethodStatic]
     }
@@ -46,25 +46,31 @@ struct Function {
 
     init?(structure: Structure, file: File) {
         guard
-            let kind = structure.kind, Function.declarationKinds.contains(kind),
+            let kind = structure.kind, Method.declarationKinds.contains(kind),
             let name = structure.name,
             let offset = structure.offset,
             let length = structure.length else {
             return nil
         }
 
-        let view = file.contents.utf8
-        let startIndex = view.index(view.startIndex, offsetBy: Int(offset))
-        let endIndex = view.index(startIndex, offsetBy: Int(length))
-        guard let function = String(view[startIndex..<endIndex]) else {
-            return nil
-        }
+        let methodPart: String = {
+            let view = file.contents.utf8
+            let startIndex = view.index(view.startIndex, offsetBy: Int(offset))
+            let endIndex = view.index(startIndex, offsetBy: Int(length))
+            return String(view[startIndex..<endIndex])!
+        }()
 
-        let declarationEndIndex = function.range(of: "{")?.lowerBound ?? function.endIndex
-        let declaration = function[function.startIndex..<declarationEndIndex]
-        self.returnTypeName = declaration
-            .components(separatedBy: "->").last?
-            .trimmingCharacters(in: .whitespaces) ?? "Void"
+        self.returnTypeName = {
+            let endIndex = methodPart.range(of: "{")?.lowerBound ?? methodPart.endIndex
+            let declaration = methodPart[methodPart.startIndex..<endIndex]
+            let components = declaration.components(separatedBy: "->")
+
+            if components.count == 2 {
+                return components[1].trimmingCharacters(in: .whitespaces)
+            } else {
+                return "Void"
+            }
+        }()
 
         self.nameWithoutParameters = name
             .components(separatedBy: "(").first?

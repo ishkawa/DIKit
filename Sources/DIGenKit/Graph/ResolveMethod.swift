@@ -1,5 +1,5 @@
 //
-//  FactoryMethod.swift
+//  ResolveMethod.swift
 //  dikitgen
 //
 //  Created by Yosuke Ishikawa on 2017/09/16.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FactoryMethod {
+struct ResolveMethod {
     struct Parameter {
         let name: String
         let typeName: String
@@ -20,7 +20,7 @@ struct FactoryMethod {
     let bodyLines: [String]
     let parametersDeclaration: String
 
-    init?(node: Node, allNodes: [Node], factoryMethods: [FactoryMethod]) {
+    init?(node: Node, allNodes: [Node], factoryMethods: [ResolveMethod]) {
         let resolvedFactoryMethods = node.dependencies
             .flatMap { dependency in
                 return factoryMethods

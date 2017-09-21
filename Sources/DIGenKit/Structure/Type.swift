@@ -16,7 +16,7 @@ struct Type {
 
     let name: String
     let kind: SwiftDeclarationKind
-    let functions: [Function]
+    let methods: [Method]
     let properties: [Property]
     let nestedTypes: [Type]
     let inheritedTypeNames: [String]
@@ -34,7 +34,7 @@ struct Type {
 
         self.name = name
         self.kind = kind
-        self.functions = structure.substructures.flatMap { Function(structure: $0, file: file) }
+        self.methods = structure.substructures.flatMap { Method(structure: $0, file: file) }
         self.properties = structure.substructures.flatMap { Property(structure: $0, file: file) }
         self.nestedTypes = structure.substructures.flatMap { Type(structure: $0, file: file) }
         self.inheritedTypeNames = (structure[.inheritedtypes] as? [[String: SourceKitRepresentable]])?
