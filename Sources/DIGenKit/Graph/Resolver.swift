@@ -25,7 +25,7 @@ struct Resolver {
             .map { Node.factoryMethodInjectableType($0) }
 
         let providerMethods = ProviderMethod
-            .providerMethods(inResoverType: type)
+            .providerMethods(inResolverType: type)
             .map { Node.providerMethod($0) }
 
         let allNodes = initializerInjectableTypes + factoryMethodInjectableTypes + providerMethods

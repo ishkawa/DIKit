@@ -22,7 +22,7 @@ final class ProviderMethodTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let method = ProviderMethod.providerMethods(inResoverType: type).first
+        let method = ProviderMethod.providerMethods(inResolverType: type).first
         XCTAssertEqual(method?.nameWithoutParameters, "provideA")
         XCTAssertEqual(method?.returnTypeName, "A")
         XCTAssertEqual(method?.parameters.count, 2)
@@ -42,7 +42,7 @@ final class ProviderMethodTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let method = ProviderMethod.providerMethods(inResoverType: type).first
+        let method = ProviderMethod.providerMethods(inResolverType: type).first
         XCTAssertNil(method)
     }
 
@@ -56,7 +56,7 @@ final class ProviderMethodTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let method = ProviderMethod.providerMethods(inResoverType: type).first
+        let method = ProviderMethod.providerMethods(inResolverType: type).first
         XCTAssertNil(method)
     }
 
@@ -70,7 +70,7 @@ final class ProviderMethodTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let method = ProviderMethod.providerMethods(inResoverType: type).first
+        let method = ProviderMethod.providerMethods(inResolverType: type).first
         XCTAssertNil(method)
     }
 
@@ -84,7 +84,7 @@ final class ProviderMethodTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let method = ProviderMethod.providerMethods(inResoverType: type).first
+        let method = ProviderMethod.providerMethods(inResolverType: type).first
         XCTAssertNil(method)
     }
 }

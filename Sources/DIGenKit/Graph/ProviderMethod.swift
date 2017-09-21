@@ -38,7 +38,7 @@ struct ProviderMethod {
         parameters = method.parameters
     }
     
-    static func providerMethods(inResoverType type: Type) -> [ProviderMethod] {
+    static func providerMethods(inResolverType type: Type) -> [ProviderMethod] {
         guard 
             type.inheritedTypeNames.contains("Resolver") ||
             type.inheritedTypeNames.contains("DIKit.Resolver") else {
