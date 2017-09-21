@@ -22,13 +22,15 @@ struct B: Injectable {
     init(dependency: Dependency) {}
 }
 
-struct C: Injectable {
+struct C: FactoryMethodInjectable {
     struct Dependency {
         let ca: A
         let cd: D
     }
 
-    init(dependency: Dependency) {}
+    static func makeInstance(dependency: C.Dependency) -> C {
+        return C()
+    }
 }
 
 struct D {}
@@ -65,7 +67,7 @@ final class ABCDTests: XCTestCase {
                 func resolveC() -> C {
                     let a = resolveA()
                     let d = resolveD()
-                    return C(dependency: .init(ca: a, cd: d))
+                    return C.makeInstance(dependency: .init(ca: a, cd: d))
                 }
 
             }

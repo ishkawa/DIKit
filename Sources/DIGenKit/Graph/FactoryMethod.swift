@@ -56,9 +56,12 @@ struct FactoryMethod {
 
         let functionName = node.instantiatingFunction.nameWithoutParameters
         let selfInstantiationCode: String
-        if functionName == "init" {
+        switch node.kind {
+        case .initializer:
             selfInstantiationCode = "return \(node.typeName)(dependency: .init(\(selfInstantiationParameters)))"
-        } else {
+        case .factoryMethod:
+            selfInstantiationCode = "return \(node.typeName).makeInstance(dependency: .init(\(selfInstantiationParameters)))"
+        case .providerMethod:
             selfInstantiationCode = "return \(functionName)(\(selfInstantiationParameters))"
         }
 

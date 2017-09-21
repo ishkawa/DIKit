@@ -9,3 +9,8 @@ public protocol Injectable {
     associatedtype Dependency
     init(dependency: Dependency)
 }
+
+public protocol FactoryMethodInjectable {
+    associatedtype Dependency
+    static func makeInstance(dependency: Dependency) -> Self
+}
