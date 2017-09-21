@@ -18,32 +18,29 @@ struct Resolver {
 
         let initializerInjectableTypes = allTypes
             .flatMap(InitializerInjectableType.init(type:))
-            .map { Node.initializerInjectableType($0) }
+            .map { Node.Declaration.initializerInjectableType($0) }
 
         let factoryMethodInjectableTypes = allTypes
             .flatMap(FactoryMethodInjectableType.init(type:))
-            .map { Node.factoryMethodInjectableType($0) }
+            .map { Node.Declaration.factoryMethodInjectableType($0) }
 
         let providerMethods = ProviderMethod
             .providerMethods(inResolverType: type)
-            .map { Node.providerMethod($0) }
+            .map { Node.Declaration.providerMethod($0) }
 
-        let allNodes = initializerInjectableTypes + factoryMethodInjectableTypes + providerMethods
-        var unresolvedNodes = allNodes
-        var resolvedFactoryMethods = [] as [ResolveMethod]
+        let allDeclarations = initializerInjectableTypes + factoryMethodInjectableTypes + providerMethods
+        var unresolvedDeclarations = allDeclarations
+        var nodes = [] as [Node]
 
-        while !unresolvedNodes.isEmpty {
+        while !unresolvedDeclarations.isEmpty {
             var resolved = false
-            for (index, unresolvedNode) in unresolvedNodes.enumerated() {
-                guard let factoryMethod = ResolveMethod(
-                    node: unresolvedNode,
-                    allNodes: allNodes,
-                    factoryMethods: resolvedFactoryMethods) else {
-                        continue
+            for (index, declaration) in unresolvedDeclarations.enumerated() {
+                guard let node = Node(declaration: declaration, allDeclarations: allDeclarations, availableNodes: nodes) else {
+                    continue
                 }
 
-                unresolvedNodes.remove(at: index)
-                resolvedFactoryMethods.append(factoryMethod)
+                unresolvedDeclarations.remove(at: index)
+                nodes.append(node)
                 resolved = true
                 break
             }
@@ -55,6 +52,6 @@ struct Resolver {
         }
 
         name = type.name
-        resolveMethods = resolvedFactoryMethods
+        resolveMethods = nodes.flatMap(ResolveMethod.init(node:))
     }
 }

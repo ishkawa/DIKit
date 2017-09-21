@@ -806,8 +806,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_17 /* ResolveMethod.swift */,
-				OBJ_18 /* Node.swift */,
 				OBJ_19 /* Resolver.swift */,
+				OBJ_18 /* Node.swift */,
 				7F540C931F740C210045CC12 /* InitializerInjectableType.swift */,
 				7F540C991F7412E80045CC12 /* FactoryMethodInjectableType.swift */,
 				7F540C9D1F7414A30045CC12 /* ProviderMethod.swift */,

@@ -20,65 +20,48 @@ struct ResolveMethod {
     let bodyLines: [String]
     let parametersDeclaration: String
 
-    init?(node: Node, allNodes: [Node], factoryMethods: [ResolveMethod]) {
-        let resolvedFactoryMethods = node.dependencies
-            .flatMap { dependency in
-                return factoryMethods
-                    .filter { $0.returnTypeName == dependency.typeName }
-                    .first
-            }
-
-        let nodeTypeNames = allNodes.map { $0.typeName }
-        let nonInjectableDependencies = node.dependencies
-            .flatMap { nodeTypeNames.contains($0.typeName) ? nil : $0 }
-
-        guard (resolvedFactoryMethods.count + nonInjectableDependencies.count) == node.dependencies.count else {
-            return nil
-        }
-
-        let dependencyInstantiation = resolvedFactoryMethods
-            .map { factoryMethod in
-                let parameters = factoryMethod.parameters
+    init?(node: Node) {
+        let dependencyInstantiation = node.shallowDependencyNodes
+            .map { node in
+                let parameters = node.deepDependencyParameters
                     .map { "\($0.name): \($0.name)" }
                     .joined(separator: ", ")
 
-                return "let \(factoryMethod.returnTypeName.firstWordLowercased) = \(factoryMethod.name)(\(parameters))"
+                return "let \(node.declaration.typeName.firstWordLowercased) = resolve\(node.declaration.typeName)(\(parameters))"
             }
             .joined(separator: "\n")
 
-        let selfInstantiationParameters = node.dependencies
-            .map { dependency in
-                return nonInjectableDependencies.contains(where: { $0.typeName == dependency.typeName })
-                    ? "\(dependency.name): \(dependency.name)"
-                    : "\(dependency.name): \(dependency.typeName.firstWordLowercased)"
+        let selfInstantiation: String = {
+            let parameters = node.dependencies
+                .map { dependency in
+                    switch dependency {
+                    case .node(let name, let node):
+                        return "\(name): \(node.declaration.typeName.firstWordLowercased)"
+                    case .parameter(let parameter):
+                        return "\(parameter.name): \(parameter.name)"
+                    }
+                }
+                .joined(separator: ", ")
+
+            switch node.declaration {
+            case .initializerInjectableType(let type):
+                return "return \(type.name)(dependency: .init(\(parameters)))"
+            case .factoryMethodInjectableType(let type):
+                return "return \(type.name).makeInstance(dependency: .init(\(parameters)))"
+            case .providerMethod(let method):
+                return "return \(method.nameWithoutParameters)(\(parameters))"
             }
-            .joined(separator: ", ")
+        }()
 
-        let selfInstantiationCode: String
-        switch node {
-        case .initializerInjectableType(let type):
-            selfInstantiationCode = "return \(type.name)(dependency: .init(\(selfInstantiationParameters)))"
-        case .factoryMethodInjectableType(let type):
-            selfInstantiationCode = "return \(type.name).makeInstance(dependency: .init(\(selfInstantiationParameters)))"
-        case .providerMethod(let method):
-            selfInstantiationCode = "return \(method.nameWithoutParameters)(\(selfInstantiationParameters))"
-        }
-
-        bodyLines = [dependencyInstantiation, selfInstantiationCode]
+        bodyLines = [dependencyInstantiation, selfInstantiation]
             .joined(separator: "\n")
             .components(separatedBy: CharacterSet.newlines)
             .filter { !$0.isEmpty }
 
-        returnTypeName = node.typeName
-        name = "resolve" + node.typeName
+        returnTypeName = node.declaration.typeName
+        name = "resolve" + node.declaration.typeName
 
-        let selfParameters = nonInjectableDependencies.map { Parameter(name: $0.name, typeName: $0.typeName) }
-        let inheritedParameters = Array(factoryMethods
-            .map { $0.parameters }
-            .joined())
-            .filter { parameter in node.dependencies.contains(where: { $0.typeName == parameter.typeName }) }
-
-        parameters = selfParameters + inheritedParameters
+        parameters = node.deepDependencyParameters.map { Parameter(name: $0.name, typeName: $0.typeName) }
         parametersDeclaration = parameters
             .map { "\($0.name): \($0.typeName)" }
             .joined(separator: ", ")
