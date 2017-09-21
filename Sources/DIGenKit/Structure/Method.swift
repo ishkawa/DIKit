@@ -53,22 +53,24 @@ struct Method {
             return nil
         }
 
-        let view = file.contents.utf8
-        let startIndex = view.index(view.startIndex, offsetBy: Int(offset))
-        let endIndex = view.index(startIndex, offsetBy: Int(length))
-        guard let function = String(view[startIndex..<endIndex]) else {
-            return nil
-        }
+        let methodPart: String = {
+            let view = file.contents.utf8
+            let startIndex = view.index(view.startIndex, offsetBy: Int(offset))
+            let endIndex = view.index(startIndex, offsetBy: Int(length))
+            return String(view[startIndex..<endIndex])!
+        }()
 
-        let declarationEndIndex = function.range(of: "{")?.lowerBound ?? function.endIndex
-        let declaration = function[function.startIndex..<declarationEndIndex]
-        let declarationComponents = declaration.components(separatedBy: "->")
+        self.returnTypeName = {
+            let endIndex = methodPart.range(of: "{")?.lowerBound ?? methodPart.endIndex
+            let declaration = methodPart[methodPart.startIndex..<endIndex]
+            let components = declaration.components(separatedBy: "->")
 
-        if declarationComponents.count == 2 {
-            self.returnTypeName = declarationComponents[1].trimmingCharacters(in: .whitespaces)
-        } else {
-            self.returnTypeName = "Void"
-        }
+            if components.count == 2 {
+                return components[1].trimmingCharacters(in: .whitespaces)
+            } else {
+                return "Void"
+            }
+        }()
 
         self.nameWithoutParameters = name
             .components(separatedBy: "(").first?
