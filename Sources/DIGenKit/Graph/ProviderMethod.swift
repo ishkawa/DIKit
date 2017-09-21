@@ -8,7 +8,7 @@
 import Foundation
 
 struct ProviderMethod {
-    let name: String
+    let nameWithoutParameters: String
     let returnTypeName: String
     let parameters: [Method.Parameter]
 
@@ -33,7 +33,7 @@ struct ProviderMethod {
             return nil
         }
 
-        name = method.name
+        nameWithoutParameters = method.nameWithoutParameters
         returnTypeName = method.returnTypeName
         parameters = method.parameters
     }

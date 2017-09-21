@@ -23,7 +23,7 @@ final class ProviderMethodTests: XCTestCase {
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         let method = ProviderMethod.providerMethods(inResoverType: type).first
-        XCTAssertEqual(method?.name, "provideA(b:c:)")
+        XCTAssertEqual(method?.nameWithoutParameters, "provideA")
         XCTAssertEqual(method?.returnTypeName, "A")
         XCTAssertEqual(method?.parameters.count, 2)
         XCTAssertEqual(method?.parameters[0].name, "b")

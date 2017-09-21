@@ -31,7 +31,7 @@ struct FactoryMethodInjectableType {
 
         guard
             let factoryMethod = type.methods.filter({ $0.name == "makeInstance(dependency:)" }).first, factoryMethod.isStatic,
-            let parameter = factoryMethod.parameters.first, parameter.typeName == "Dependency" else {
+            let parameter = factoryMethod.parameters.first, parameter.typeName == "Dependency" || parameter.typeName == "\(type.name).Dependency" else {
             // Static factory method 'makeInstance(dependency:)' declared in 'FactoryMethodInjectable' is not found.
             return nil
         }

@@ -54,15 +54,14 @@ struct ResolveMethod {
             }
             .joined(separator: ", ")
 
-        let functionName = node.instantiatingFunction.nameWithoutParameters
         let selfInstantiationCode: String
-        switch node.kind {
-        case .initializer:
-            selfInstantiationCode = "return \(node.typeName)(dependency: .init(\(selfInstantiationParameters)))"
-        case .factoryMethod:
-            selfInstantiationCode = "return \(node.typeName).makeInstance(dependency: .init(\(selfInstantiationParameters)))"
-        case .providerMethod:
-            selfInstantiationCode = "return \(functionName)(\(selfInstantiationParameters))"
+        switch node {
+        case .initializerInjectableType(let type):
+            selfInstantiationCode = "return \(type.name)(dependency: .init(\(selfInstantiationParameters)))"
+        case .factoryMethodInjectableType(let type):
+            selfInstantiationCode = "return \(type.name).makeInstance(dependency: .init(\(selfInstantiationParameters)))"
+        case .providerMethod(let method):
+            selfInstantiationCode = "return \(method.nameWithoutParameters)(\(selfInstantiationParameters))"
         }
 
         bodyLines = [dependencyInstantiation, selfInstantiationCode]

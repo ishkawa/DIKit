@@ -9,14 +9,26 @@ struct Resolver {
     let name: String
     let resolveMethods: [ResolveMethod]
 
-    init?(type: Type, injectableTypeNodes: [Node]) {
-        guard 
+    init?(type: Type, allTypes: [Type]) {
+        guard
             type.inheritedTypeNames.contains("Resolver") ||
             type.inheritedTypeNames.contains("DIKit.Resolver") else {
             return nil
         }
 
-        let allNodes = injectableTypeNodes + type.methods.flatMap(Node.init(providerMethod:))
+        let initializerInjectableTypes = allTypes
+            .flatMap(InitializerInjectableType.init(type:))
+            .map { Node.initializerInjectableType($0) }
+
+        let factoryMethodInjectableTypes = allTypes
+            .flatMap(FactoryMethodInjectableType.init(type:))
+            .map { Node.factoryMethodInjectableType($0) }
+
+        let providerMethods = ProviderMethod
+            .providerMethods(inResoverType: type)
+            .map { Node.providerMethod($0) }
+
+        let allNodes = initializerInjectableTypes + factoryMethodInjectableTypes + providerMethods
         var unresolvedNodes = allNodes
         var resolvedFactoryMethods = [] as [ResolveMethod]
 
@@ -27,7 +39,7 @@ struct Resolver {
                     node: unresolvedNode,
                     allNodes: allNodes,
                     factoryMethods: resolvedFactoryMethods) else {
-                    continue
+                        continue
                 }
 
                 unresolvedNodes.remove(at: index)
