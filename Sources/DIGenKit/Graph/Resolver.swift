@@ -16,7 +16,7 @@ struct Resolver {
             return nil
         }
 
-        let allNodes = injectableTypeNodes + type.functions.flatMap(Node.init(providerMethod:))
+        let allNodes = injectableTypeNodes + type.methods.flatMap(Node.init(providerMethod:))
         var unresolvedNodes = allNodes
         var resolvedFactoryMethods = [] as [FactoryMethod]
 

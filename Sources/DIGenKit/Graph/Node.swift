@@ -24,7 +24,7 @@ struct Node {
 
     init?(injectableType: Type) {
         guard
-            let initializer = injectableType.functions.filter({ $0.name == "init(dependency:)" }).first,
+            let initializer = injectableType.methods.filter({ $0.name == "init(dependency:)" }).first,
             injectableType.inheritedTypeNames.contains("Injectable") ||
             injectableType.inheritedTypeNames.contains("DIKit.Injectable") else {
             return nil
@@ -43,7 +43,7 @@ struct Node {
 
     init?(factoryMethodInjectableType type: Type) {
         guard
-            let factoryMethod = type.functions.filter({ $0.name == "makeInstance(dependency:)" }).first,
+            let factoryMethod = type.methods.filter({ $0.name == "makeInstance(dependency:)" }).first,
             factoryMethod.isStatic,
             type.inheritedTypeNames.contains("FactoryMethodInjectable") ||
             type.inheritedTypeNames.contains("DIKit.FactoryMethodInjectable") else {
