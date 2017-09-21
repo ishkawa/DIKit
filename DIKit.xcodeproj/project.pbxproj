@@ -55,7 +55,7 @@
 		OBJ_256 /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CodeGenerator.swift */; };
 		OBJ_257 /* String+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* String+Name.swift */; };
 		OBJ_258 /* Structure+Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Structure+Property.swift */; };
-		OBJ_259 /* FactoryMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* FactoryMethod.swift */; };
+		OBJ_259 /* ResolveMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* ResolveMethod.swift */; };
 		OBJ_260 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Node.swift */; };
 		OBJ_261 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Resolver.swift */; };
 		OBJ_263 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Method.swift */; };
@@ -450,7 +450,7 @@
 		OBJ_137 /* SWXMLHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		OBJ_14 /* String+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Name.swift"; sourceTree = "<group>"; };
 		OBJ_15 /* Structure+Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Structure+Property.swift"; sourceTree = "<group>"; };
-		OBJ_17 /* FactoryMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMethod.swift; sourceTree = "<group>"; };
+		OBJ_17 /* ResolveMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveMethod.swift; sourceTree = "<group>"; };
 		OBJ_18 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		OBJ_19 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		OBJ_22 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -783,7 +783,7 @@
 		OBJ_16 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_17 /* FactoryMethod.swift */,
+				OBJ_17 /* ResolveMethod.swift */,
 				OBJ_18 /* Node.swift */,
 				OBJ_19 /* Resolver.swift */,
 			);
@@ -1416,7 +1416,7 @@
 				OBJ_256 /* CodeGenerator.swift in Sources */,
 				OBJ_257 /* String+Name.swift in Sources */,
 				OBJ_258 /* Structure+Property.swift in Sources */,
-				OBJ_259 /* FactoryMethod.swift in Sources */,
+				OBJ_259 /* ResolveMethod.swift in Sources */,
 				OBJ_260 /* Node.swift in Sources */,
 				OBJ_261 /* Resolver.swift in Sources */,
 				OBJ_263 /* Method.swift in Sources */,

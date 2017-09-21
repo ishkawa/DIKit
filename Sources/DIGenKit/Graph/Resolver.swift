@@ -7,7 +7,7 @@
 
 struct Resolver {
     let name: String
-    let factoryMethods: [FactoryMethod]
+    let resolveMethods: [ResolveMethod]
 
     init?(type: Type, injectableTypeNodes: [Node]) {
         guard 
@@ -18,12 +18,12 @@ struct Resolver {
 
         let allNodes = injectableTypeNodes + type.methods.flatMap(Node.init(providerMethod:))
         var unresolvedNodes = allNodes
-        var resolvedFactoryMethods = [] as [FactoryMethod]
+        var resolvedFactoryMethods = [] as [ResolveMethod]
 
         while !unresolvedNodes.isEmpty {
             var resolved = false
             for (index, unresolvedNode) in unresolvedNodes.enumerated() {
-                guard let factoryMethod = FactoryMethod(
+                guard let factoryMethod = ResolveMethod(
                     node: unresolvedNode,
                     allNodes: allNodes,
                     factoryMethods: resolvedFactoryMethods) else {
@@ -43,6 +43,6 @@ struct Resolver {
         }
 
         name = type.name
-        factoryMethods = resolvedFactoryMethods
+        resolveMethods = resolvedFactoryMethods
     }
 }
