@@ -55,7 +55,6 @@
 		OBJ_259 /* FactoryMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* FactoryMethod.swift */; };
 		OBJ_260 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Node.swift */; };
 		OBJ_261 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Resolver.swift */; };
-		OBJ_262 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Extension.swift */; };
 		OBJ_263 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Method.swift */; };
 		OBJ_264 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Property.swift */; };
 		OBJ_265 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Type.swift */; };
@@ -448,7 +447,6 @@
 		OBJ_17 /* FactoryMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMethod.swift; sourceTree = "<group>"; };
 		OBJ_18 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		OBJ_19 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
-		OBJ_21 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		OBJ_22 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		OBJ_23 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		OBJ_24 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
@@ -779,7 +777,6 @@
 		OBJ_20 /* Structure */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_21 /* Extension.swift */,
 				OBJ_22 /* Method.swift */,
 				OBJ_23 /* Property.swift */,
 				OBJ_24 /* Type.swift */,
@@ -1402,7 +1399,6 @@
 				OBJ_259 /* FactoryMethod.swift in Sources */,
 				OBJ_260 /* Node.swift in Sources */,
 				OBJ_261 /* Resolver.swift in Sources */,
-				OBJ_262 /* Extension.swift in Sources */,
 				OBJ_263 /* Method.swift in Sources */,
 				OBJ_264 /* Property.swift in Sources */,
 				OBJ_265 /* Type.swift in Sources */,
