@@ -70,6 +70,15 @@ struct ProviderMethod {
             throw Error(type: type, method: nil, reason: .nonResolverTypeMethod)
         }
         
-        return try type.methods.flatMap { try ProviderMethod(type: type, method: $0) }
+        return try type.methods
+            .flatMap { method in
+                do {
+                    return try ProviderMethod(type: type, method: method)
+                } catch let error as ProviderMethod.Error where error.reason == .providePrefixNotFound {
+                    return nil
+                } catch {
+                    throw error
+                }
+            }
     }
 }

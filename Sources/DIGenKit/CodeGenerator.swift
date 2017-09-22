@@ -12,7 +12,7 @@ import Stencil
 public final class CodeGenerator {
     let context: [String: Any]
 
-    public init(path: String) {
+    public init(path: String) throws {
         let types = Array(files(atPath: path)
             .map { file in
                 return Structure(file: file)
@@ -21,7 +21,17 @@ public final class CodeGenerator {
             }
             .joined())
 
-        let resolvers = types.flatMap { Resolver(type: $0, allTypes: types) }
+        let resolvers = try types
+            .flatMap { type -> Resolver? in
+                do {
+                    return try Resolver(type: type, allTypes: types)
+                } catch let error as Resolver.Error where error.reason == .protocolConformanceNotFound {
+                    return nil
+                } catch {
+                    throw error
+                }
+            }
+
         context = ["resolvers": resolvers]
     }
 

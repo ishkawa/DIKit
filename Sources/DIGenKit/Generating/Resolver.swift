@@ -6,32 +6,68 @@
 //
 
 struct Resolver {
+    struct Error: Swift.Error {
+        enum Reason {
+            case protocolConformanceNotFound
+            case unresolvableDependecyGraph
+        }
+
+        let type: Type
+        let reason: Reason
+
+        var localizedDescription: String {
+            switch reason {
+            case .protocolConformanceNotFound:
+                return "Type does not conform to 'Resolver' protocol"
+            case .unresolvableDependecyGraph:
+                return "Could not resolve dependency graph"
+            }
+        }
+    }
+
+    
     let name: String
 
     let resolveMethods: [ResolveMethod]
     let injectMethods: [InjectMethod]
     let generatedMethods: [GeneratedMethod]
 
-    init?(type: Type, allTypes: [Type]) {
+    init(type: Type, allTypes: [Type]) throws {
         guard
             type.inheritedTypeNames.contains("Resolver") ||
             type.inheritedTypeNames.contains("DIKit.Resolver") else {
-            return nil
+            throw Error(type: type, reason: .protocolConformanceNotFound)
         }
 
         name = type.name
 
-        let initializerInjectableTypes = allTypes
-            .flatMap { try? InitializerInjectableType(type: $0) }
+        let initializerInjectableTypes = try allTypes
+            .flatMap { type in
+                do {
+                    return try InitializerInjectableType(type: type)
+                } catch let error as InitializerInjectableType.Error where error.reason == .protocolConformanceNotFound {
+                    return nil
+                } catch {
+                    throw error
+                }
+            }
             .map { Node.Declaration.initializerInjectableType($0) }
 
-        let factoryMethodInjectableTypes = allTypes
-            .flatMap { try? FactoryMethodInjectableType(type: $0) }
+        let factoryMethodInjectableTypes = try allTypes
+            .flatMap { type in
+                do {
+                    return try FactoryMethodInjectableType(type: type)
+                } catch let error as FactoryMethodInjectableType.Error where error.reason == .protocolConformanceNotFound {
+                    return nil
+                } catch {
+                    throw error
+                }
+            }
             .map { Node.Declaration.factoryMethodInjectableType($0) }
 
-        let providerMethods = (try? ProviderMethod
+        let providerMethods = try ProviderMethod
             .providerMethods(inResolverType: type)
-            .map { Node.Declaration.providerMethod($0) }) ?? []
+            .map { Node.Declaration.providerMethod($0) }
 
         let allDeclarations = initializerInjectableTypes + factoryMethodInjectableTypes + providerMethods
         var unresolvedDeclarations = allDeclarations
@@ -51,15 +87,22 @@ struct Resolver {
             }
 
             if !resolved {
-                // TODO: Throw error
-                return nil
+                throw Error(type: type, reason: .unresolvableDependecyGraph)
             }
         }
 
         resolveMethods = nodesForResolverMethods.flatMap(ResolveMethod.init(node:))
 
-        let propertyInjectableTypes = allTypes
-            .flatMap { try? PropertyInjectableType(type: $0) }
+        let propertyInjectableTypes = try allTypes
+            .flatMap { type in
+                do {
+                    return try PropertyInjectableType(type: type)
+                } catch let error as PropertyInjectableType.Error where error.reason == .protocolConformanceNotFound {
+                    return nil
+                } catch {
+                    throw error
+                }
+            }
             .map { Node.Declaration.propertyInjectableType($0) }
 
         unresolvedDeclarations = propertyInjectableTypes
@@ -72,7 +115,6 @@ struct Resolver {
                     continue
                 }
 
-                print(node.declaration)
                 unresolvedDeclarations.remove(at: index)
                 nodesForInjectMethods.append(node)
                 resolved = true
@@ -80,8 +122,7 @@ struct Resolver {
             }
 
             if !resolved {
-                // TODO: Throw error
-                return nil
+                throw Error(type: type, reason: .unresolvableDependecyGraph)
             }
         }
 

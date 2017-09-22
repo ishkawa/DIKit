@@ -91,24 +91,4 @@ final class ProviderMethodTests: XCTestCase {
             XCTFail()
         }
     }
-
-    func testWithoutProvidePrefix() {
-        let code = """
-            protocol Test: Resolver {
-                func makeA(b: B, c: C) -> A
-            }
-            """
-
-        let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
-        let type = Type(structure: structure, file: file)!
-        do {
-            _ = try ProviderMethod.providerMethods(inResolverType: type)
-            XCTFail()
-        } catch let error as ProviderMethod.Error {
-            XCTAssertEqual(error.reason, .providePrefixNotFound)
-        } catch {
-            XCTFail()
-        }
-    }
 }
