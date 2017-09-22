@@ -5,8 +5,11 @@
 //  Created by Yosuke Ishikawa on 2017/09/15.
 //
 
+import Foundation
+import SourceKittenFramework
+
 struct Resolver {
-    struct Error: Swift.Error {
+    struct Error: LocalizedError, Findable {
         enum Reason {
             case protocolConformanceNotFound
             case unresolvableDependecyGraph
@@ -15,7 +18,15 @@ struct Resolver {
         let type: Type
         let reason: Reason
 
-        var localizedDescription: String {
+        var file: File {
+            return type.file
+        }
+
+        var offset: Int64 {
+            return type.offset
+        }
+
+        var errorDescription: String? {
             switch reason {
             case .protocolConformanceNotFound:
                 return "Type does not conform to 'Resolver' protocol"

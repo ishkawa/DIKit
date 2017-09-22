@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import SourceKittenFramework
 
 struct ProviderMethod {
-    struct Error: Swift.Error {
+    struct Error: LocalizedError, Findable {
         enum Reason {
             case nonResolverTypeMethod
             case providePrefixNotFound
@@ -21,7 +22,15 @@ struct ProviderMethod {
         let method: Method?
         let reason: Reason
 
-        var localizedDescription: String {
+        var file: File {
+            return method?.file ?? type.file
+        }
+
+        var offset: Int64 {
+            return method?.offset ?? type.offset
+        }
+
+        var errorDescription: String? {
             switch reason {
             case .nonResolverTypeMethod:
                 return "Type does not conform to 'Resolver' protocol"

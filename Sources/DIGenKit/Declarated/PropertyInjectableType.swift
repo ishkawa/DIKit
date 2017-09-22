@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import SourceKittenFramework
 
 struct PropertyInjectableType {
-    struct Error: Swift.Error {
+    struct Error: LocalizedError, Findable {
         enum Reason {
             case protocolConformanceNotFound
             case associatedTypeNotFound
@@ -19,7 +20,15 @@ struct PropertyInjectableType {
         let type: Type
         let reason: Reason
 
-        var localizedDescription: String {
+        var file: File {
+            return type.file
+        }
+
+        var offset: Int64 {
+            return type.offset
+        }
+
+        var errorDescription: String? {
             switch reason {
             case .protocolConformanceNotFound:
                 return "Type is not declared as conformer of 'PropertyInjectableType'"

@@ -14,21 +14,21 @@ struct Property {
     let typeName: String
     let isStatic: Bool
 
-    init(name: String, typeName: String, isStatic: Bool = false) {
-        self.name = name
-        self.typeName = typeName
-        self.isStatic = isStatic
-    }
+    let file: File
+    let offset: Int64
 
     init?(structure: Structure, file: File) {
         guard structure.kind == .varInstance || structure.kind == .varStatic,
             let name = structure.name,
-            let typeName = structure.typeName else {
+            let typeName = structure.typeName,
+            let offset = structure.offset else {
             return nil
         }
 
         self.name = name
         self.typeName = typeName
         self.isStatic = structure.kind == .varStatic
+        self.file = file
+        self.offset = offset
     }
 }
