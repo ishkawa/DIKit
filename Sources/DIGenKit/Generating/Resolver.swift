@@ -29,9 +29,9 @@ struct Resolver {
             .flatMap { try? FactoryMethodInjectableType(type: $0) }
             .map { Node.Declaration.factoryMethodInjectableType($0) }
 
-        let providerMethods = ProviderMethod
+        let providerMethods = (try? ProviderMethod
             .providerMethods(inResolverType: type)
-            .map { Node.Declaration.providerMethod($0) }
+            .map { Node.Declaration.providerMethod($0) }) ?? []
 
         let allDeclarations = initializerInjectableTypes + factoryMethodInjectableTypes + providerMethods
         var unresolvedDeclarations = allDeclarations
