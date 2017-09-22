@@ -22,7 +22,7 @@ struct Resolver {
         name = type.name
 
         let initializerInjectableTypes = allTypes
-            .flatMap(InitializerInjectableType.init(type:))
+            .flatMap { try? InitializerInjectableType(type: $0) }
             .map { Node.Declaration.initializerInjectableType($0) }
 
         let factoryMethodInjectableTypes = allTypes
