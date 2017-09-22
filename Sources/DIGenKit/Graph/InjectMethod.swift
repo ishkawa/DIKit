@@ -1,13 +1,13 @@
 //
-//  ResolveMethod.swift
-//  dikitgen
+//  InjectMethod.swift
+//  DIGenKit
 //
-//  Created by Yosuke Ishikawa on 2017/09/16.
+//  Created by Yosuke Ishikawa on 2017/09/22.
 //
 
 import Foundation
 
-struct ResolveMethod {
+struct InjectMethod {
     struct Parameter {
         let name: String
         let typeName: String
@@ -31,7 +31,7 @@ struct ResolveMethod {
             }
             .joined(separator: "\n")
 
-        let selfInstantiation: String = {
+        let selfInjection: String = {
             let parameters = node.dependencies
                 .map { dependency in
                     switch dependency {
@@ -44,26 +44,26 @@ struct ResolveMethod {
                 .joined(separator: ", ")
 
             switch node.declaration {
-            case .initializerInjectableType(let type):
-                return "return \(type.name)(dependency: .init(\(parameters)))"
-            case .factoryMethodInjectableType(let type):
-                return "return \(type.name).makeInstance(dependency: .init(\(parameters)))"
             case .propertyInjectableType:
-                fatalError("propertyInjectableType node can't be resolved by resolve method")
-            case .providerMethod(let method):
-                return "return \(method.nameWithoutParameters)(\(parameters))"
+                return "\(node.declaration.typeName.firstWordLowercased).dependency = \(node.declaration.typeName).Dependency(\(parameters))"
+            default:
+                fatalError("\(node.declaration) node can't be resolved by inject method")
             }
         }()
 
-        bodyLines = [dependencyInstantiation, selfInstantiation]
+        bodyLines = [dependencyInstantiation, selfInjection]
             .joined(separator: "\n")
             .components(separatedBy: CharacterSet.newlines)
             .filter { !$0.isEmpty }
 
-        returnTypeName = node.declaration.typeName
-        name = "resolve" + node.declaration.typeName
+        name = "injectTo" + node.declaration.typeName
+        returnTypeName = "Void"
 
-        parameters = node.deepDependencyParameters.map { Parameter(name: $0.name, typeName: $0.typeName) }
+        let targetParameter = Parameter(
+            name: "_ \(node.declaration.typeName.firstWordLowercased)",
+            typeName: node.declaration.typeName)
+
+        parameters = [targetParameter] + node.deepDependencyParameters.map { Parameter(name: $0.name, typeName: $0.typeName) }
         parametersDeclaration = parameters
             .map { "\($0.name): \($0.typeName)" }
             .joined(separator: ", ")

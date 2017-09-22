@@ -9,6 +9,7 @@ struct Node {
     enum Declaration {
         case initializerInjectableType(InitializerInjectableType)
         case factoryMethodInjectableType(FactoryMethodInjectableType)
+        case propertyInjectableType(PropertyInjectableType)
         case providerMethod(ProviderMethod)
 
         struct Dependency {
@@ -22,6 +23,8 @@ struct Node {
                 return type.name
             case .factoryMethodInjectableType(let type):
                 return type.name
+            case .propertyInjectableType(let type):
+                return type.name
             case .providerMethod(let method):
                 return method.returnTypeName
             }
@@ -32,6 +35,8 @@ struct Node {
             case .initializerInjectableType(let type):
                 return type.dependencyProperties.map { Dependency(name: $0.name, typeName: $0.typeName) }
             case .factoryMethodInjectableType(let type):
+                return type.dependencyProperties.map { Dependency(name: $0.name, typeName: $0.typeName) }
+            case .propertyInjectableType(let type):
                 return type.dependencyProperties.map { Dependency(name: $0.name, typeName: $0.typeName) }
             case .providerMethod(let method):
                 return method.parameters.map { Dependency(name: $0.name, typeName: $0.typeName) }

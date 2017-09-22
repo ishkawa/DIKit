@@ -24,6 +24,8 @@
 		7F3C5B0F1F6D707700842641 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C5B0D1F6D701A00842641 /* AppTests.swift */; };
 		7F467A721F7527A40041CAFB /* PropertyInjectableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F467A711F7527A40041CAFB /* PropertyInjectableType.swift */; };
 		7F467A741F7528870041CAFB /* PropertyInjectableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F467A731F7528870041CAFB /* PropertyInjectableTests.swift */; };
+		7F467A761F752FB70041CAFB /* InjectMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F467A751F752FB70041CAFB /* InjectMethod.swift */; };
+		7F467A781F7534850041CAFB /* GeneratedMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F467A771F7534850041CAFB /* GeneratedMethod.swift */; };
 		7F540C8B1F73F1970045CC12 /* MethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8A1F73F1970045CC12 /* MethodTests.swift */; };
 		7F540C8D1F73F2210045CC12 /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8C1F73F2210045CC12 /* PropertyTests.swift */; };
 		7F540C8F1F73F5340045CC12 /* TypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8E1F73F5340045CC12 /* TypeTests.swift */; };
@@ -418,6 +420,8 @@
 		7F3C5B0D1F6D701A00842641 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
 		7F467A711F7527A40041CAFB /* PropertyInjectableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyInjectableType.swift; sourceTree = "<group>"; };
 		7F467A731F7528870041CAFB /* PropertyInjectableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyInjectableTests.swift; sourceTree = "<group>"; };
+		7F467A751F752FB70041CAFB /* InjectMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectMethod.swift; sourceTree = "<group>"; };
+		7F467A771F7534850041CAFB /* GeneratedMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMethod.swift; sourceTree = "<group>"; };
 		7F540C8A1F73F1970045CC12 /* MethodTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodTests.swift; sourceTree = "<group>"; };
 		7F540C8C1F73F2210045CC12 /* PropertyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTests.swift; sourceTree = "<group>"; };
 		7F540C8E1F73F5340045CC12 /* TypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTests.swift; sourceTree = "<group>"; };
@@ -810,7 +814,9 @@
 		OBJ_16 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				7F467A771F7534850041CAFB /* GeneratedMethod.swift */,
 				OBJ_17 /* ResolveMethod.swift */,
+				7F467A751F752FB70041CAFB /* InjectMethod.swift */,
 				OBJ_19 /* Resolver.swift */,
 				OBJ_18 /* Node.swift */,
 				7F540C931F740C210045CC12 /* InitializerInjectableType.swift */,
@@ -1451,6 +1457,7 @@
 			files = (
 				OBJ_256 /* CodeGenerator.swift in Sources */,
 				7F540C951F740C930045CC12 /* InitializerInjectableType.swift in Sources */,
+				7F467A781F7534850041CAFB /* GeneratedMethod.swift in Sources */,
 				OBJ_257 /* String+Name.swift in Sources */,
 				OBJ_258 /* Structure+Property.swift in Sources */,
 				OBJ_259 /* ResolveMethod.swift in Sources */,
@@ -1462,6 +1469,7 @@
 				OBJ_265 /* Type.swift in Sources */,
 				7F540C9A1F7412E80045CC12 /* FactoryMethodInjectableType.swift in Sources */,
 				7F540C9E1F7414A30045CC12 /* ProviderMethod.swift in Sources */,
+				7F467A761F752FB70041CAFB /* InjectMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
