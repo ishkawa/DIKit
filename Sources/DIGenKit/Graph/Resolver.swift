@@ -9,29 +9,38 @@ struct Resolver {
     let name: String
     let resolveMethods: [ResolveMethod]
 
-    init?(type: Type, injectableTypeNodes: [Node]) {
-        guard 
+    init?(type: Type, allTypes: [Type]) {
+        guard
             type.inheritedTypeNames.contains("Resolver") ||
             type.inheritedTypeNames.contains("DIKit.Resolver") else {
             return nil
         }
 
-        let allNodes = injectableTypeNodes + type.methods.flatMap(Node.init(providerMethod:))
-        var unresolvedNodes = allNodes
-        var resolvedFactoryMethods = [] as [ResolveMethod]
+        let initializerInjectableTypes = allTypes
+            .flatMap(InitializerInjectableType.init(type:))
+            .map { Node.Declaration.initializerInjectableType($0) }
 
-        while !unresolvedNodes.isEmpty {
+        let factoryMethodInjectableTypes = allTypes
+            .flatMap(FactoryMethodInjectableType.init(type:))
+            .map { Node.Declaration.factoryMethodInjectableType($0) }
+
+        let providerMethods = ProviderMethod
+            .providerMethods(inResolverType: type)
+            .map { Node.Declaration.providerMethod($0) }
+
+        let allDeclarations = initializerInjectableTypes + factoryMethodInjectableTypes + providerMethods
+        var unresolvedDeclarations = allDeclarations
+        var nodes = [] as [Node]
+
+        while !unresolvedDeclarations.isEmpty {
             var resolved = false
-            for (index, unresolvedNode) in unresolvedNodes.enumerated() {
-                guard let factoryMethod = ResolveMethod(
-                    node: unresolvedNode,
-                    allNodes: allNodes,
-                    factoryMethods: resolvedFactoryMethods) else {
+            for (index, declaration) in unresolvedDeclarations.enumerated() {
+                guard let node = Node(declaration: declaration, allDeclarations: allDeclarations, availableNodes: nodes) else {
                     continue
                 }
 
-                unresolvedNodes.remove(at: index)
-                resolvedFactoryMethods.append(factoryMethod)
+                unresolvedDeclarations.remove(at: index)
+                nodes.append(node)
                 resolved = true
                 break
             }
@@ -43,6 +52,6 @@ struct Resolver {
         }
 
         name = type.name
-        resolveMethods = resolvedFactoryMethods
+        resolveMethods = nodes.flatMap(ResolveMethod.init(node:))
     }
 }
