@@ -7,7 +7,10 @@
 
 struct Resolver {
     let name: String
+
     let resolveMethods: [ResolveMethod]
+    let injectMethods: [InjectMethod]
+    let generatedMethods: [GeneratedMethod]
 
     init?(type: Type, allTypes: [Type]) {
         guard
@@ -15,6 +18,8 @@ struct Resolver {
             type.inheritedTypeNames.contains("DIKit.Resolver") else {
             return nil
         }
+
+        name = type.name
 
         let initializerInjectableTypes = allTypes
             .flatMap(InitializerInjectableType.init(type:))
@@ -30,17 +35,17 @@ struct Resolver {
 
         let allDeclarations = initializerInjectableTypes + factoryMethodInjectableTypes + providerMethods
         var unresolvedDeclarations = allDeclarations
-        var nodes = [] as [Node]
+        var nodesForResolverMethods = [] as [Node]
 
         while !unresolvedDeclarations.isEmpty {
             var resolved = false
             for (index, declaration) in unresolvedDeclarations.enumerated() {
-                guard let node = Node(declaration: declaration, allDeclarations: allDeclarations, availableNodes: nodes) else {
+                guard let node = Node(declaration: declaration, allDeclarations: allDeclarations, availableNodes: nodesForResolverMethods) else {
                     continue
                 }
 
                 unresolvedDeclarations.remove(at: index)
-                nodes.append(node)
+                nodesForResolverMethods.append(node)
                 resolved = true
                 break
             }
@@ -51,7 +56,36 @@ struct Resolver {
             }
         }
 
-        name = type.name
-        resolveMethods = nodes.flatMap(ResolveMethod.init(node:))
+        resolveMethods = nodesForResolverMethods.flatMap(ResolveMethod.init(node:))
+
+        let propertyInjectableTypes = allTypes
+            .flatMap(PropertyInjectableType.init(type:))
+            .map { Node.Declaration.propertyInjectableType($0) }
+
+        unresolvedDeclarations = propertyInjectableTypes
+        var nodesForInjectMethods = [] as [Node]
+
+        while !unresolvedDeclarations.isEmpty {
+            var resolved = false
+            for (index, declaration) in unresolvedDeclarations.enumerated() {
+                guard let node = Node(declaration: declaration, allDeclarations: allDeclarations, availableNodes: nodesForResolverMethods) else {
+                    continue
+                }
+
+                print(node.declaration)
+                unresolvedDeclarations.remove(at: index)
+                nodesForInjectMethods.append(node)
+                resolved = true
+                break
+            }
+
+            if !resolved {
+                // TODO: Throw error
+                return nil
+            }
+        }
+
+        injectMethods = nodesForInjectMethods.flatMap(InjectMethod.init(node:))
+        generatedMethods = resolveMethods as [GeneratedMethod] + injectMethods as [GeneratedMethod]
     }
 }

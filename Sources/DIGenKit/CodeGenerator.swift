@@ -33,9 +33,9 @@ public final class CodeGenerator {
             //
             {% for resolver in resolvers %}
             extension {{ resolver.name }} {
-            {% for resolveMethod in resolver.resolveMethods %}
-                func {{ resolveMethod.name }}({{ resolveMethod.parametersDeclaration }}) -> {{ resolveMethod.returnTypeName }} {
-                    {% for line in resolveMethod.bodyLines %}{{ line }}{% if not forloop.last %}
+            {% for method in resolver.generatedMethods %}
+                func {{ method.name }}({{ method.parametersDeclaration }}) -> {{ method.returnTypeName }} {
+                    {% for line in method.bodyLines %}{{ line }}{% if not forloop.last %}
                     {% endif %}{% endfor %}
                 }
             {% endfor %}

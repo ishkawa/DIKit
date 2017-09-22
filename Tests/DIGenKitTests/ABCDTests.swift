@@ -35,6 +35,16 @@ struct C: FactoryMethodInjectable {
 
 struct D {}
 
+class E: PropertyInjectable {
+    struct Dependency {
+        let ea: A
+        let ec: C
+        let eb: B
+    }
+
+    var dependency: Dependency!
+}
+
 protocol ABCDResolver: DIKit.Resolver {
     func provideD() -> D
 }
@@ -68,6 +78,13 @@ final class ABCDTests: XCTestCase {
                     let a = resolveA()
                     let d = resolveD()
                     return C.makeInstance(dependency: .init(ca: a, cd: d))
+                }
+
+                func injectToE(_ e: E) -> Void {
+                    let a = resolveA()
+                    let c = resolveC()
+                    let b = resolveB()
+                    e.dependency = E.Dependency(ea: a, ec: c, eb: b)
                 }
 
             }
