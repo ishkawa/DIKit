@@ -670,6 +670,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_12 /* CodeGenerator.swift */,
+				OBJ_16 /* Node.swift */,
 				OBJ_13 /* Declarated */,
 				OBJ_22 /* Generating */,
 				OBJ_27 /* Structure */,
@@ -727,7 +728,6 @@
 			children = (
 				OBJ_14 /* FactoryMethodInjectableType.swift */,
 				OBJ_15 /* InitializerInjectableType.swift */,
-				OBJ_16 /* Node.swift */,
 				OBJ_17 /* PropertyInjectableType.swift */,
 				OBJ_18 /* ProviderMethod.swift */,
 			);
