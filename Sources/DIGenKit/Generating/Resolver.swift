@@ -59,7 +59,7 @@ struct Resolver {
         resolveMethods = nodesForResolverMethods.flatMap(ResolveMethod.init(node:))
 
         let propertyInjectableTypes = allTypes
-            .flatMap(PropertyInjectableType.init(type:))
+            .flatMap { try? PropertyInjectableType(type: $0) }
             .map { Node.Declaration.propertyInjectableType($0) }
 
         unresolvedDeclarations = propertyInjectableTypes

@@ -27,7 +27,7 @@ final class PropertyInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = PropertyInjectableType(type: type)
+        let injectableType = try? PropertyInjectableType(type: type)
         XCTAssertEqual(injectableType?.name, "Test")
         XCTAssertEqual(injectableType?.dependencyProperties.count, 2)
         XCTAssertEqual(injectableType?.dependencyProperties[0].name, "a")
@@ -51,8 +51,14 @@ final class PropertyInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = PropertyInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try PropertyInjectableType(type: type)
+            XCTFail()
+        } catch let error as PropertyInjectableType.Error {
+            XCTAssertEqual(error.reason, .protocolConformanceNotFound)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testClassAssociatedType() {
@@ -70,8 +76,14 @@ final class PropertyInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = PropertyInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try PropertyInjectableType(type: type)
+            XCTFail()
+        } catch let error as PropertyInjectableType.Error {
+            XCTAssertEqual(error.reason, .nonStructAssociatedType)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testMissingAssociatedType() {
@@ -84,8 +96,14 @@ final class PropertyInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = PropertyInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try PropertyInjectableType(type: type)
+            XCTFail()
+        } catch let error as PropertyInjectableType.Error {
+            XCTAssertEqual(error.reason, .associatedTypeNotFound)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testMissingProperty() {
@@ -101,8 +119,14 @@ final class PropertyInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = PropertyInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try PropertyInjectableType(type: type)
+            XCTFail()
+        } catch let error as PropertyInjectableType.Error {
+            XCTAssertEqual(error.reason, .propertyNotFound)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testWrongTypeProperty() {
@@ -120,8 +144,14 @@ final class PropertyInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = PropertyInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try PropertyInjectableType(type: type)
+            XCTFail()
+        } catch let error as PropertyInjectableType.Error {
+            XCTAssertEqual(error.reason, .propertyNotFound)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testNonOptionalProperty() {
@@ -139,8 +169,14 @@ final class PropertyInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = PropertyInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try PropertyInjectableType(type: type)
+            XCTFail()
+        } catch let error as PropertyInjectableType.Error {
+            XCTAssertEqual(error.reason, .propertyNotFound)
+        } catch {
+            XCTFail()
+        }
     }
 }
 
