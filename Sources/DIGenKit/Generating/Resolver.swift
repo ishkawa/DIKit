@@ -26,7 +26,7 @@ struct Resolver {
             .map { Node.Declaration.initializerInjectableType($0) }
 
         let factoryMethodInjectableTypes = allTypes
-            .flatMap(FactoryMethodInjectableType.init(type:))
+            .flatMap { try? FactoryMethodInjectableType(type: $0) }
             .map { Node.Declaration.factoryMethodInjectableType($0) }
 
         let providerMethods = ProviderMethod

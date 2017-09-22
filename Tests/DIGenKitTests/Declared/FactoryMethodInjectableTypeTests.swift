@@ -29,7 +29,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = FactoryMethodInjectableType(type: type)
+        let injectableType = try? FactoryMethodInjectableType(type: type)
         XCTAssertEqual(injectableType?.name, "Test")
         XCTAssertEqual(injectableType?.dependencyProperties.count, 2)
         XCTAssertEqual(injectableType?.dependencyProperties[0].name, "a")
@@ -55,8 +55,14 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = FactoryMethodInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try FactoryMethodInjectableType(type: type)
+            XCTFail()
+        } catch let error as FactoryMethodInjectableType.Error {
+            XCTAssertEqual(error.reason, .protocolConformanceNotFound)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testClassAssociatedType() {
@@ -76,8 +82,14 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = FactoryMethodInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try FactoryMethodInjectableType(type: type)
+            XCTFail()
+        } catch let error as FactoryMethodInjectableType.Error {
+            XCTAssertEqual(error.reason, .nonStructAssociatedType)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testMissingAssociatedType() {
@@ -92,8 +104,14 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = FactoryMethodInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try FactoryMethodInjectableType(type: type)
+            XCTFail()
+        } catch let error as FactoryMethodInjectableType.Error {
+            XCTAssertEqual(error.reason, .associatedTypeNotFound)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testMissingFactoryMethod() {
@@ -109,8 +127,14 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = FactoryMethodInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try FactoryMethodInjectableType(type: type)
+            XCTFail()
+        } catch let error as FactoryMethodInjectableType.Error {
+            XCTAssertEqual(error.reason, .factoryMethodNotFound)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testWrongTypeFactoryMethod() {
@@ -130,8 +154,14 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let injectableType = FactoryMethodInjectableType(type: type)
-        XCTAssertNil(injectableType)
+        do {
+            _ = try FactoryMethodInjectableType(type: type)
+            XCTFail()
+        } catch let error as FactoryMethodInjectableType.Error {
+            XCTAssertEqual(error.reason, .factoryMethodNotFound)
+        } catch {
+            XCTFail()
+        }
     }
 }
 
