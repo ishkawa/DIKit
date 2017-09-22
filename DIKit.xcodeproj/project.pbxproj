@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		7F3C5B0F1F6D707700842641 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C5B0D1F6D701A00842641 /* AppTests.swift */; };
+		7F467A721F7527A40041CAFB /* PropertyInjectableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F467A711F7527A40041CAFB /* PropertyInjectableType.swift */; };
+		7F467A741F7528870041CAFB /* PropertyInjectableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F467A731F7528870041CAFB /* PropertyInjectableTests.swift */; };
 		7F540C8B1F73F1970045CC12 /* MethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8A1F73F1970045CC12 /* MethodTests.swift */; };
 		7F540C8D1F73F2210045CC12 /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8C1F73F2210045CC12 /* PropertyTests.swift */; };
 		7F540C8F1F73F5340045CC12 /* TypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F540C8E1F73F5340045CC12 /* TypeTests.swift */; };
@@ -414,6 +416,8 @@
 
 /* Begin PBXFileReference section */
 		7F3C5B0D1F6D701A00842641 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		7F467A711F7527A40041CAFB /* PropertyInjectableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyInjectableType.swift; sourceTree = "<group>"; };
+		7F467A731F7528870041CAFB /* PropertyInjectableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyInjectableTests.swift; sourceTree = "<group>"; };
 		7F540C8A1F73F1970045CC12 /* MethodTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodTests.swift; sourceTree = "<group>"; };
 		7F540C8C1F73F2210045CC12 /* PropertyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTests.swift; sourceTree = "<group>"; };
 		7F540C8E1F73F5340045CC12 /* TypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTests.swift; sourceTree = "<group>"; };
@@ -673,6 +677,7 @@
 			children = (
 				7F540C971F740FD10045CC12 /* InitializerInjectableTypeTests.swift */,
 				7F540C9B1F7413A70045CC12 /* FactoryMethodInjectableTypeTests.swift */,
+				7F467A731F7528870041CAFB /* PropertyInjectableTests.swift */,
 				7F540C9F1F7416360045CC12 /* ProviderMethodTests.swift */,
 			);
 			path = Graph;
@@ -810,6 +815,7 @@
 				OBJ_18 /* Node.swift */,
 				7F540C931F740C210045CC12 /* InitializerInjectableType.swift */,
 				7F540C991F7412E80045CC12 /* FactoryMethodInjectableType.swift */,
+				7F467A711F7527A40041CAFB /* PropertyInjectableType.swift */,
 				7F540C9D1F7414A30045CC12 /* ProviderMethod.swift */,
 			);
 			path = Graph;
@@ -1421,6 +1427,7 @@
 			files = (
 				7F540C8F1F73F5340045CC12 /* TypeTests.swift in Sources */,
 				OBJ_197 /* ABCDTests.swift in Sources */,
+				7F467A741F7528870041CAFB /* PropertyInjectableTests.swift in Sources */,
 				7F3C5B0F1F6D707700842641 /* AppTests.swift in Sources */,
 				7F540CA01F7416360045CC12 /* ProviderMethodTests.swift in Sources */,
 				7F540C981F740FD10045CC12 /* InitializerInjectableTypeTests.swift in Sources */,
@@ -1450,6 +1457,7 @@
 				OBJ_260 /* Node.swift in Sources */,
 				OBJ_261 /* Resolver.swift in Sources */,
 				OBJ_263 /* Method.swift in Sources */,
+				7F467A721F7527A40041CAFB /* PropertyInjectableType.swift in Sources */,
 				OBJ_264 /* Property.swift in Sources */,
 				OBJ_265 /* Type.swift in Sources */,
 				7F540C9A1F7412E80045CC12 /* FactoryMethodInjectableType.swift in Sources */,
