@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		7F78EA391F7574A900D1B3B5 /* Findable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78EA381F7574A900D1B3B5 /* Findable.swift */; };
 		OBJ_172 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_178 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Package.swift */; };
 		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* Package.swift */; };
@@ -417,6 +418,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F78EA381F7574A900D1B3B5 /* Findable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Findable.swift; sourceTree = "<group>"; };
 		"DIKit::DIGenKit::Product" /* DIGenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIGenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIGenKitTests::Product" /* DIGenKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIGenKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIKit::Product" /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -671,6 +673,7 @@
 			children = (
 				OBJ_12 /* CodeGenerator.swift */,
 				OBJ_16 /* Node.swift */,
+				7F78EA381F7574A900D1B3B5 /* Findable.swift */,
 				OBJ_13 /* Declarated */,
 				OBJ_22 /* Generating */,
 				OBJ_27 /* Structure */,
@@ -923,7 +926,7 @@
 			path = ".build/checkouts/Stencil.git-7635584243355970173/Sources";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -932,7 +935,6 @@
 				OBJ_48 /* Dependencies */,
 				OBJ_155 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -1359,7 +1361,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_155 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1485,6 +1487,7 @@
 				OBJ_290 /* ResolveMethod.swift in Sources */,
 				OBJ_291 /* Resolver.swift in Sources */,
 				OBJ_292 /* Method.swift in Sources */,
+				7F78EA391F7574A900D1B3B5 /* Findable.swift in Sources */,
 				OBJ_293 /* Property.swift in Sources */,
 				OBJ_294 /* Type.swift in Sources */,
 			);

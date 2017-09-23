@@ -8,5 +8,27 @@ guard CommandLine.arguments.count == 2 else {
 }
 
 let path = CommandLine.arguments[1]
-let generator = CodeGenerator(path: path)
-print(try generator.generate())
+
+do {
+    let generator = try CodeGenerator(path: path)
+    print(try generator.generate())
+} catch let anyError {
+    guard
+        let error = anyError as? (Error & Findable),
+        let path = error.file.path else {
+        print("error: \(anyError.localizedDescription)")
+        exit(1)
+    }
+
+    var lineNumber = 1
+    for line in error.file.lines {
+        if line.range.contains(Int(error.offset)) {
+            break
+        }
+        lineNumber += 1
+    }
+
+    print("\(path):\(lineNumber): error: \(error.localizedDescription)")
+    exit(1)
+}
+

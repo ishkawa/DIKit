@@ -36,6 +36,9 @@ struct Method {
     let parameters: [Parameter]
     let returnTypeName: String
 
+    let file: File
+    let offset: Int64
+
     var isInitializer: Bool {
         return name.hasPrefix("init(")
     }
@@ -79,5 +82,7 @@ struct Method {
         self.name = name
         self.kind = kind
         self.parameters = structure.substructures.flatMap(Parameter.init)
+        self.file = file
+        self.offset = offset
     }
 }

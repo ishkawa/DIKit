@@ -22,7 +22,7 @@ final class ProviderMethodTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let method = ProviderMethod.providerMethods(inResolverType: type).first
+        let method = (try? ProviderMethod.providerMethods(inResolverType: type))?.first
         XCTAssertEqual(method?.nameWithoutParameters, "provideA")
         XCTAssertEqual(method?.returnTypeName, "A")
         XCTAssertEqual(method?.parameters.count, 2)
@@ -42,8 +42,14 @@ final class ProviderMethodTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let method = ProviderMethod.providerMethods(inResolverType: type).first
-        XCTAssertNil(method)
+        do {
+            _ = try ProviderMethod.providerMethods(inResolverType: type)
+            XCTFail()
+        } catch let error as ProviderMethod.Error {
+            XCTAssertEqual(error.reason, .nonResolverTypeMethod)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testMissingReturnType() {
@@ -56,8 +62,14 @@ final class ProviderMethodTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let method = ProviderMethod.providerMethods(inResolverType: type).first
-        XCTAssertNil(method)
+        do {
+            _ = try ProviderMethod.providerMethods(inResolverType: type)
+            XCTFail()
+        } catch let error as ProviderMethod.Error {
+            XCTAssertEqual(error.reason, .returnTypeNotFound)
+        } catch {
+            XCTFail()
+        }
     }
 
     func testStatic() {
@@ -70,21 +82,13 @@ final class ProviderMethodTests: XCTestCase {
         let file = File(contents: code)
         let structure = Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
-        let method = ProviderMethod.providerMethods(inResolverType: type).first
-        XCTAssertNil(method)
-    }
-
-    func testWithoutProvidePrefix() {
-        let code = """
-            protocol Test: Resolver {
-                func makeA(b: B, c: C) -> A
-            }
-            """
-
-        let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
-        let type = Type(structure: structure, file: file)!
-        let method = ProviderMethod.providerMethods(inResolverType: type).first
-        XCTAssertNil(method)
+        do {
+            _ = try ProviderMethod.providerMethods(inResolverType: type)
+            XCTFail()
+        } catch let error as ProviderMethod.Error {
+            XCTAssertEqual(error.reason, .nonInstanceMethod)
+        } catch {
+            XCTFail()
+        }
     }
 }

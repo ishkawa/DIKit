@@ -36,9 +36,9 @@ protocol AppResolver: Resolver {
 }
 
 final class AppTests: XCTestCase {
-    func test() {
-        let generator = CodeGenerator(path: #file)
-        let contents = try! generator.generate().trimmingCharacters(in: .whitespacesAndNewlines)
+    func test() throws {
+        let generator = try CodeGenerator(path: #file)
+        let contents = try generator.generate().trimmingCharacters(in: .whitespacesAndNewlines)
         XCTAssertEqual(contents, """
             //
             //  Resolver.swift
