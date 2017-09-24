@@ -77,7 +77,7 @@ private func files(atPath path: String) -> [File] {
         if fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) {
             if isDirectory.boolValue {
                 files.append(contentsOf: DIGenKit.files(atPath: url.path))
-            } else if url.pathExtension == "swift", let file = File(path: url.path) {
+            } else if url.pathExtension == "swift", let file = File(path: url.path), file.contents.contains("DIKit") {
                 files.append(file)
             }
         }
