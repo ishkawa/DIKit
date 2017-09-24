@@ -201,6 +201,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FA64DAC1F6E11C600DA45A2 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
+				7FFDA18A1F785CCE0098BA9D /* ShellScript */,
 				7FA64D961F6E11C600DA45A2 /* Sources */,
 				7FA64D971F6E11C600DA45A2 /* Frameworks */,
 				7FA64D981F6E11C600DA45A2 /* Resources */,
@@ -347,6 +348,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FFDA18A1F785CCE0098BA9D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which dikitgen >/dev/null; then\ndikitgen ${SRCROOT}/Example > ${SRCROOT}/Example/AppResolver.generated.swift\nelse\necho \"warning: dikitgen not installed, download from https://github.com/ishkawa/DIKit\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7FA64D961F6E11C600DA45A2 /* Sources */ = {
