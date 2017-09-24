@@ -72,15 +72,12 @@ private func files(atPath path: String) -> [File] {
     var files = [] as [File]
     while let subpath = enumerator?.nextObject() as? String {
         let url = url.appendingPathComponent(subpath)
-        guard url.lastPathComponent != ".DS_Store" else {
-            continue
-        }
 
         var isDirectory = false as ObjCBool
         if fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) {
             if isDirectory.boolValue {
                 files.append(contentsOf: DIGenKit.files(atPath: url.path))
-            } else if let file = File(path: url.path) {
+            } else if url.pathExtension == "swift", let file = File(path: url.path) {
                 files.append(file)
             }
         }
