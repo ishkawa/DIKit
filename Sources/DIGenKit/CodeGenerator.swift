@@ -61,25 +61,19 @@ private func files(atPath path: String) -> [File] {
     let url = URL(fileURLWithPath: path)
     let fileManager = FileManager.default
 
-    var isDirectory = false as ObjCBool
-    if fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) && !isDirectory.boolValue {
-        if let file = File(path: url.path) {
-            return [file]
-        }
-    }
-
-    let enumerator = fileManager.enumerator(atPath: path)
     var files = [] as [File]
-    while let subpath = enumerator?.nextObject() as? String {
-        let url = url.appendingPathComponent(subpath)
-
-        var isDirectory = false as ObjCBool
-        if fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) {
-            if isDirectory.boolValue {
-                files.append(contentsOf: DIGenKit.files(atPath: url.path))
-            } else if url.pathExtension == "swift", let file = File(path: url.path), file.contents.contains("DIKit") {
-                files.append(file)
+    var isDirectory = false as ObjCBool
+    if fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) {
+        if isDirectory.boolValue {
+            let enumerator = fileManager.enumerator(atPath: path)
+            while let subpath = enumerator?.nextObject() as? String {
+                let url = url.appendingPathComponent(subpath)
+                if url.pathExtension == "swift", let file = File(path: url.path), file.contents.contains("DIKit") {
+                    files.append(file)
+                }
             }
+        } else if let file = File(path: url.path) {
+            files.append(file)
         }
     }
 
