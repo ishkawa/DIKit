@@ -9,26 +9,19 @@
 import UIKit
 import DIKit
 
-final class ListViewController: UITableViewController, Injectable {
+final class ListViewController: UITableViewController, FactoryMethodInjectable {
     struct Dependency {
         let apiClient: APIClient
         let resolver: AppResolver
     }
 
-    private let dependency: Dependency
+    private var dependency: Dependency!
 
-    init(dependency: Dependency) {
-        self.dependency = dependency
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("Not supported")
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    static func makeInstance(dependency: Dependency) -> ListViewController {
+        let storyboard = UIStoryboard(name: "List", bundle: nil)
+        let viewConroller = storyboard.instantiateInitialViewController() as! ListViewController
+        viewConroller.dependency = dependency
+        return viewConroller
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

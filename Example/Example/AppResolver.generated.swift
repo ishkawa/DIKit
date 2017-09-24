@@ -15,13 +15,13 @@ extension AppResolver {
 
     func resolveDetailViewController(index: Int) -> DetailViewController {
         let apiClient = resolveAPIClient()
-        return DetailViewController(dependency: .init(index: index, apiClient: apiClient))
+        return DetailViewController.makeInstance(dependency: .init(index: index, apiClient: apiClient))
     }
 
     func resolveListViewController() -> ListViewController {
         let apiClient = resolveAPIClient()
         let appResolver = resolveAppResolver()
-        return ListViewController(dependency: .init(apiClient: apiClient, resolver: appResolver))
+        return ListViewController.makeInstance(dependency: .init(apiClient: apiClient, resolver: appResolver))
     }
 
 }
