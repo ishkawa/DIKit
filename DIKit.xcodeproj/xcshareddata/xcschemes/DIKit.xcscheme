@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DIKit::DIGenKit"
-               BuildableName = "DIGenKit.framework"
-               BlueprintName = "DIGenKit"
+               BlueprintIdentifier = "DIKit::DIKit"
+               BuildableName = "DIKit.framework"
+               BlueprintName = "DIKit"
                ReferencedContainer = "container:DIKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,26 +29,7 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DIKit::DIGenKitTests"
-               BuildableName = "DIGenKitTests.xctest"
-               BlueprintName = "DIGenKitTests"
-               ReferencedContainer = "container:DIKit.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DIKit::DIGenKit"
-            BuildableName = "DIGenKit.framework"
-            BlueprintName = "DIGenKit"
-            ReferencedContainer = "container:DIKit.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -66,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DIKit::DIGenKit"
-            BuildableName = "DIGenKit.framework"
-            BlueprintName = "DIGenKit"
+            BlueprintIdentifier = "DIKit::DIKit"
+            BuildableName = "DIKit.framework"
+            BlueprintName = "DIKit"
             ReferencedContainer = "container:DIKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DIKit::DIGenKit"
-            BuildableName = "DIGenKit.framework"
-            BlueprintName = "DIGenKit"
+            BlueprintIdentifier = "DIKit::DIKit"
+            BuildableName = "DIKit.framework"
+            BlueprintName = "DIKit"
             ReferencedContainer = "container:DIKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
