@@ -11,11 +11,8 @@ import DIKit
 
 final class DetailViewController: UIViewController, FactoryMethodInjectable {
     struct Dependency {
-        let index: Int
-        let apiClient: APIClient
+        let multiplier: Multiplier
     }
-
-    private var dependency: Dependency!
 
     static func makeInstance(dependency: Dependency) -> DetailViewController {
         let storyboard = UIStoryboard(name: "Detail", bundle: nil)
@@ -23,12 +20,28 @@ final class DetailViewController: UIViewController, FactoryMethodInjectable {
         viewController.dependency = dependency
         return viewController
     }
+    
+    private var dependency: Dependency!
 
     @IBOutlet private weak var label: UILabel!
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateLabel()
+    }
 
-        label.text = String(dependency.index)
+    private func updateLabel() {
+        label.text = String(dependency.multiplier.value)
+    }
+
+    @IBAction private func doubleButtonTapped() {
+        dependency.multiplier.doubleValue()
+        updateLabel()
+    }
+
+    @IBAction private func tripleButtonTapped() {
+        dependency.multiplier.tripleValue()
+        updateLabel()
     }
 }

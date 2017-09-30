@@ -11,11 +11,8 @@ import DIKit
 
 final class ListViewController: UITableViewController, FactoryMethodInjectable {
     struct Dependency {
-        let apiClient: APIClient
         let resolver: AppResolver
     }
-
-    private var dependency: Dependency!
 
     static func makeInstance(dependency: Dependency) -> ListViewController {
         let storyboard = UIStoryboard(name: "List", bundle: nil)
@@ -23,6 +20,8 @@ final class ListViewController: UITableViewController, FactoryMethodInjectable {
         viewConroller.dependency = dependency
         return viewConroller
     }
+
+    private var dependency: Dependency!
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -35,7 +34,7 @@ final class ListViewController: UITableViewController, FactoryMethodInjectable {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = dependency.resolver.resolveDetailViewController(index: indexPath.row)
+        let viewController = dependency.resolver.resolveDetailViewController(value: indexPath.row)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
