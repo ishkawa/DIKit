@@ -9,27 +9,19 @@
 import UIKit
 import DIKit
 
-final class ListViewController: UITableViewController, Injectable {
+final class ListViewController: UITableViewController, FactoryMethodInjectable {
     struct Dependency {
-        let apiClient: APIClient
         let resolver: AppResolver
     }
 
-    private let dependency: Dependency
-
-    init(dependency: Dependency) {
-        self.dependency = dependency
-        super.init(nibName: nil, bundle: nil)
+    static func makeInstance(dependency: Dependency) -> ListViewController {
+        let storyboard = UIStoryboard(name: "List", bundle: nil)
+        let viewConroller = storyboard.instantiateInitialViewController() as! ListViewController
+        viewConroller.dependency = dependency
+        return viewConroller
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("Not supported")
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-    }
+    private var dependency: Dependency!
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -42,7 +34,7 @@ final class ListViewController: UITableViewController, Injectable {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = dependency.resolver.resolveDetailViewController(index: indexPath.row)
+        let viewController = dependency.resolver.resolveDetailViewController(value: indexPath.row)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

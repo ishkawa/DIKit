@@ -9,21 +9,12 @@
 import Foundation
 import DIKit
 
-final class APIClient {}
-
 protocol AppResolver: DIKit.Resolver {
     func provideResolver() -> AppResolver
-    func provideAPIClient() -> APIClient
 }
 
 final class AppResolverImpl: AppResolver {
-    private let apiClient = APIClient()
-
     func provideResolver() -> AppResolver {
         return self
-    }
-
-    func provideAPIClient() -> APIClient {
-        return apiClient
     }
 }

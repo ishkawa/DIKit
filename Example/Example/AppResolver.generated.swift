@@ -5,23 +5,22 @@
 
 extension AppResolver {
 
+    func resolveMultiplier(value: Int) -> Multiplier {
+        return Multiplier(dependency: .init(value: value))
+    }
+
+    func resolveDetailViewController(value: Int) -> DetailViewController {
+        let multiplier = resolveMultiplier(value: value)
+        return DetailViewController.makeInstance(dependency: .init(multiplier: multiplier))
+    }
+
     func resolveAppResolver() -> AppResolver {
         return provideResolver()
     }
 
-    func resolveAPIClient() -> APIClient {
-        return provideAPIClient()
-    }
-
-    func resolveDetailViewController(index: Int) -> DetailViewController {
-        let apiClient = resolveAPIClient()
-        return DetailViewController(dependency: .init(index: index, apiClient: apiClient))
-    }
-
     func resolveListViewController() -> ListViewController {
-        let apiClient = resolveAPIClient()
         let appResolver = resolveAppResolver()
-        return ListViewController(dependency: .init(apiClient: apiClient, resolver: appResolver))
+        return ListViewController.makeInstance(dependency: .init(resolver: appResolver))
     }
 
 }

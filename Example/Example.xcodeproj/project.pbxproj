@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F764D441F800C3A00E983DF /* Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F764D431F800C3A00E983DF /* Multiplier.swift */; };
 		7FA64D9E1F6E11C600DA45A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA64D9D1F6E11C600DA45A2 /* AppDelegate.swift */; };
 		7FA64DA51F6E11C600DA45A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA64DA41F6E11C600DA45A2 /* Assets.xcassets */; };
 		7FA64DA81F6E11C600DA45A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA64DA61F6E11C600DA45A2 /* LaunchScreen.storyboard */; };
+		7FFDA19E1F785DAA0098BA9D /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FFDA19D1F785DAA0098BA9D /* List.storyboard */; };
+		7FFDA1A21F785F040098BA9D /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FFDA1A11F785F040098BA9D /* Detail.storyboard */; };
 		7FFE8A201F6E4D4100910CFD /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFE8A1F1F6E4D2900910CFD /* DIKit.framework */; };
 		7FFE8A211F6E4D4100910CFD /* DIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFE8A1F1F6E4D2900910CFD /* DIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7FFE8A261F6E4D8A00910CFD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE8A251F6E4D8A00910CFD /* ListViewController.swift */; };
@@ -120,11 +123,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7F764D431F800C3A00E983DF /* Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplier.swift; sourceTree = "<group>"; };
 		7FA64D9A1F6E11C600DA45A2 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA64D9D1F6E11C600DA45A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA64DA41F6E11C600DA45A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FA64DA71F6E11C600DA45A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FA64DA91F6E11C600DA45A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FFDA19D1F785DAA0098BA9D /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
+		7FFDA1A11F785F040098BA9D /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DIKit.xcodeproj; path = ../DIKit.xcodeproj; sourceTree = "<group>"; };
 		7FFE8A251F6E4D8A00910CFD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		7FFE8A271F6E4DA500910CFD /* AppResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppResolver.swift; sourceTree = "<group>"; };
@@ -167,13 +173,40 @@
 				7FA64D9D1F6E11C600DA45A2 /* AppDelegate.swift */,
 				7FFE8A271F6E4DA500910CFD /* AppResolver.swift */,
 				7FFE8A3E1F6E586D00910CFD /* AppResolver.generated.swift */,
-				7FFE8A251F6E4D8A00910CFD /* ListViewController.swift */,
-				7FFE8A2A1F6E560800910CFD /* DetailViewController.swift */,
+				7FFDA1A31F7860290098BA9D /* View */,
 				7FA64DA61F6E11C600DA45A2 /* LaunchScreen.storyboard */,
 				7FA64DA41F6E11C600DA45A2 /* Assets.xcassets */,
 				7FA64DA91F6E11C600DA45A2 /* Info.plist */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		7FFDA19F1F785DB50098BA9D /* List */ = {
+			isa = PBXGroup;
+			children = (
+				7FFDA19D1F785DAA0098BA9D /* List.storyboard */,
+				7FFE8A251F6E4D8A00910CFD /* ListViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		7FFDA1A01F785EF90098BA9D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				7FFDA1A11F785F040098BA9D /* Detail.storyboard */,
+				7FFE8A2A1F6E560800910CFD /* DetailViewController.swift */,
+				7F764D431F800C3A00E983DF /* Multiplier.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		7FFDA1A31F7860290098BA9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7FFDA19F1F785DB50098BA9D /* List */,
+				7FFDA1A01F785EF90098BA9D /* Detail */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7FFE89F51F6E4D2900910CFD /* Products */ = {
@@ -201,6 +234,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FA64DAC1F6E11C600DA45A2 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
+				7FFDA18A1F785CCE0098BA9D /* ShellScript */,
 				7FA64D961F6E11C600DA45A2 /* Sources */,
 				7FA64D971F6E11C600DA45A2 /* Frameworks */,
 				7FA64D981F6E11C600DA45A2 /* Resources */,
@@ -343,10 +377,28 @@
 			files = (
 				7FA64DA81F6E11C600DA45A2 /* LaunchScreen.storyboard in Resources */,
 				7FA64DA51F6E11C600DA45A2 /* Assets.xcassets in Resources */,
+				7FFDA19E1F785DAA0098BA9D /* List.storyboard in Resources */,
+				7FFDA1A21F785F040098BA9D /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FFDA18A1F785CCE0098BA9D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which dikitgen >/dev/null; then\ndikitgen ${SRCROOT}/Example > ${SRCROOT}/Example/AppResolver.generated.swift\nelse\necho \"warning: dikitgen not installed, download from https://github.com/ishkawa/DIKit\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7FA64D961F6E11C600DA45A2 /* Sources */ = {
@@ -357,6 +409,7 @@
 				7FFE8A2B1F6E560800910CFD /* DetailViewController.swift in Sources */,
 				7FA64D9E1F6E11C600DA45A2 /* AppDelegate.swift in Sources */,
 				7FFE8A261F6E4D8A00910CFD /* ListViewController.swift in Sources */,
+				7F764D441F800C3A00E983DF /* Multiplier.swift in Sources */,
 				7FFE8A3F1F6E586D00910CFD /* AppResolver.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
