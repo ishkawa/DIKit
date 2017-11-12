@@ -6,5 +6,5 @@
 //
 
 public final class Version {
-    public static let current = "1"
+    public static let current = "0.1.3"
 }
