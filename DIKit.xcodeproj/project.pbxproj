@@ -24,6 +24,7 @@
 		7F381E5F1FB8AEE600C75A6B /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F381E5E1FB8AEE600C75A6B /* Import.swift */; };
 		7F381E611FB8B0F500C75A6B /* ImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F381E601FB8B0F500C75A6B /* ImportTests.swift */; };
 		7F78EA391F7574A900D1B3B5 /* Findable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78EA381F7574A900D1B3B5 /* Findable.swift */; };
+		7FD33DC61FB896A900F002C5 /* StandardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD33DC51FB896A900F002C5 /* StandardError.swift */; };
 		7FD33DC41FB890BE00F002C5 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD33DC31FB890BE00F002C5 /* Version.swift */; };
 		OBJ_172 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_178 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Package.swift */; };
@@ -424,6 +425,7 @@
 		7F381E5E1FB8AEE600C75A6B /* Import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Import.swift; sourceTree = "<group>"; };
 		7F381E601FB8B0F500C75A6B /* ImportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTests.swift; sourceTree = "<group>"; };
 		7F78EA381F7574A900D1B3B5 /* Findable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Findable.swift; sourceTree = "<group>"; };
+		7FD33DC51FB896A900F002C5 /* StandardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardError.swift; sourceTree = "<group>"; };
 		7FD33DC31FB890BE00F002C5 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		"DIKit::DIGenKit::Product" /* DIGenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIGenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIGenKitTests::Product" /* DIGenKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIGenKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -839,6 +841,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_32 /* main.swift */,
+				7FD33DC51FB896A900F002C5 /* StandardError.swift */,
 			);
 			name = dikitgen;
 			path = Sources/dikitgen;
@@ -1476,6 +1479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				7FD33DC61FB896A900F002C5 /* StandardError.swift in Sources */,
 				OBJ_256 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
