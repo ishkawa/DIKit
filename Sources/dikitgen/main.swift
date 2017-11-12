@@ -2,7 +2,7 @@ import Foundation
 import DIGenKit
 
 guard CommandLine.arguments.count == 2 else {
-    print("error: invalid arguments")
+    print("error: invalid arguments", to: &standardError)
     print("usage: dikitgen <path to source code directory>")
     exit(1)
 }
@@ -16,7 +16,7 @@ do {
     guard
         let error = anyError as? (Error & Findable),
         let path = error.file.path else {
-        print("error: \(anyError.localizedDescription)")
+        print("error: \(anyError.localizedDescription)", to: &standardError)
         exit(1)
     }
 
@@ -28,7 +28,6 @@ do {
         lineNumber += 1
     }
 
-    print("\(path):\(lineNumber): error: \(error.localizedDescription)")
+    print("\(path):\(lineNumber): error: \(error.localizedDescription)", to: &standardError)
     exit(1)
 }
-
