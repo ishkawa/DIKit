@@ -7,6 +7,11 @@ guard CommandLine.arguments.count == 2 else {
     exit(1)
 }
 
+if CommandLine.arguments[1] == "--version" {
+    print(Version.current)
+    exit(0)
+}
+
 let path = CommandLine.arguments[1]
 
 do {

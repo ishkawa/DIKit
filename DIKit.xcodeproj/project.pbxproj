@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		7F78EA391F7574A900D1B3B5 /* Findable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78EA381F7574A900D1B3B5 /* Findable.swift */; };
+		7FD33DC41FB890BE00F002C5 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD33DC31FB890BE00F002C5 /* Version.swift */; };
 		OBJ_172 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_178 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Package.swift */; };
 		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* Package.swift */; };
@@ -419,6 +420,7 @@
 
 /* Begin PBXFileReference section */
 		7F78EA381F7574A900D1B3B5 /* Findable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Findable.swift; sourceTree = "<group>"; };
+		7FD33DC31FB890BE00F002C5 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		"DIKit::DIGenKit::Product" /* DIGenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIGenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIGenKitTests::Product" /* DIGenKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIGenKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DIKit::DIKit::Product" /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -671,6 +673,7 @@
 		OBJ_11 /* DIGenKit */ = {
 			isa = PBXGroup;
 			children = (
+				7FD33DC31FB890BE00F002C5 /* Version.swift */,
 				OBJ_12 /* CodeGenerator.swift */,
 				OBJ_16 /* Node.swift */,
 				7F78EA381F7574A900D1B3B5 /* Findable.swift */,
@@ -1482,6 +1485,7 @@
 				OBJ_285 /* ProviderMethod.swift in Sources */,
 				OBJ_286 /* String+Name.swift in Sources */,
 				OBJ_287 /* Structure+Property.swift in Sources */,
+				7FD33DC41FB890BE00F002C5 /* Version.swift in Sources */,
 				OBJ_288 /* GeneratedMethod.swift in Sources */,
 				OBJ_289 /* InjectMethod.swift in Sources */,
 				OBJ_290 /* ResolveMethod.swift in Sources */,
