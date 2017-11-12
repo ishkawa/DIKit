@@ -3,7 +3,7 @@ import DIGenKit
 
 guard CommandLine.arguments.count == 2 else {
     print("error: invalid arguments", to: &standardError)
-    print("usage: dikitgen <path to source code directory>")
+    print("usage: dikitgen <path to source code directory>", to: &standardError)
     exit(1)
 }
 
