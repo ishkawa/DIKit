@@ -12,8 +12,12 @@ import Stencil
 public final class CodeGenerator {
     let context: [String: Any]
 
-    public init(path: String) throws {
-        let types = Array(files(atPath: path)
+    public convenience init(path: String) throws {
+        try self.init(files: files(atPath: path))
+    }
+
+    public init(files: [File]) throws {
+        let types = Array(files
             .map { file in
                 return Structure(file: file)
                     .substructures
@@ -21,7 +25,7 @@ public final class CodeGenerator {
             }
             .joined())
 
-        let imports = Array(files(atPath: path)
+        let imports = Array(files
             .map { file -> [Import] in
                 return Import.imports(from: file)
             }

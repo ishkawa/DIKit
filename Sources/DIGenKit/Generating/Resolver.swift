@@ -52,8 +52,17 @@ struct Resolver {
 
         name = type.name
 
+        let providerMethods = try ProviderMethod
+            .providerMethods(inResolverType: type)
+            .map { Node.Declaration.providerMethod($0) }
+
+        var registeredTypeNames = providerMethods.map({ $0.typeName })
         let initializerInjectableTypes = try allTypes
             .flatMap { type in
+                guard !registeredTypeNames.contains(type.name) else {
+                    return nil
+                }
+
                 do {
                     return try InitializerInjectableType(type: type)
                 } catch let error as InitializerInjectableType.Error where error.reason == .protocolConformanceNotFound {
@@ -64,8 +73,14 @@ struct Resolver {
             }
             .map { Node.Declaration.initializerInjectableType($0) }
 
+        registeredTypeNames += initializerInjectableTypes.map({ $0.typeName })
+
         let factoryMethodInjectableTypes = try allTypes
             .flatMap { type in
+                guard !registeredTypeNames.contains(type.name) else {
+                    return nil
+                }
+
                 do {
                     return try FactoryMethodInjectableType(type: type)
                 } catch let error as FactoryMethodInjectableType.Error where error.reason == .protocolConformanceNotFound {
@@ -75,10 +90,6 @@ struct Resolver {
                 }
             }
             .map { Node.Declaration.factoryMethodInjectableType($0) }
-
-        let providerMethods = try ProviderMethod
-            .providerMethods(inResolverType: type)
-            .map { Node.Declaration.providerMethod($0) }
 
         let allDeclarations = initializerInjectableTypes + factoryMethodInjectableTypes + providerMethods
         var unresolvedDeclarations = allDeclarations
