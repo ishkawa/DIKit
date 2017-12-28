@@ -5,4 +5,6 @@
 //  Created by Yosuke Ishikawa on 2017/09/15.
 //
 
-public protocol Resolver {}
+public protocol Resolver: class {
+    var sharedInstances: [String: Any] { get set }
+}
