@@ -32,6 +32,27 @@ final class ProviderMethodTests: XCTestCase {
         XCTAssertEqual(method?.parameters[1].typeName, "C")
     }
 
+    func testSharedReturnType() {
+        let code = """
+            protocol Test: Resolver {
+                func provideA(b: B, c: C) -> Shared<A>
+            }
+            """
+        
+        let file = File(contents: code)
+        let structure = Structure(file: file).substructures.first!
+        let type = Type(structure: structure, file: file)!
+        let method = (try? ProviderMethod.providerMethods(inResolverType: type))?.first
+        XCTAssertEqual(method?.nameWithoutParameters, "provideA")
+        XCTAssertEqual(method?.returnTypeName, "A")
+        XCTAssertEqual(method?.isShared, true)
+        XCTAssertEqual(method?.parameters.count, 2)
+        XCTAssertEqual(method?.parameters[0].name, "b")
+        XCTAssertEqual(method?.parameters[0].typeName, "B")
+        XCTAssertEqual(method?.parameters[1].name, "c")
+        XCTAssertEqual(method?.parameters[1].typeName, "C")
+    }
+    
     func testNonResolverType() {
         let code = """
             protocol Test {
