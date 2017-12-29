@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MLa-Tf-otS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MLa-Tf-otS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,41 +24,59 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IU1-xx-UJg">
-                                                <rect key="frame" x="131" y="284" width="114" height="99"/>
+                                                <rect key="frame" x="121" y="260.5" width="134.5" height="146"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LR7-yi-7I8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="134.5" height="35"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="29"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qD-pp-UiO">
-                                                        <rect key="frame" x="0.0" y="69" width="49" height="30"/>
+                                                        <rect key="frame" x="0.0" y="83" width="59" height="30"/>
                                                         <state key="normal" title="Double"/>
                                                         <connections>
                                                             <action selector="doubleButtonTapped" destination="MLa-Tf-otS" eventType="touchUpInside" id="SaW-gu-5LR"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUP-Iv-Tfm">
-                                                        <rect key="frame" x="65" y="69" width="49" height="30"/>
+                                                        <rect key="frame" x="75" y="83" width="59.5" height="30"/>
                                                         <state key="normal" title="Triple"/>
                                                         <connections>
                                                             <action selector="tripleButtonTapped" destination="MLa-Tf-otS" eventType="touchUpInside" id="fAY-wW-go7"/>
                                                         </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Operations:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kyh-xG-ImV">
+                                                        <rect key="frame" x="0.0" y="129" width="110.5" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.54117647059999996" green="0.52156862749999999" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FV-ZV-ljw">
+                                                        <rect key="frame" x="110.5" y="129" width="24" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.54117647059999996" green="0.52156862749999999" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="aUP-Iv-Tfm" firstAttribute="leading" secondItem="1qD-pp-UiO" secondAttribute="trailing" constant="16" id="4IE-FY-AUY"/>
+                                                    <constraint firstItem="Kyh-xG-ImV" firstAttribute="top" secondItem="1qD-pp-UiO" secondAttribute="bottom" constant="16" id="BLZ-md-ha5"/>
                                                     <constraint firstItem="LR7-yi-7I8" firstAttribute="top" secondItem="IU1-xx-UJg" secondAttribute="top" id="DxJ-en-AIZ"/>
                                                     <constraint firstAttribute="trailing" secondItem="aUP-Iv-Tfm" secondAttribute="trailing" id="FlO-Sy-0fU"/>
-                                                    <constraint firstAttribute="bottom" secondItem="1qD-pp-UiO" secondAttribute="bottom" id="MrO-eP-voh"/>
+                                                    <constraint firstItem="8FV-ZV-ljw" firstAttribute="centerY" secondItem="Kyh-xG-ImV" secondAttribute="centerY" id="GDS-xk-JQf"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Kyh-xG-ImV" secondAttribute="bottom" id="Hei-Ta-Fjj"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Kyh-xG-ImV" secondAttribute="trailing" constant="24" id="JRB-Vy-xl5"/>
                                                     <constraint firstItem="1qD-pp-UiO" firstAttribute="leading" secondItem="IU1-xx-UJg" secondAttribute="leading" id="Ogt-nP-2vF"/>
                                                     <constraint firstItem="LR7-yi-7I8" firstAttribute="leading" secondItem="IU1-xx-UJg" secondAttribute="leading" id="Qlb-pX-Fhj"/>
                                                     <constraint firstAttribute="trailing" secondItem="LR7-yi-7I8" secondAttribute="trailing" id="SGX-7u-5uB"/>
+                                                    <constraint firstItem="Kyh-xG-ImV" firstAttribute="leading" secondItem="IU1-xx-UJg" secondAttribute="leading" id="Utr-aW-78I"/>
+                                                    <constraint firstItem="8FV-ZV-ljw" firstAttribute="leading" secondItem="Kyh-xG-ImV" secondAttribute="trailing" id="WuM-Oe-cRt"/>
                                                     <constraint firstItem="1qD-pp-UiO" firstAttribute="top" secondItem="LR7-yi-7I8" secondAttribute="bottom" constant="48" id="YpQ-uH-NXY"/>
                                                     <constraint firstItem="LR7-yi-7I8" firstAttribute="centerX" secondItem="IU1-xx-UJg" secondAttribute="centerX" id="ZqO-lN-JBp"/>
-                                                    <constraint firstAttribute="bottom" secondItem="aUP-Iv-Tfm" secondAttribute="bottom" id="im2-kq-4xf"/>
+                                                    <constraint firstItem="aUP-Iv-Tfm" firstAttribute="bottom" secondItem="1qD-pp-UiO" secondAttribute="bottom" id="mtN-IF-HO5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8FV-ZV-ljw" secondAttribute="trailing" id="ugA-lF-ejk"/>
                                                     <constraint firstItem="aUP-Iv-Tfm" firstAttribute="width" secondItem="1qD-pp-UiO" secondAttribute="width" id="zAM-EG-2np"/>
                                                 </constraints>
                                             </view>
@@ -90,7 +108,8 @@
                         <viewLayoutGuide key="safeArea" id="huy-5K-ObI"/>
                     </view>
                     <connections>
-                        <outlet property="label" destination="LR7-yi-7I8" id="QL8-ZR-XD7"/>
+                        <outlet property="operationCountLabel" destination="8FV-ZV-ljw" id="IiR-f1-Cx7"/>
+                        <outlet property="operationResultLabel" destination="LR7-yi-7I8" id="QL8-ZR-XD7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UMz-UO-Ft0" userLabel="First Responder" sceneMemberID="firstResponder"/>
