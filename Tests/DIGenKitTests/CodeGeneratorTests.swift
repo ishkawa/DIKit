@@ -81,10 +81,10 @@ final class CodeGeneratorTests: XCTestCase {
         extension TestResolver {
 
             func resolveA() -> A {
-                if let sharedInstance = sharedInstances["A"] {
+                if let sharedInstance = sharedInstances["A"] as? A {
                     return sharedInstance
                 }
-                let sharedInstance = provideA()
+                let sharedInstance = provideA().instance
                 sharedInstances["A"] = sharedInstance
                 return sharedInstance
             }
