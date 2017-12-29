@@ -53,10 +53,10 @@ struct ResolveMethod {
             case .providerMethod(let method):
                 if method.isShared {
                     return """
-                    if let sharedInstance = sharedInstances["\(method.returnTypeName)"] {
+                    if let sharedInstance = sharedInstances["\(method.returnTypeName)"] as? \(method.returnTypeName) {
                         return sharedInstance
                     }
-                    let sharedInstance = \(method.nameWithoutParameters)(\(parameters))
+                    let sharedInstance = \(method.nameWithoutParameters)(\(parameters)).instance
                     sharedInstances["\(method.returnTypeName)"] = sharedInstance
                     return sharedInstance
                     """
