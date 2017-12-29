@@ -8,7 +8,7 @@
 public struct Shared<Instance> {
     public let instance: Instance
     
-    init(_ instance: Instance) {
+    public init(_ instance: Instance) {
         self.instance = instance
     }
 }
