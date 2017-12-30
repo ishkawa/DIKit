@@ -176,11 +176,21 @@
 				7FFE8A271F6E4DA500910CFD /* AppResolver.swift */,
 				7FFE8A3E1F6E586D00910CFD /* AppResolver.generated.swift */,
 				7FFDA1A31F7860290098BA9D /* View */,
+				7FF14E421FF7DC2A00290372 /* Model */,
 				7FA64DA61F6E11C600DA45A2 /* LaunchScreen.storyboard */,
 				7FA64DA41F6E11C600DA45A2 /* Assets.xcassets */,
 				7FA64DA91F6E11C600DA45A2 /* Info.plist */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		7FF14E421FF7DC2A00290372 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7F764D431F800C3A00E983DF /* Multiplier.swift */,
+				7F3704BA1FF61C2400231391 /* Counter.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7FFDA19F1F785DB50098BA9D /* List */ = {
@@ -197,8 +207,6 @@
 			children = (
 				7FFDA1A11F785F040098BA9D /* Detail.storyboard */,
 				7FFE8A2A1F6E560800910CFD /* DetailViewController.swift */,
-				7F764D431F800C3A00E983DF /* Multiplier.swift */,
-				7F3704BA1FF61C2400231391 /* Counter.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
