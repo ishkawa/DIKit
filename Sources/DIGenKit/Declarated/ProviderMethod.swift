@@ -49,6 +49,7 @@ struct ProviderMethod {
     let nameWithoutParameters: String
     let returnTypeName: String
     let parameters: [Method.Parameter]
+    let isShared: Bool
 
     private init(type: Type, method: Method) throws {
         guard method.name.hasPrefix("provide") else {
@@ -68,8 +69,18 @@ struct ProviderMethod {
         }
 
         nameWithoutParameters = method.nameWithoutParameters
-        returnTypeName = method.returnTypeName
         parameters = method.parameters
+        
+        let components1 = method.returnTypeName.components(separatedBy: "<")
+        if components1.count == 2 && components1.first == "Shared",
+            let components2 = components1.last?.components(separatedBy: ">"),
+            components2.count == 2 && components2[1].isEmpty {
+            returnTypeName = components2[0]
+            isShared = true
+        } else {
+            returnTypeName = method.returnTypeName
+            isShared = false
+        }
     }
     
     static func providerMethods(inResolverType type: Type) throws -> [ProviderMethod] {

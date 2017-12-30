@@ -51,7 +51,18 @@ struct ResolveMethod {
             case .propertyInjectableType:
                 fatalError("propertyInjectableType node can't be resolved by resolve method")
             case .providerMethod(let method):
-                return "return \(method.nameWithoutParameters)(\(parameters))"
+                if method.isShared {
+                    return """
+                    if let sharedInstance = sharedInstances["\(method.returnTypeName)"] as? \(method.returnTypeName) {
+                        return sharedInstance
+                    }
+                    let sharedInstance = \(method.nameWithoutParameters)(\(parameters)).instance
+                    sharedInstances["\(method.returnTypeName)"] = sharedInstance
+                    return sharedInstance
+                    """
+                } else {
+                    return "return \(method.nameWithoutParameters)(\(parameters))"
+                }
             }
         }()
 
