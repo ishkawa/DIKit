@@ -3,6 +3,11 @@ import PackageDescription
 
 let package = Package(
   name: "DIKit",
+  products: [
+    .executable(name: "dikitgen", targets: ["dikitgen"]),
+    .library(name: "DIKit", targets: ["DIKit"]),
+    .library(name: "DIGenKit", targets: ["DIGenKit"])
+  ],
   dependencies: [
     .package(url: "https://github.com/jpsim/SourceKitten.git", from: "0.18.1"),
     .package(url: "https://github.com/kylef/Stencil.git", from: "0.9.0"),
