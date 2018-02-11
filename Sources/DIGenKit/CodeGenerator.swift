@@ -79,7 +79,7 @@ public final class CodeGenerator {
 }
 
 private func files(atPath path: String, excluding exclusions: [String]) -> [File] {
-    let exclusionsHavingSlash = exclusions.map { $0.last == "/" ? $0 : $0 + "/" }
+    let exclusions = exclusions.map { $0.last == "/" ? $0 : $0 + "/" }
     let url = URL(fileURLWithPath: path)
     let fileManager = FileManager.default
 
@@ -89,7 +89,7 @@ private func files(atPath path: String, excluding exclusions: [String]) -> [File
         if isDirectory.boolValue {
             let enumerator = fileManager.enumerator(atPath: path)
             while let subpath = enumerator?.nextObject() as? String {
-                if exclusionsHavingSlash.contains(where: { subpath.hasPrefix($0) }) { continue }
+                if exclusions.contains(where: { subpath.hasPrefix($0) }) { continue }
 
                 let url = url.appendingPathComponent(subpath)
                 if url.pathExtension == "swift", let file = File(path: url.path), file.contents.contains("DIKit") {
