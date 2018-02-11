@@ -12,7 +12,7 @@ import Stencil
 public final class CodeGenerator {
     let context: [String: Any]
 
-    public convenience init(path: String, excluding exclusions: [String]) throws {
+    public convenience init(path: String, excluding exclusions: [String] = []) throws {
         try self.init(files: files(atPath: path, excluding: exclusions))
     }
 
