@@ -43,7 +43,7 @@ struct Type {
         self.methods = structure.substructures.flatMap { Method(structure: $0, file: file) }
         self.properties = structure.substructures.flatMap { Property(structure: $0, file: file) }
         self.nestedTypes = structure.substructures.flatMap { Type(structure: $0, file: file) }
-        self.inheritedTypeNames = (structure[.inheritedtypes] as? [[String: SourceKitRepresentable]])?
+        self.inheritedTypeNames = (structure[.inheritedtypes] as [[String: SourceKitRepresentable]]?)?
             .flatMap { $0["key.name"] as? String } ?? []
     }
 }
