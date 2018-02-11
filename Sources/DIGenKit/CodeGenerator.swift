@@ -12,8 +12,8 @@ import Stencil
 public final class CodeGenerator {
     let context: [String: Any]
 
-    public convenience init(path: String) throws {
-        try self.init(files: files(atPath: path))
+    public convenience init(path: String, excluding exclusions: [String] = []) throws {
+        try self.init(files: files(atPath: path, excluding: exclusions))
     }
 
     public init(files: [File]) throws {
@@ -78,7 +78,8 @@ public final class CodeGenerator {
     }
 }
 
-private func files(atPath path: String) -> [File] {
+private func files(atPath path: String, excluding exclusions: [String]) -> [File] {
+    let exclusions = exclusions.map { $0.last == "/" ? $0 : $0 + "/" }
     let url = URL(fileURLWithPath: path)
     let fileManager = FileManager.default
 
@@ -88,6 +89,8 @@ private func files(atPath path: String) -> [File] {
         if isDirectory.boolValue {
             let enumerator = fileManager.enumerator(atPath: path)
             while let subpath = enumerator?.nextObject() as? String {
+                if exclusions.contains(where: { subpath.hasPrefix($0) }) { continue }
+
                 let url = url.appendingPathComponent(subpath)
                 if url.pathExtension == "swift", let file = File(path: url.path), file.contents.contains("DIKit") {
                     files.append(file)
