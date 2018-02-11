@@ -13,11 +13,23 @@ func mode(from arguments: [String]) throws -> Mode {
     case 2:
         return .generate(path: arguments[1], excluding: [])
     case 3..<Int.max:
-        let options = arguments.dropFirst(2)
-        guard
-            options.first == "--exclude" && options.count >= 2
-            else { throw InvalidArgumentsError() }
-        return .generate(path: arguments[1], excluding: options.dropFirst().map { $0 })
+        let path = arguments[1]
+        var exclusions: [String] = []
+
+        var options = arguments.suffix(from: 2).map { $0 }
+        while options.count >= 2 {
+            let key = options[0]
+            let value = options[1]
+            switch key {
+            case "--exclude": exclusions.append(value)
+            case _: throw InvalidArgumentsError()
+            }
+            options.removeFirst(2)
+        }
+        if !options.isEmpty {
+            throw InvalidArgumentsError()
+        }
+        return .generate(path: path, excluding: exclusions)
     case _:
         throw InvalidArgumentsError()
     }
@@ -36,7 +48,7 @@ do {
     }
 } catch {
     print("error: invalid arguments", to: &standardError)
-    print("usage: dikitgen <path to source code directory> [--exclude <subpaths to exclude>...]", to: &standardError)
+    print("usage: dikitgen <path to source code directory> [[--exclude <subpath>] ...]", to: &standardError)
     exit(1)
 }
 
