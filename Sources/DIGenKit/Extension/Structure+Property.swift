@@ -10,9 +10,9 @@ import Foundation
 import SourceKittenFramework
 
 extension Structure {
-    subscript(key: SwiftDocKey) -> SourceKitRepresentable? {
+    subscript<T: SourceKitRepresentable>(key: SwiftDocKey) -> T? {
         get {
-            return dictionary[key.rawValue]
+            return dictionary[key.rawValue] as? T
         }
         set {
             var dictionary = self.dictionary
@@ -22,19 +22,19 @@ extension Structure {
     }
 
     var name: String? {
-        return self[.name] as? String
+        return self[.name]
     }
 
     var kind: SwiftDeclarationKind? {
-        return (self[.kind] as? String).flatMap(SwiftDeclarationKind.init)
+        return (self[.kind] as String?).flatMap(SwiftDeclarationKind.init)
     }
 
     var typeName: String? {
-        return self[.typeName] as? String
+        return self[.typeName]
     }
 
     var substructures: [Structure] {
-        guard let dictionaries = self[.substructure] as? [[String: SourceKitRepresentable]] else {
+        guard let dictionaries = self[.substructure] as [[String: SourceKitRepresentable]]? else {
             return []
         }
 
@@ -50,10 +50,10 @@ extension Structure {
     }
 
     var offset: Int64? {
-        return self[.offset] as? Int64
+        return self[.offset]
     }
     
     var length: Int64? {
-        return self[.length] as? Int64
+        return self[.length]
     }
 }
