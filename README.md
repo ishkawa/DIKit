@@ -2,33 +2,59 @@
 
 [![Build Status](https://travis-ci.org/ishkawa/DIKit.svg?branch=master)](https://travis-ci.org/ishkawa/DIKit)
 
-An experimental project that provides static dependency injection by code generation.
+A statically typed dependency injector for Swift.
 
 ## Overview
 
-DIKit generates code that resolves dependency graph.
+DIKit provides interfaces to express dependency graph. A code generator named `dikitgen` finds implementations of the interfaces, and generate codes which satisfies dependency graph.
 
-First, Declare dependency in the stored property of `Dependency`.
+The main parts of DIKit are injectable types and provider methods, and both of them are to declare dependencies of types.
+
+Injectable types are types that conform to `Injectable` protocol.
 
 ```swift
-final class ViewController: Injectable {
-    struct Dependency {
-        let apiClient: APIClient
-    }
-
-    init(dependency: Dependency) {}
-}
-
-final class APIClient {}
-
-protocol AppResolver: Resolver {
-    func provideAPIClient() -> APIClient
+public protocol Injectable {
+    associatedtype Dependency
+    init(dependency: Dependency)
 }
 ```
 
-In this case, `ViewController` depends on `APIClient`, and `APIClient` is provided in `provideAPIClient()` method in `AppResolver`.
+A conformer of `Injectable` protocol must have associated type `Dependency` as a struct. You declare dependencies of the `Injectable` conformer as stored properties of `Dependency` type. For example, suppose we have `ProfileViewController` class, and its dependencies are `User`, `APIClient` and `Database`. Following example code illustrates how to declare dependencies by conforming `Injectable` protocol.
 
-Next, you can generate code in protocol extension by `dikitgen <source_directory>` that resolves dependency graph.
+```swift
+final class ProfileViewController: Injectable {
+    struct Dependency {
+        let user: User
+        let apiClient: APIClient
+        let database: Database
+    }
+
+    init(dependency: Dependency) {...}
+}
+```
+
+Provider methods are methods of inheritor of `Resolver` protocol, which is a marker protocol for code generation.
+
+```swift
+public protocol Resolver {}
+```
+
+Provider methods declares that which non-injectable types can be instantiated automatically. In the example above, `APIClient` and `Database` are non-injectable type, but they can be provided in the same ways in most cases. In this situation, define provider methods for the types in an inheritor of `Resolver` protocol, so that instances of the types are provided automatically.
+
+```swift
+protocol AppResolver: Resolver {
+    func provideAPIClient() -> APIClient
+    func provideDatabase() -> Database
+}
+```
+
+In short, we have following situation so far:
+
+- Dependencies of `ProfileViewController` are `User`, `APIClient` and `Database`.
+- Instances of `APIClient` and `Database` are provided automatically.
+- An instance of `User` must be provided manually to instantiate `ProfileViewController`.
+
+`dikitgen` generates following code for the declarations:
 
 ```swift
 extension AppResolver {
@@ -36,20 +62,50 @@ extension AppResolver {
         return provideAPIClient()
     }
 
-    func resolveViewController() -> ViewController {
+    func resolveDatabase() -> Database {
+        return provideDatabase()
+    }
+
+    func resolveViewController(user: User) -> ProfileViewController {
         let apiClient = resolveAPIClient()
-        return ViewController(dependency: .init(apiClient: apiClient))
+        let database = resolveDatabase()
+        return ProfileViewController(dependency: .init(user: User, apiClient: apiClient, database: Database))
     }
 }
 ```
 
-This generated code resolves dependency graph that `ViewController` depends on `APIClient`.
+To use generated code, you have to implement a concrete type of `AppResolver`.
+
+```swift
+final class AppResolverImpl: AppResolver {
+    let apiClient: APIClient = ...
+    let database: Database = ...
+
+    func provideAPIClient() {
+        return apiClient
+    }
+
+    func provideDatabase() {
+        return database
+    }
+}
+```
+
+Since `AppResolver` is a protocol, all implementations of provider methods are checked at compile time. If you would like to create mock version of `AppResolver` for unit testing, define another concrete type of `AppResolver`. It can be used the same as `AppResolverImpl`.
+
+Now, you can instantiate `ProfileViewController` like below:
+
+```swift
+let appResolver = AppResolverImpl()
+let user: User = ...
+let viewController = appResolver.resolveViewController(user: user)
+```
 
 ## Installation
 
 Install code generator `dikitgen` first.
 
-```
+```shell
 git clone https://github.com/ishkawa/DIKit.git
 cd DIKit
 make install
@@ -57,14 +113,15 @@ make install
 
 Then, integrate DIKit.framework to your project. There are some option to install DIKit.framework.
 
-### Manual
+- **Manual**: Clone this repository and add `DIKit.xcodeproj` to your project.
+- **Carthage**: Add a line `github "ishkawa/DIKIt"` to your Cartfile and run `carthage update`.
 
-Clone this repository and add `DIKit.xcodeproj` to your project.
+Optionally, insert shell script running `dikitgen` to early part of build phases.
 
-### Carthage
-
-Add following line into your Cartfile and run `carthage update`.
-
-```
-github "ishkawa/DIKit"
+```shell
+if which dikitgen >/dev/null; then
+  dikitgen ${SRCROOT}/YOUR_PROJECT > ${SRCROOT}/YOUR_PROJECT/AppResolver.generated.swift
+else
+  echo "warning: dikitgen not installed, download from https://github.com/ishkawa/DIKit"
+fi
 ```
