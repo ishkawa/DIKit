@@ -105,7 +105,7 @@ let viewController = appResolver.resolveViewController(user: user)
 
 Install code generator `dikitgen` first.
 
-```
+```shell
 git clone https://github.com/ishkawa/DIKit.git
 cd DIKit
 make install
@@ -113,14 +113,15 @@ make install
 
 Then, integrate DIKit.framework to your project. There are some option to install DIKit.framework.
 
-### Manual
+- **Manual**: Clone this repository and add `DIKit.xcodeproj` to your project.
+- **Carthage**: Add a line `github "ishkawa/DIKIt"` to your Cartfile and run `carthage update`.
 
-Clone this repository and add `DIKit.xcodeproj` to your project.
+Optionally, insert shell script running `dikitgen` to early part of build phases.
 
-### Carthage
-
-Add following line into your Cartfile and run `carthage update`.
-
-```
-github "ishkawa/DIKit"
+```shell
+if which dikitgen >/dev/null; then
+  dikitgen ${SRCROOT}/YOUR_PROJECT > ${SRCROOT}/YOUR_PROJECT/AppResolver.generated.swift
+else
+  echo "warning: dikitgen not installed, download from https://github.com/ishkawa/DIKit"
+fi
 ```
