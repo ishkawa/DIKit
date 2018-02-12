@@ -12,7 +12,7 @@ import SourceKittenFramework
 @testable import DIGenKit
 
 final class TypeTests: XCTestCase {
-    func test() {
+    func test() throws {
         let code = """
             struct Test: A, B {
                 typealias C = D
@@ -23,7 +23,7 @@ final class TypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)
 
         XCTAssertEqual(type?.inheritedTypeNames ?? [], ["A", "B"])

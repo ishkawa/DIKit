@@ -12,7 +12,7 @@ import SourceKittenFramework
 @testable import DIGenKit
 
 final class MethodTests: XCTestCase {
-    func test() {
+    func test() throws {
         let code = """
             struct Test {
                 func someFunction(a: A, b: B) -> C {}
@@ -20,7 +20,7 @@ final class MethodTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)
         let method = type?.methods.first
 
@@ -36,7 +36,7 @@ final class MethodTests: XCTestCase {
         XCTAssertEqual(method?.isInitializer, false)
     }
 
-    func testInitializer() {
+    func testInitializer() throws {
         let code = """
             struct Test {
                 init(a: A, b: B) {}
@@ -44,7 +44,7 @@ final class MethodTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)
         let method = type?.methods.first
 
@@ -59,7 +59,7 @@ final class MethodTests: XCTestCase {
         XCTAssertEqual(method?.isInitializer, true)
     }
 
-    func testStatic() {
+    func testStatic() throws {
         let code = """
             struct Test {
                 static func someFunction(a: A, b: B) -> D {}
@@ -67,7 +67,7 @@ final class MethodTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)
         let method = type?.methods.first
 
@@ -83,7 +83,7 @@ final class MethodTests: XCTestCase {
         XCTAssertEqual(method?.isInitializer, false)
     }
 
-    func testNoParameters() {
+    func testNoParameters() throws {
         let code = """
             struct Test {
                 func someFunction() -> A {}
@@ -91,14 +91,14 @@ final class MethodTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)
         let method = type?.methods.first
         XCTAssertEqual(method?.name, "someFunction()")
         XCTAssertEqual(method?.returnTypeName, "A")
     }
 
-    func testNoReturnType() {
+    func testNoReturnType() throws {
         let code = """
             struct Test {
                 func someFunction() {}
@@ -106,7 +106,7 @@ final class MethodTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)
         let method = type?.methods.first
         XCTAssertEqual(method?.name, "someFunction()")
