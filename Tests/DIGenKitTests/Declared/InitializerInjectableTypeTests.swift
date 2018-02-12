@@ -12,7 +12,7 @@ import SourceKittenFramework
 @testable import DIGenKit
 
 final class InitializerInjectableTypeTests: XCTestCase {
-    func test() {
+    func test() throws {
         let code = """
             struct Test: Injectable {
                 struct Dependency {
@@ -25,7 +25,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         let injectableType = try? InitializerInjectableType(type: type)
         XCTAssertEqual(injectableType?.name, "Test")
@@ -36,7 +36,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
         XCTAssertEqual(injectableType?.dependencyProperties[1].typeName, "B")
     }
 
-    func testNonInjectableType() {
+    func testNonInjectableType() throws {
         let code = """
             struct Test {
                 struct Dependency {
@@ -49,7 +49,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try InitializerInjectableType(type: type)
@@ -61,7 +61,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
         }
     }
 
-    func testClassAssociatedType() {
+    func testClassAssociatedType() throws {
         let code = """
             struct Test: Injectable {
                 class Dependency {
@@ -74,7 +74,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try InitializerInjectableType(type: type)
@@ -86,7 +86,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
         }
     }
 
-    func testMissingAssociatedType() {
+    func testMissingAssociatedType() throws {
         let code = """
             struct Test: Injectable {
                 init(dependency: Dependency) {}
@@ -94,7 +94,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try InitializerInjectableType(type: type)
@@ -106,7 +106,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
         }
     }
 
-    func testMissingInitializer() {
+    func testMissingInitializer() throws {
         let code = """
             struct Test: Injectable {
                 struct Dependency {
@@ -117,7 +117,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try InitializerInjectableType(type: type)
@@ -129,7 +129,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
         }
     }
 
-    func testWrongTypeInitializer() {
+    func testWrongTypeInitializer() throws {
         let code = """
             struct Test: Injectable {
                 struct Dependency {
@@ -142,7 +142,7 @@ final class InitializerInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try InitializerInjectableType(type: type)

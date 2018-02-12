@@ -12,7 +12,7 @@ import SourceKittenFramework
 @testable import DIGenKit
 
 final class FactoryMethodInjectableTypeTests: XCTestCase {
-    func test() {
+    func test() throws {
         let code = """
             struct Test: FactoryMethodInjectable {
                 struct Dependency {
@@ -27,7 +27,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         let injectableType = try? FactoryMethodInjectableType(type: type)
         XCTAssertEqual(injectableType?.name, "Test")
@@ -38,7 +38,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         XCTAssertEqual(injectableType?.dependencyProperties[1].typeName, "B")
     }
 
-    func testNonInjectableType() {
+    func testNonInjectableType() throws {
         let code = """
             struct Test {
                 struct Dependency {
@@ -53,7 +53,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try FactoryMethodInjectableType(type: type)
@@ -65,7 +65,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         }
     }
 
-    func testClassAssociatedType() {
+    func testClassAssociatedType() throws {
         let code = """
             struct Test: FactoryMethodInjectable {
                 class Dependency {
@@ -80,7 +80,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try FactoryMethodInjectableType(type: type)
@@ -92,7 +92,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         }
     }
 
-    func testMissingAssociatedType() {
+    func testMissingAssociatedType() throws {
         let code = """
             struct Test: FactoryMethodInjectable {
                 static func makeInstance(dependency: Dependency) {
@@ -102,7 +102,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try FactoryMethodInjectableType(type: type)
@@ -114,7 +114,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         }
     }
 
-    func testMissingFactoryMethod() {
+    func testMissingFactoryMethod() throws {
         let code = """
             struct Test: FactoryMethodInjectable {
                 struct Dependency {
@@ -125,7 +125,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try FactoryMethodInjectableType(type: type)
@@ -137,7 +137,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
         }
     }
 
-    func testWrongTypeFactoryMethod() {
+    func testWrongTypeFactoryMethod() throws {
         let code = """
             struct Test: FactoryMethodInjectable {
                 struct Dependency {
@@ -152,7 +152,7 @@ final class FactoryMethodInjectableTypeTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try FactoryMethodInjectableType(type: type)

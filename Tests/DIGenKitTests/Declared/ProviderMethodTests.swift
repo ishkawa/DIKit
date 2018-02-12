@@ -12,7 +12,7 @@ import SourceKittenFramework
 @testable import DIGenKit
 
 final class ProviderMethodTests: XCTestCase {
-    func test() {
+    func test() throws {
         let code = """
             protocol Test: Resolver {
                 func provideA(b: B, c: C) -> A
@@ -20,7 +20,7 @@ final class ProviderMethodTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         let method = (try? ProviderMethod.providerMethods(inResolverType: type))?.first
         XCTAssertEqual(method?.nameWithoutParameters, "provideA")
@@ -32,7 +32,7 @@ final class ProviderMethodTests: XCTestCase {
         XCTAssertEqual(method?.parameters[1].typeName, "C")
     }
 
-    func testNonResolverType() {
+    func testNonResolverType() throws {
         let code = """
             protocol Test {
                 func provideA(b: B, c: C) -> A
@@ -40,7 +40,7 @@ final class ProviderMethodTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try ProviderMethod.providerMethods(inResolverType: type)
@@ -52,7 +52,7 @@ final class ProviderMethodTests: XCTestCase {
         }
     }
 
-    func testMissingReturnType() {
+    func testMissingReturnType() throws {
         let code = """
             protocol Test: Resolver {
                 func provideA(b: B, c: C)
@@ -60,7 +60,7 @@ final class ProviderMethodTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try ProviderMethod.providerMethods(inResolverType: type)
@@ -72,7 +72,7 @@ final class ProviderMethodTests: XCTestCase {
         }
     }
 
-    func testStatic() {
+    func testStatic() throws {
         let code = """
             protocol Test: Resolver {
                 static func provideA(b: B, c: C) -> A
@@ -80,7 +80,7 @@ final class ProviderMethodTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)!
         do {
             _ = try ProviderMethod.providerMethods(inResolverType: type)

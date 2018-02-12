@@ -12,7 +12,7 @@ import SourceKittenFramework
 @testable import DIGenKit
 
 final class ImportTests: XCTestCase {
-    func test() {
+    func test() throws {
         let code = """
             import Foundation
             import DIKit
@@ -28,7 +28,7 @@ final class ImportTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let imports = Import.imports(from: file)
+        let imports = try Import.imports(from: file)
         let moduleNames = imports.map { $0.moduleName }
 
         XCTAssertEqual(moduleNames, ["Foundation", "DIKit", "Foundation"])

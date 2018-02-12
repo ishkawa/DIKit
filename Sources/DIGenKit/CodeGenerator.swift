@@ -17,17 +17,17 @@ public final class CodeGenerator {
     }
 
     public init(files: [File]) throws {
-        let types = Array(files
+        let types = try Array(files
             .map { file in
-                return Structure(file: file)
+                return try Structure(file: file)
                     .substructures
                     .flatMap { Type(structure: $0, file: file) }
             }
             .joined())
 
-        let imports = Array(files
+        let imports = try Array(files
             .map { file -> [Import] in
-                return Import.imports(from: file)
+                return try Import.imports(from: file)
             }
             .joined())
             .reduce([] as [Import]) { imports, newImport in
