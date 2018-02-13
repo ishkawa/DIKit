@@ -65,7 +65,15 @@ struct ResolveMethod {
 
         parameters = node.deepDependencyParameters.map { Parameter(name: $0.name, typeName: $0.typeName) }
         parametersDeclaration = parameters
-            .map { "\($0.name): \($0.typeName)" }
+            .map {
+                let typeName = $0.typeName
+                if typeName.contains("->") {
+                    // FIXME: This condition is insufficient. It mistakes in case such as `(() -> Void)?` `Foo<() -> Void>` `(Bar, () -> Void)`
+                    return "\($0.name): @escaping \(typeName)"
+                } else {
+                    return "\($0.name): \(typeName)"
+                }
+            }
             .joined(separator: ", ")
     }
 }
