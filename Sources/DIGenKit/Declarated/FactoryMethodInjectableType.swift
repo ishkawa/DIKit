@@ -52,7 +52,7 @@ struct FactoryMethodInjectableType {
             throw Error(type: type, reason: .protocolConformanceNotFound)
         }
 
-        guard let dependencyType = type.nestedTypes.filter({ $0.name == "Dependency" }).first else {
+        guard let dependencyType = type.nestedTypes.first(where: { $0.name == "Dependency" }) else {
             throw Error(type: type, reason: .associatedTypeNotFound)
         }
 
@@ -61,7 +61,7 @@ struct FactoryMethodInjectableType {
         }
 
         guard
-            let factoryMethod = type.methods.filter({ $0.name == "makeInstance(dependency:)" }).first, factoryMethod.isStatic,
+            let factoryMethod = type.methods.first(where: { $0.name == "makeInstance(dependency:)" }), factoryMethod.isStatic,
             let parameter = factoryMethod.parameters.first, parameter.typeName == "Dependency" || parameter.typeName == "\(type.name).Dependency" else {
             throw Error(type: type, reason: .factoryMethodNotFound)
         }

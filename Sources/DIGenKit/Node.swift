@@ -62,7 +62,7 @@ struct Node {
         self.dependencies = declaration.dependencies
             .flatMap { dependency -> Dependency? in
                 let declarationTypeNames = allDeclarations.map { $0.typeName }
-                if let resolvableNode = availableNodes.filter({ $0.declaration.typeName == dependency.typeName }).first {
+                if let resolvableNode = availableNodes.first(where: { $0.declaration.typeName == dependency.typeName }) {
                     return .node(name: dependency.name, node: resolvableNode)
                 } else if !declarationTypeNames.contains(dependency.typeName) {
                     return .parameter(Parameter(name: dependency.name, typeName: dependency.typeName))

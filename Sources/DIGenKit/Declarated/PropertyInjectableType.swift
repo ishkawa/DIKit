@@ -52,7 +52,7 @@ struct PropertyInjectableType {
             throw Error(type: type, reason: .protocolConformanceNotFound)
         }
 
-        guard let dependencyType = type.nestedTypes.filter({ $0.name == "Dependency" }).first else {
+        guard let dependencyType = type.nestedTypes.first(where: { $0.name == "Dependency" }) else {
             throw Error(type: type, reason: .associatedTypeNotFound)
         }
 
@@ -61,7 +61,7 @@ struct PropertyInjectableType {
         }
 
         guard
-            let property = type.properties.filter({ $0.name == "dependency" }).first,
+            let property = type.properties.first(where: { $0.name == "dependency" }),
             !property.isStatic && property.typeName == "Dependency!" else {
             throw Error(type: type, reason: .propertyNotFound)
         }
