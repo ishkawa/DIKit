@@ -105,6 +105,14 @@ let viewController = appResolver.resolveViewController(user: user)
 
 Install code generator `dikitgen` first.
 
+### [Mint](https://github.com/yonaskolb/mint)
+
+```shell
+mint install ishkawa/DIKit dikitgen
+```
+
+### From Source
+
 ```shell
 git clone https://github.com/ishkawa/DIKit.git
 cd DIKit
