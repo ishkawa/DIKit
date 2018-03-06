@@ -108,7 +108,7 @@ Install code generator `dikitgen` first.
 ### [Mint](https://github.com/yonaskolb/mint)
 
 ```shell
-mint run ishkawa/DIKit dikitgen
+mint install ishkawa/DIKit dikitgen
 ```
 
 ### From Source
