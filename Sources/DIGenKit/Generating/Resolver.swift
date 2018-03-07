@@ -41,7 +41,7 @@ struct Resolver {
 
     let resolveMethods: [ResolveMethod]
     let injectMethods: [InjectMethod]
-    let generatedMethods: [GeneratedMethod]
+    let sortedGeneratedMethods: [GeneratedMethod]
 
     init(type: Type, allTypes: [Type]) throws {
         guard
@@ -149,6 +149,7 @@ struct Resolver {
         }
 
         injectMethods = nodesForInjectMethods.flatMap(InjectMethod.init(node:))
-        generatedMethods = resolveMethods as [GeneratedMethod] + injectMethods as [GeneratedMethod]
+        let generatedMethods = resolveMethods as [GeneratedMethod] + injectMethods as [GeneratedMethod]
+        sortedGeneratedMethods = generatedMethods.sorted { (lhs, rhs) in return lhs.name < rhs.name }
     }
 }
