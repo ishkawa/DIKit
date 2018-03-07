@@ -48,8 +48,8 @@ public final class CodeGenerator {
             }
 
         context = [
-            "moduleNames": imports.map { $0.moduleName },
-            "resolvers": resolvers,
+            "moduleNames": imports.map({ $0.moduleName }).sorted(by: <),
+            "resolvers": resolvers.sorted { (lhs, rhs) in return lhs.name < rhs.name },
         ]
     }
 
@@ -64,7 +64,7 @@ public final class CodeGenerator {
             {% endif %}{% endfor %}
             {% for resolver in resolvers %}
             extension {{ resolver.name }} {
-            {% for method in resolver.generatedMethods %}
+            {% for method in resolver.sortedGeneratedMethods %}
                 func {{ method.name }}({{ method.parametersDeclaration }}) -> {{ method.returnTypeName }} {
                     {% for line in method.bodyLines %}{{ line }}{% if not forloop.last %}
                     {% endif %}{% endfor %}
