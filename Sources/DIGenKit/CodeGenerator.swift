@@ -21,7 +21,7 @@ public final class CodeGenerator {
             .map { file in
                 return try Structure(file: file)
                     .substructures
-                    .flatMap { Type(structure: $0, file: file) }
+                    .compactMap { Type(structure: $0, file: file) }
             }
             .joined())
 
@@ -37,7 +37,7 @@ public final class CodeGenerator {
             }
 
         let resolvers = try types
-            .flatMap { type -> Resolver? in
+            .compactMap { type -> Resolver? in
                 do {
                     return try Resolver(type: type, allTypes: types)
                 } catch let error as Resolver.Error where error.reason == .protocolConformanceNotFound {
