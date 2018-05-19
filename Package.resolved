@@ -15,8 +15,17 @@
         "repositoryURL": "https://github.com/Carthage/Commandant.git",
         "state": {
           "branch": null,
-          "revision": "c281992c31c3f41c48b5036c5a38185eaec32626",
-          "version": "0.12.0"
+          "revision": "7f29606ec3a2054a601f0e72f562a104dbc1a11a",
+          "version": "0.13.0"
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "22800b0954c89344bb8c87f8ab93378076716fb7",
+          "version": "7.0.3"
         }
       },
       {
@@ -26,6 +35,15 @@
           "branch": null,
           "revision": "891a3fec2699fc43aed18b7649950677c0152a22",
           "version": "0.8.0"
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "state": {
+          "branch": null,
+          "revision": "0ff81f2c665b4381f526bd656f8708dd52a9ea2f",
+          "version": "1.2.0"
         }
       },
       {
@@ -60,8 +78,8 @@
         "repositoryURL": "https://github.com/jpsim/SourceKitten.git",
         "state": {
           "branch": null,
-          "revision": "7c4c6d8194389493f841b75fafa8c29b274c7ea6",
-          "version": "0.18.1"
+          "revision": "e06eb730499439ae32c5fbb6f72809ebec2371fd",
+          "version": "0.19.1"
         }
       },
       {
@@ -87,8 +105,8 @@
         "repositoryURL": "https://github.com/jpsim/Yams.git",
         "state": {
           "branch": null,
-          "revision": "5ac9248b378b5e12201c255ba74caf990d1e0f4b",
-          "version": "0.3.6"
+          "revision": "95f45caf07472ec78223ebada45255086a85b01a",
+          "version": "0.5.0"
         }
       }
     ]

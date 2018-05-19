@@ -11,8 +11,8 @@ import SourceKittenFramework
 struct Import {
     let moduleName: String
 
-    static func imports(from file: File) -> [Import] {
-        let syntaxMap = SyntaxMap(file: file)
+    static func imports(from file: File) throws -> [Import] {
+        let syntaxMap = try SyntaxMap(file: file)
         let importTokenIndices = syntaxMap.tokens.enumerated()
             .flatMap { index, token -> Int? in
                 guard token.type == "source.lang.swift.syntaxtype.keyword" else {

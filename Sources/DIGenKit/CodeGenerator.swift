@@ -12,22 +12,22 @@ import Stencil
 public final class CodeGenerator {
     let context: [String: Any]
 
-    public convenience init(path: String) throws {
-        try self.init(files: files(atPath: path))
+    public convenience init(path: String, excluding exclusions: [String] = []) throws {
+        try self.init(files: files(atPath: path, excluding: exclusions))
     }
 
     public init(files: [File]) throws {
-        let types = Array(files
+        let types = try Array(files
             .map { file in
-                return Structure(file: file)
+                return try Structure(file: file)
                     .substructures
                     .flatMap { Type(structure: $0, file: file) }
             }
             .joined())
 
-        let imports = Array(files
+        let imports = try Array(files
             .map { file -> [Import] in
-                return Import.imports(from: file)
+                return try Import.imports(from: file)
             }
             .joined())
             .reduce([] as [Import]) { imports, newImport in
@@ -48,8 +48,8 @@ public final class CodeGenerator {
             }
 
         context = [
-            "moduleNames": imports.map { $0.moduleName },
-            "resolvers": resolvers,
+            "moduleNames": imports.map({ $0.moduleName }).sorted(by: <),
+            "resolvers": resolvers.sorted { (lhs, rhs) in return lhs.name < rhs.name },
         ]
     }
 
@@ -64,7 +64,7 @@ public final class CodeGenerator {
             {% endif %}{% endfor %}
             {% for resolver in resolvers %}
             extension {{ resolver.name }} {
-            {% for method in resolver.generatedMethods %}
+            {% for method in resolver.sortedGeneratedMethods %}
                 func {{ method.name }}({{ method.parametersDeclaration }}) -> {{ method.returnTypeName }} {
                     {% for line in method.bodyLines %}{{ line }}{% if not forloop.last %}
                     {% endif %}{% endfor %}
@@ -78,7 +78,8 @@ public final class CodeGenerator {
     }
 }
 
-private func files(atPath path: String) -> [File] {
+private func files(atPath path: String, excluding exclusions: [String]) -> [File] {
+    let exclusions = exclusions.map { $0.last == "/" ? $0 : $0 + "/" }
     let url = URL(fileURLWithPath: path)
     let fileManager = FileManager.default
 
@@ -88,6 +89,8 @@ private func files(atPath path: String) -> [File] {
         if isDirectory.boolValue {
             let enumerator = fileManager.enumerator(atPath: path)
             while let subpath = enumerator?.nextObject() as? String {
+                if exclusions.contains(where: { subpath.hasPrefix($0) }) { continue }
+
                 let url = url.appendingPathComponent(subpath)
                 if url.pathExtension == "swift", let file = File(path: url.path), file.contents.contains("DIKit") {
                     files.append(file)

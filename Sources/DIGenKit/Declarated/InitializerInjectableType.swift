@@ -52,7 +52,7 @@ struct InitializerInjectableType {
             throw Error(type: type, reason: .protocolConformanceNotFound)
         }
 
-        guard let dependencyType = type.nestedTypes.filter({ $0.name == "Dependency" }).first else {
+        guard let dependencyType = type.nestedTypes.first(where: { $0.name == "Dependency" }) else {
             throw Error(type: type, reason: .associatedTypeNotFound)
         }
 
@@ -61,7 +61,7 @@ struct InitializerInjectableType {
         }
 
         guard
-            let initializer = type.methods.filter({ $0.name == "init(dependency:)" }).first,
+            let initializer = type.methods.first(where: { $0.name == "init(dependency:)" }),
             let parameter = initializer.parameters.first, parameter.typeName == "Dependency" else {
             throw Error(type: type, reason: .initializerNotFound)
         }

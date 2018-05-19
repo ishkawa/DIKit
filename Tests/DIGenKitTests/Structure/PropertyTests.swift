@@ -12,7 +12,7 @@ import SourceKittenFramework
 @testable import DIGenKit
 
 final class PropertyTests: XCTestCase {
-    func test() {
+    func test() throws {
         let code = """
             struct Test {
                 var a: A
@@ -20,7 +20,7 @@ final class PropertyTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)
         let property = type?.properties.first
 
@@ -29,7 +29,7 @@ final class PropertyTests: XCTestCase {
         XCTAssertEqual(property?.isStatic, false)
     }
 
-    func testLet() {
+    func testLet() throws {
         let code = """
             struct Test {
                 let a: A
@@ -37,7 +37,7 @@ final class PropertyTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)
         let property = type?.properties.first
 
@@ -47,7 +47,7 @@ final class PropertyTests: XCTestCase {
     }
 
 
-    func testStatic() {
+    func testStatic() throws {
         let code = """
             struct Test {
                 static var a: A
@@ -55,7 +55,7 @@ final class PropertyTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)
         let property = type?.properties.first
 
@@ -64,7 +64,7 @@ final class PropertyTests: XCTestCase {
         XCTAssertEqual(property?.isStatic, true)
     }
 
-    func testProtocol() {
+    func testProtocol() throws {
         let code = """
             protocol Test {
                 var a: A { get }
@@ -72,7 +72,7 @@ final class PropertyTests: XCTestCase {
             """
 
         let file = File(contents: code)
-        let structure = Structure(file: file).substructures.first!
+        let structure = try Structure(file: file).substructures.first!
         let type = Type(structure: structure, file: file)
         let property = type?.properties.first
 
