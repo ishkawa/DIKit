@@ -1,5 +1,5 @@
 PREFIX?=/usr/local
-VERSION=$(shell /usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" DIKit.xcodeproj/DIGenKit_Info.plist)
+VERSION:=$(shell /usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" DIKit.xcodeproj/DIGenKit_Info.plist)
 XCCONFIG_PATH=DIKit.xcconfig
 
 build:
@@ -15,3 +15,6 @@ set_version:
 
 generate_xcodeproj:
 	swift package generate-xcodeproj --xcconfig-overrides ${XCCONFIG_PATH}
+	$(MAKE) set_version VERSION=$(VERSION)
+	sed -i '' -e "s|$(PWD)|..|g" DIKit.xcodeproj/project.pbxproj
+	sed -i '' -e "s|$(PWD)|../../..|g" DIKit.xcodeproj/GeneratedModuleMap/CYaml/module.modulemap
