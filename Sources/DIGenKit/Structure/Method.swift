@@ -81,7 +81,7 @@ struct Method {
 
         self.name = name
         self.kind = kind
-        self.parameters = structure.substructures.flatMap(Parameter.init)
+        self.parameters = structure.substructures.compactMap(Parameter.init)
         self.file = file
         self.offset = offset
     }

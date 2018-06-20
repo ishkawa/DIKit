@@ -14,7 +14,7 @@ struct Import {
     static func imports(from file: File) throws -> [Import] {
         let syntaxMap = try SyntaxMap(file: file)
         let importTokenIndices = syntaxMap.tokens.enumerated()
-            .flatMap { index, token -> Int? in
+            .compactMap { index, token -> Int? in
                 guard token.type == "source.lang.swift.syntaxtype.keyword" else {
                     return nil
                 }
@@ -27,7 +27,7 @@ struct Import {
             }
 
         let importedModuleNames = importTokenIndices
-            .flatMap { index -> String? in
+            .compactMap { index -> String? in
                 let identifierIndex = index + 1
                 guard identifierIndex < syntaxMap.tokens.count else {
                     return nil

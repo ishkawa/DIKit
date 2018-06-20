@@ -91,7 +91,7 @@ struct ProviderMethod {
         }
         
         return try type.methods
-            .flatMap { method in
+            .compactMap { method in
                 do {
                     return try ProviderMethod(type: type, method: method)
                 } catch let error as ProviderMethod.Error where error.reason == .providePrefixNotFound {
