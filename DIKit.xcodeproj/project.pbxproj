@@ -187,236 +187,236 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7FB054FF20B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D82D20DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "DIKit::DIGenKit";
 			remoteInfo = DIGenKit;
 		};
-		7FB0550020B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D82E20DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Stencil::Stencil";
 			remoteInfo = Stencil;
 		};
-		7FB0550120B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D82F20DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Spectre::Spectre";
 			remoteInfo = Spectre;
 		};
-		7FB0550220B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83020DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "PathKit::PathKit";
 			remoteInfo = PathKit;
 		};
-		7FB0550320B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83120DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Spectre::Spectre";
 			remoteInfo = Spectre;
 		};
-		7FB0550420B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83220DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "PathKit::PathKit";
 			remoteInfo = PathKit;
 		};
-		7FB0550520B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83320DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SourceKitten::SourceKittenFramework";
 			remoteInfo = SourceKittenFramework;
 		};
-		7FB0550620B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83420DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Yams::Yams";
 			remoteInfo = Yams;
 		};
-		7FB0550720B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83520DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Yams::CYaml";
 			remoteInfo = CYaml;
 		};
-		7FB0550820B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83620DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Yams::CYaml";
 			remoteInfo = CYaml;
 		};
-		7FB0550920B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83720DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SWXMLHash::SWXMLHash";
 			remoteInfo = SWXMLHash;
 		};
-		7FB0550A20B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83820DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Yams::Yams";
 			remoteInfo = Yams;
 		};
-		7FB0550B20B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83920DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Yams::CYaml";
 			remoteInfo = CYaml;
 		};
-		7FB0550C20B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83A20DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SWXMLHash::SWXMLHash";
 			remoteInfo = SWXMLHash;
 		};
-		7FB0550D20B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83B20DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "DIKit::DIKit";
 			remoteInfo = DIKit;
 		};
-		7FB0550E20B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83C20DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Stencil::Stencil";
 			remoteInfo = Stencil;
 		};
-		7FB0550F20B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83D20DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Spectre::Spectre";
 			remoteInfo = Spectre;
 		};
-		7FB0551020B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83E20DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "PathKit::PathKit";
 			remoteInfo = PathKit;
 		};
-		7FB0551120B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D83F20DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SourceKitten::SourceKittenFramework";
 			remoteInfo = SourceKittenFramework;
 		};
-		7FB0551220B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D84020DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Yams::Yams";
 			remoteInfo = Yams;
 		};
-		7FB0551320B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D84120DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Yams::CYaml";
 			remoteInfo = CYaml;
 		};
-		7FB0551420B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D84220DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SWXMLHash::SWXMLHash";
 			remoteInfo = SWXMLHash;
 		};
-		7FB0551520B0A7A300D2C970 /* PBXContainerItemProxy */ = {
+		7F40D84320DA9A47006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "DIKit::DIKit";
 			remoteInfo = DIKit;
 		};
-		7FB0551620B0A7A400D2C970 /* PBXContainerItemProxy */ = {
+		7F40D84420DA9A48006E4018 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "DIKit::DIGenKit";
+			remoteInfo = DIGenKit;
+		};
+		7F40D84520DA9A48006E4018 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Stencil::Stencil";
+			remoteInfo = Stencil;
+		};
+		7F40D84620DA9A48006E4018 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Spectre::Spectre";
+			remoteInfo = Spectre;
+		};
+		7F40D84720DA9A48006E4018 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "PathKit::PathKit";
+			remoteInfo = PathKit;
+		};
+		7F40D84820DA9A48006E4018 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SourceKitten::SourceKittenFramework";
+			remoteInfo = SourceKittenFramework;
+		};
+		7F40D84920DA9A48006E4018 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Yams::Yams";
+			remoteInfo = Yams;
+		};
+		7F40D84A20DA9A48006E4018 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Yams::CYaml";
+			remoteInfo = CYaml;
+		};
+		7F40D84B20DA9A48006E4018 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SWXMLHash::SWXMLHash";
+			remoteInfo = SWXMLHash;
+		};
+		7F40D84C20DA9A48006E4018 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "DIKit::DIKit";
+			remoteInfo = DIKit;
+		};
+		7F40D84D20DA9A48006E4018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "DIKit::DIGenKitTests";
 			remoteInfo = DIGenKitTests;
-		};
-		7FB0551720B0A7A400D2C970 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "DIKit::DIGenKit";
-			remoteInfo = DIGenKit;
-		};
-		7FB0551820B0A7A400D2C970 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Stencil::Stencil";
-			remoteInfo = Stencil;
-		};
-		7FB0551920B0A7A400D2C970 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Spectre::Spectre";
-			remoteInfo = Spectre;
-		};
-		7FB0551A20B0A7A400D2C970 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "PathKit::PathKit";
-			remoteInfo = PathKit;
-		};
-		7FB0551B20B0A7A400D2C970 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "SourceKitten::SourceKittenFramework";
-			remoteInfo = SourceKittenFramework;
-		};
-		7FB0551C20B0A7A400D2C970 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Yams::Yams";
-			remoteInfo = Yams;
-		};
-		7FB0551D20B0A7A400D2C970 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Yams::CYaml";
-			remoteInfo = CYaml;
-		};
-		7FB0551E20B0A7A400D2C970 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "SWXMLHash::SWXMLHash";
-			remoteInfo = SWXMLHash;
-		};
-		7FB0551F20B0A7A400D2C970 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "DIKit::DIKit";
-			remoteInfo = DIKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -805,16 +805,16 @@
 			isa = PBXGroup;
 			children = (
 				"Stencil::Stencil::Product" /* Stencil.framework */,
+				"DIKit::DIGenKitTests::Product" /* DIGenKitTests.xctest */,
 				"DIKit::DIGenKit::Product" /* DIGenKit.framework */,
-				"Yams::Yams::Product" /* Yams.framework */,
-				"Yams::CYaml::Product" /* CYaml.framework */,
-				"SourceKitten::SourceKittenFramework::Product" /* SourceKittenFramework.framework */,
-				"Spectre::Spectre::Product" /* Spectre.framework */,
-				"DIKit::DIKit::Product" /* DIKit.framework */,
 				"DIKit::dikitgen::Product" /* dikitgen */,
 				"SWXMLHash::SWXMLHash::Product" /* SWXMLHash.framework */,
-				"DIKit::DIGenKitTests::Product" /* DIGenKitTests.xctest */,
+				"Yams::CYaml::Product" /* CYaml.framework */,
+				"Spectre::Spectre::Product" /* Spectre.framework */,
+				"Yams::Yams::Product" /* Yams.framework */,
+				"SourceKitten::SourceKittenFramework::Product" /* SourceKittenFramework.framework */,
 				"PathKit::PathKit::Product" /* PathKit.framework */,
+				"DIKit::DIKit::Product" /* DIKit.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -1699,167 +1699,167 @@
 		OBJ_227 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Stencil::Stencil" /* Stencil */;
-			targetProxy = 7FB0550020B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D82E20DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_229 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Spectre::Spectre" /* Spectre */;
-			targetProxy = 7FB0550320B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83120DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_231 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "PathKit::PathKit" /* PathKit */;
-			targetProxy = 7FB0550420B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83220DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_233 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SourceKitten::SourceKittenFramework" /* SourceKittenFramework */;
-			targetProxy = 7FB0550520B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83320DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_235 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Yams::Yams" /* Yams */;
-			targetProxy = 7FB0550A20B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83820DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_237 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Yams::CYaml" /* CYaml */;
-			targetProxy = 7FB0550B20B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83920DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_238 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SWXMLHash::SWXMLHash" /* SWXMLHash */;
-			targetProxy = 7FB0550C20B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83A20DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_240 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "DIKit::DIKit" /* DIKit */;
-			targetProxy = 7FB0550D20B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83B20DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_268 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "DIKit::DIGenKit" /* DIGenKit */;
-			targetProxy = 7FB054FF20B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D82D20DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_269 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Stencil::Stencil" /* Stencil */;
-			targetProxy = 7FB0550E20B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83C20DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_270 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Spectre::Spectre" /* Spectre */;
-			targetProxy = 7FB0550F20B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83D20DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_271 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "PathKit::PathKit" /* PathKit */;
-			targetProxy = 7FB0551020B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83E20DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_272 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SourceKitten::SourceKittenFramework" /* SourceKittenFramework */;
-			targetProxy = 7FB0551120B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83F20DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_273 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Yams::Yams" /* Yams */;
-			targetProxy = 7FB0551220B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84020DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_274 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Yams::CYaml" /* CYaml */;
-			targetProxy = 7FB0551320B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84120DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_275 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SWXMLHash::SWXMLHash" /* SWXMLHash */;
-			targetProxy = 7FB0551420B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84220DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_276 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "DIKit::DIKit" /* DIKit */;
-			targetProxy = 7FB0551520B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84320DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_295 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "DIKit::DIGenKitTests" /* DIGenKitTests */;
-			targetProxy = 7FB0551620B0A7A400D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84D20DA9A48006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_367 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Yams::Yams" /* Yams */;
-			targetProxy = 7FB0550620B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83420DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_368 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Yams::CYaml" /* CYaml */;
-			targetProxy = 7FB0550820B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83620DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_369 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SWXMLHash::SWXMLHash" /* SWXMLHash */;
-			targetProxy = 7FB0550920B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83720DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_421 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Spectre::Spectre" /* Spectre */;
-			targetProxy = 7FB0550120B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D82F20DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_422 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "PathKit::PathKit" /* PathKit */;
-			targetProxy = 7FB0550220B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83020DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_451 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Yams::CYaml" /* CYaml */;
-			targetProxy = 7FB0550720B0A7A300D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D83520DA9A47006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_475 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "DIKit::DIGenKit" /* DIGenKit */;
-			targetProxy = 7FB0551720B0A7A400D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84420DA9A48006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_476 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Stencil::Stencil" /* Stencil */;
-			targetProxy = 7FB0551820B0A7A400D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84520DA9A48006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_477 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Spectre::Spectre" /* Spectre */;
-			targetProxy = 7FB0551920B0A7A400D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84620DA9A48006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_478 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "PathKit::PathKit" /* PathKit */;
-			targetProxy = 7FB0551A20B0A7A400D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84720DA9A48006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_479 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SourceKitten::SourceKittenFramework" /* SourceKittenFramework */;
-			targetProxy = 7FB0551B20B0A7A400D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84820DA9A48006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_480 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Yams::Yams" /* Yams */;
-			targetProxy = 7FB0551C20B0A7A400D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84920DA9A48006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_481 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Yams::CYaml" /* CYaml */;
-			targetProxy = 7FB0551D20B0A7A400D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84A20DA9A48006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_482 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SWXMLHash::SWXMLHash" /* SWXMLHash */;
-			targetProxy = 7FB0551E20B0A7A400D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84B20DA9A48006E4018 /* PBXContainerItemProxy */;
 		};
 		OBJ_483 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "DIKit::DIKit" /* DIKit */;
-			targetProxy = 7FB0551F20B0A7A400D2C970 /* PBXContainerItemProxy */;
+			targetProxy = 7F40D84C20DA9A48006E4018 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2045,7 +2045,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = DIKit;
+				PRODUCT_BUNDLE_IDENTIFIER = org.ishkawa.DIKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2069,7 +2069,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = DIKit;
+				PRODUCT_BUNDLE_IDENTIFIER = org.ishkawa.DIKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
