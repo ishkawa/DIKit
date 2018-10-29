@@ -1,0 +1,4 @@
+github "drmohundro/SWXMLHash" "4.7.4"
+github "jpsim/SourceKitten" "0.21.2"
+github "jpsim/Yams" "1.0.1"
+github "stencilproject/Stencil" "0.13.1"

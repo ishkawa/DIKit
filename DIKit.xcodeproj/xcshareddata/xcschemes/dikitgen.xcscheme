@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "9999"
+   LastUpgradeVersion = "1000"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DIKit::dikitgen"
+               BlueprintIdentifier = "7F5ADD2821875C7B00275E4D"
                BuildableName = "dikitgen"
                BlueprintName = "dikitgen"
                ReferencedContainer = "container:DIKit.xcodeproj">
@@ -28,17 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DIKit::DIGenKitTests"
-               BuildableName = "DIGenKitTests.xctest"
-               BlueprintName = "DIGenKitTests"
-               ReferencedContainer = "container:DIKit.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7F5ADD2821875C7B00275E4D"
+            BuildableName = "dikitgen"
+            BlueprintName = "dikitgen"
+            ReferencedContainer = "container:DIKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -56,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DIKit::dikitgen"
+            BlueprintIdentifier = "7F5ADD2821875C7B00275E4D"
             BuildableName = "dikitgen"
             BlueprintName = "dikitgen"
             ReferencedContainer = "container:DIKit.xcodeproj">
@@ -71,6 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7F5ADD2821875C7B00275E4D"
+            BuildableName = "dikitgen"
+            BlueprintName = "dikitgen"
+            ReferencedContainer = "container:DIKit.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
