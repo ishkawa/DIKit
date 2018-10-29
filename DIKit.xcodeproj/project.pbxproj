@@ -12,6 +12,7 @@
 		7F5ADD0821875BFF00275E4D /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD0621875BFF00275E4D /* Resolver.swift */; };
 		7F5ADD2C21875C7B00275E4D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD2B21875C7B00275E4D /* main.swift */; };
 		7F5ADD5921875CE700275E4D /* StandardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD5821875CE700275E4D /* StandardError.swift */; };
+		7F8F1B822187829A0001ABE7 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ADCE921875B9200275E4D /* DIKit.framework */; };
 		7FCD123D218760DD003255E5 /* DIGenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FCD1234218760DD003255E5 /* DIGenKit.framework */; };
 		7FCD124F2187610B003255E5 /* TypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD6421875D2500275E4D /* TypeTests.swift */; };
 		7FCD12502187610B003255E5 /* ImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD6521875D2500275E4D /* ImportTests.swift */; };
@@ -46,6 +47,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7F8F1B83218782BF0001ABE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F5ADCE021875B9200275E4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7F5ADCE821875B9200275E4D;
+			remoteInfo = DIKit;
+		};
 		7FCD123E218760DD003255E5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7F5ADCE021875B9200275E4D /* Project object */;
@@ -145,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F8F1B822187829A0001ABE7 /* DIKit.framework in Frameworks */,
 				7FCD123D218760DD003255E5 /* DIGenKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +420,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7F8F1B84218782BF0001ABE7 /* PBXTargetDependency */,
 				7FCD123F218760DD003255E5 /* PBXTargetDependency */,
 			);
 			name = DIGenKitTests;
@@ -552,6 +562,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7F8F1B84218782BF0001ABE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7F5ADCE821875B9200275E4D /* DIKit */;
+			targetProxy = 7F8F1B83218782BF0001ABE7 /* PBXContainerItemProxy */;
+		};
 		7FCD123F218760DD003255E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7FCD1233218760DD003255E5 /* DIGenKit */;
@@ -702,9 +717,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.ishkawa.DIKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -728,8 +745,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.ishkawa.DIKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
