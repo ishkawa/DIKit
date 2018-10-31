@@ -10,11 +10,10 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/jpsim/SourceKitten.git", from: "0.19.1"),
-    .package(url: "https://github.com/kylef/Stencil.git", from: "0.9.0"),
   ],
   targets: [
     .target(name: "DIKit"),
-    .target(name: "DIGenKit", dependencies: ["DIKit", "SourceKittenFramework", "Stencil"]),
+    .target(name: "DIGenKit", dependencies: ["DIKit", "SourceKittenFramework"]),
     .target(name: "dikitgen", dependencies: ["DIGenKit"]),
     .testTarget(name: "DIGenKitTests", dependencies: ["DIGenKit"])
   ]
