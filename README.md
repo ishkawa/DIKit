@@ -101,6 +101,11 @@ let user: User = ...
 let viewController = appResolver.resolveViewController(user: user)
 ```
 
+## Requirements
+
+- Code generator: Swift 4.1+ / Xcode 9.4+
+- Runtime library: macOS 10.11+ / iOS 9.0+ / watchOS 2.0+ / tvOS 9.0+
+
 ## Installation
 
 Install code generator `dikitgen` first.
