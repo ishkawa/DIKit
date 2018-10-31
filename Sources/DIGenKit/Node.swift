@@ -60,7 +60,7 @@ struct Node {
     init?(declaration: Declaration, allDeclarations: [Declaration], availableNodes: [Node]) {
         self.declaration = declaration
         self.dependencies = declaration.dependencies
-            .flatMap { dependency -> Dependency? in
+            .compactMap { dependency -> Dependency? in
                 let declarationTypeNames = allDeclarations.map { $0.typeName }
                 if let resolvableNode = availableNodes.first(where: { $0.declaration.typeName == dependency.typeName }) {
                     return .node(name: dependency.name, node: resolvableNode)
@@ -79,7 +79,7 @@ struct Node {
 
     var shallowDependencyNodes: [Node] {
         return dependencies
-            .flatMap { dependency -> Node? in
+            .compactMap { dependency -> Node? in
                 if case .node(_, let node) = dependency {
                     return node
                 } else {
@@ -94,7 +94,7 @@ struct Node {
 
     static func recursiveDependencyParameters(of node: Node) -> [Parameter] {
         let dependencyNodes = node.dependencies
-            .flatMap { dependency -> Node? in
+            .compactMap { dependency -> Node? in
                 if case .node(_, let node) = dependency {
                     return node
                 } else {
@@ -103,7 +103,7 @@ struct Node {
             }
 
         let dependencyParameter = node.dependencies
-            .flatMap { dependency -> Parameter? in
+            .compactMap { dependency -> Parameter? in
                 if case .parameter(let parameter) = dependency {
                     return parameter
                 } else {
