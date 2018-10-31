@@ -7,106 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F4C2CAE2189ED1000F28104 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4C2CAD2189ED1000F28104 /* DIKit.framework */; };
 		7F764D441F800C3A00E983DF /* Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F764D431F800C3A00E983DF /* Multiplier.swift */; };
 		7FA64D9E1F6E11C600DA45A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA64D9D1F6E11C600DA45A2 /* AppDelegate.swift */; };
 		7FA64DA51F6E11C600DA45A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA64DA41F6E11C600DA45A2 /* Assets.xcassets */; };
 		7FA64DA81F6E11C600DA45A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA64DA61F6E11C600DA45A2 /* LaunchScreen.storyboard */; };
 		7FFDA19E1F785DAA0098BA9D /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FFDA19D1F785DAA0098BA9D /* List.storyboard */; };
 		7FFDA1A21F785F040098BA9D /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FFDA1A11F785F040098BA9D /* Detail.storyboard */; };
-		7FFE8A201F6E4D4100910CFD /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFE8A1F1F6E4D2900910CFD /* DIKit.framework */; };
-		7FFE8A211F6E4D4100910CFD /* DIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFE8A1F1F6E4D2900910CFD /* DIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7FFE8A261F6E4D8A00910CFD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE8A251F6E4D8A00910CFD /* ListViewController.swift */; };
 		7FFE8A281F6E4DA500910CFD /* AppResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE8A271F6E4DA500910CFD /* AppResolver.swift */; };
 		7FFE8A2B1F6E560800910CFD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE8A2A1F6E560800910CFD /* DetailViewController.swift */; };
 		7FFE8A3F1F6E586D00910CFD /* AppResolver.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE8A3E1F6E586D00910CFD /* AppResolver.generated.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7FFE8A0A1F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "DIKit::DIGenKitTests::Product";
-			remoteInfo = DIGenKitTests;
-		};
-		7FFE8A0C1F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "DIKit::dikitgen::Product";
-			remoteInfo = dikitgen;
-		};
-		7FFE8A0E1F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "DIKit::DIGenKit::Product";
-			remoteInfo = DIGenKit;
-		};
-		7FFE8A101F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "Stencil::Stencil::Product";
-			remoteInfo = Stencil;
-		};
-		7FFE8A121F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "PathKit::PathKit::Product";
-			remoteInfo = PathKit;
-		};
-		7FFE8A141F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "Spectre::Spectre::Product";
-			remoteInfo = Spectre;
-		};
-		7FFE8A161F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "SourceKitten::SourceKittenFramework::Product";
-			remoteInfo = SourceKittenFramework;
-		};
-		7FFE8A181F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "Yams::Yams::Product";
-			remoteInfo = Yams;
-		};
-		7FFE8A1A1F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "Yams::CYaml::Product";
-			remoteInfo = CYaml;
-		};
-		7FFE8A1C1F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "SWXMLHash::SWXMLHash::Product";
-			remoteInfo = SWXMLHash;
-		};
-		7FFE8A1E1F6E4D2900910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "DIKit::DIKit::Product";
-			remoteInfo = DIKit;
-		};
-		7FFE8A221F6E4D4100910CFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = "DIKit::DIKit";
-			remoteInfo = DIKit;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		7FFE8A241F6E4D4100910CFD /* Embed Frameworks */ = {
@@ -115,7 +27,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7FFE8A211F6E4D4100910CFD /* DIKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +34,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7F4C2CAD2189ED1000F28104 /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F764D431F800C3A00E983DF /* Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplier.swift; sourceTree = "<group>"; };
 		7FA64D9A1F6E11C600DA45A2 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA64D9D1F6E11C600DA45A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,7 +43,6 @@
 		7FA64DA91F6E11C600DA45A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FFDA19D1F785DAA0098BA9D /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		7FFDA1A11F785F040098BA9D /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
-		7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DIKit.xcodeproj; path = ../DIKit.xcodeproj; sourceTree = "<group>"; };
 		7FFE8A251F6E4D8A00910CFD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		7FFE8A271F6E4DA500910CFD /* AppResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppResolver.swift; sourceTree = "<group>"; };
 		7FFE8A2A1F6E560800910CFD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -143,19 +54,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FFE8A201F6E4D4100910CFD /* DIKit.framework in Frameworks */,
+				7F4C2CAE2189ED1000F28104 /* DIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F4C2CAC2189ED1000F28104 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F4C2CAD2189ED1000F28104 /* DIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7FA64D911F6E11C600DA45A2 = {
 			isa = PBXGroup;
 			children = (
 				7FA64D9C1F6E11C600DA45A2 /* Example */,
 				7FA64D9B1F6E11C600DA45A2 /* Products */,
-				7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */,
+				7F4C2CAC2189ED1000F28104 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,24 +128,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		7FFE89F51F6E4D2900910CFD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7FFE8A0B1F6E4D2900910CFD /* DIGenKitTests.xctest */,
-				7FFE8A0D1F6E4D2900910CFD /* dikitgen */,
-				7FFE8A0F1F6E4D2900910CFD /* DIGenKit.framework */,
-				7FFE8A111F6E4D2900910CFD /* Stencil.framework */,
-				7FFE8A131F6E4D2900910CFD /* PathKit.framework */,
-				7FFE8A151F6E4D2900910CFD /* Spectre.framework */,
-				7FFE8A171F6E4D2900910CFD /* SourceKittenFramework.framework */,
-				7FFE8A191F6E4D2900910CFD /* Yams.framework */,
-				7FFE8A1B1F6E4D2900910CFD /* CYaml.framework */,
-				7FFE8A1D1F6E4D2900910CFD /* SWXMLHash.framework */,
-				7FFE8A1F1F6E4D2900910CFD /* DIKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,7 +144,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				7FFE8A231F6E4D4100910CFD /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -277,98 +177,12 @@
 			mainGroup = 7FA64D911F6E11C600DA45A2;
 			productRefGroup = 7FA64D9B1F6E11C600DA45A2 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 7FFE89F51F6E4D2900910CFD /* Products */;
-					ProjectRef = 7FFE89F41F6E4D2900910CFD /* DIKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				7FA64D991F6E11C600DA45A2 /* Example */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		7FFE8A0B1F6E4D2900910CFD /* DIGenKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = file;
-			path = DIGenKitTests.xctest;
-			remoteRef = 7FFE8A0A1F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7FFE8A0D1F6E4D2900910CFD /* dikitgen */ = {
-			isa = PBXReferenceProxy;
-			fileType = text;
-			path = dikitgen;
-			remoteRef = 7FFE8A0C1F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7FFE8A0F1F6E4D2900910CFD /* DIGenKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DIGenKit.framework;
-			remoteRef = 7FFE8A0E1F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7FFE8A111F6E4D2900910CFD /* Stencil.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Stencil.framework;
-			remoteRef = 7FFE8A101F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7FFE8A131F6E4D2900910CFD /* PathKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PathKit.framework;
-			remoteRef = 7FFE8A121F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7FFE8A151F6E4D2900910CFD /* Spectre.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Spectre.framework;
-			remoteRef = 7FFE8A141F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7FFE8A171F6E4D2900910CFD /* SourceKittenFramework.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SourceKittenFramework.framework;
-			remoteRef = 7FFE8A161F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7FFE8A191F6E4D2900910CFD /* Yams.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Yams.framework;
-			remoteRef = 7FFE8A181F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7FFE8A1B1F6E4D2900910CFD /* CYaml.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CYaml.framework;
-			remoteRef = 7FFE8A1A1F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7FFE8A1D1F6E4D2900910CFD /* SWXMLHash.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SWXMLHash.framework;
-			remoteRef = 7FFE8A1C1F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7FFE8A1F1F6E4D2900910CFD /* DIKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DIKit.framework;
-			remoteRef = 7FFE8A1E1F6E4D2900910CFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7FA64D981F6E11C600DA45A2 /* Resources */ = {
@@ -415,14 +229,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7FFE8A231F6E4D4100910CFD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DIKit;
-			targetProxy = 7FFE8A221F6E4D4100910CFD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7FA64DA61F6E11C600DA45A2 /* LaunchScreen.storyboard */ = {
