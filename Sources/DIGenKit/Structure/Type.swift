@@ -40,10 +40,10 @@ struct Type {
         self.kind = kind
         self.file = file
         self.offset = offset
-        self.methods = structure.substructures.flatMap { Method(structure: $0, file: file) }
-        self.properties = structure.substructures.flatMap { Property(structure: $0, file: file) }
-        self.nestedTypes = structure.substructures.flatMap { Type(structure: $0, file: file) }
+        self.methods = structure.substructures.compactMap { Method(structure: $0, file: file) }
+        self.properties = structure.substructures.compactMap { Property(structure: $0, file: file) }
+        self.nestedTypes = structure.substructures.compactMap { Type(structure: $0, file: file) }
         self.inheritedTypeNames = (structure[.inheritedtypes] as [[String: SourceKitRepresentable]]?)?
-            .flatMap { $0["key.name"] as? String } ?? []
+            .compactMap { $0["key.name"] as? String } ?? []
     }
 }

@@ -58,7 +58,7 @@ struct Resolver {
 
         var registeredTypeNames = providerMethods.map({ $0.typeName })
         let initializerInjectableTypes = try allTypes
-            .flatMap { type in
+            .compactMap { type in
                 guard !registeredTypeNames.contains(type.name) else {
                     return nil
                 }
@@ -76,7 +76,7 @@ struct Resolver {
         registeredTypeNames += initializerInjectableTypes.map({ $0.typeName })
 
         let factoryMethodInjectableTypes = try allTypes
-            .flatMap { type in
+            .compactMap { type in
                 guard !registeredTypeNames.contains(type.name) else {
                     return nil
                 }
@@ -113,10 +113,10 @@ struct Resolver {
             }
         }
 
-        resolveMethods = nodesForResolverMethods.flatMap(ResolveMethod.init(node:))
+        resolveMethods = nodesForResolverMethods.compactMap(ResolveMethod.init(node:))
 
         let propertyInjectableTypes = try allTypes
-            .flatMap { type in
+            .compactMap { type in
                 do {
                     return try PropertyInjectableType(type: type)
                 } catch let error as PropertyInjectableType.Error where error.reason == .protocolConformanceNotFound {
@@ -148,7 +148,7 @@ struct Resolver {
             }
         }
 
-        injectMethods = nodesForInjectMethods.flatMap(InjectMethod.init(node:))
+        injectMethods = nodesForInjectMethods.compactMap(InjectMethod.init(node:))
         let generatedMethods = resolveMethods as [GeneratedMethod] + injectMethods as [GeneratedMethod]
         sortedGeneratedMethods = generatedMethods.sorted { (lhs, rhs) in return lhs.name < rhs.name }
     }
