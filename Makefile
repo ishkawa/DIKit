@@ -1,7 +1,7 @@
 PREFIX?=/usr/local
 
 build:
-	swift build -c release -Xswiftc -static-stdlib
+	swift build -c release --static-swift-stdlib
 
 install: build
 	mkdir -p "$(PREFIX)/bin"
