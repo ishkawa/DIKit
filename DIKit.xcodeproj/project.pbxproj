@@ -738,6 +738,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.ishkawa.DIKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -766,6 +767,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.ishkawa.DIKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator";
 				SWIFT_VERSION = 5.0;
