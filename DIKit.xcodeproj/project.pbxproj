@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F5ADCFA21875B9200275E4D /* DIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F5ADCEC21875B9200275E4D /* DIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7F5ADD0721875BFF00275E4D /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD0521875BFF00275E4D /* Injectable.swift */; };
-		7F5ADD0821875BFF00275E4D /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD0621875BFF00275E4D /* Resolver.swift */; };
+		7F134B5822636545009B96B2 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEF8C7122635A560088DC3B /* DIKit.framework */; };
 		7F5ADD2C21875C7B00275E4D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD2B21875C7B00275E4D /* main.swift */; };
 		7F5ADD5921875CE700275E4D /* StandardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD5821875CE700275E4D /* StandardError.swift */; };
-		7F8F1B822187829A0001ABE7 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ADCE921875B9200275E4D /* DIKit.framework */; };
 		7FCD123D218760DD003255E5 /* DIGenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FCD1234218760DD003255E5 /* DIGenKit.framework */; };
 		7FCD124F2187610B003255E5 /* TypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD6421875D2500275E4D /* TypeTests.swift */; };
 		7FCD12502187610B003255E5 /* ImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD6521875D2500275E4D /* ImportTests.swift */; };
@@ -44,6 +41,8 @@
 		7FCD126A21876149003255E5 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD3421875CA900275E4D /* Method.swift */; };
 		7FCD126B21876149003255E5 /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD3521875CA900275E4D /* Import.swift */; };
 		7FCD126D21876163003255E5 /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FCD126C21876163003255E5 /* SourceKittenFramework.framework */; };
+		7FEF8C7922635A800088DC3B /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD0521875BFF00275E4D /* Injectable.swift */; };
+		7FEF8C7A22635A800088DC3B /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD0621875BFF00275E4D /* Resolver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,13 +52,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7FCD1233218760DD003255E5;
 			remoteInfo = DIGenKit;
-		};
-		7F8F1B83218782BF0001ABE7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7F5ADCE021875B9200275E4D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7F5ADCE821875B9200275E4D;
-			remoteInfo = DIKit;
 		};
 		7FCD123E218760DD003255E5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -83,7 +75,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7F5ADCE921875B9200275E4D /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5ADCEC21875B9200275E4D /* DIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIKit.h; sourceTree = "<group>"; };
 		7F5ADCED21875B9200275E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F5ADD0521875BFF00275E4D /* Injectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
@@ -131,16 +122,10 @@
 		7FD5636F21875FF5009CAC12 /* SourceKittenFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceKittenFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD5637121876053009CAC12 /* SourceKittenFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceKittenFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD5637321876062009CAC12 /* SourceKittenFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceKittenFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FEF8C7122635A560088DC3B /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7F5ADCE621875B9200275E4D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7F5ADD2621875C7B00275E4D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,8 +145,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F8F1B822187829A0001ABE7 /* DIKit.framework in Frameworks */,
+				7F134B5822636545009B96B2 /* DIKit.framework in Frameworks */,
 				7FCD123D218760DD003255E5 /* DIGenKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FEF8C6E22635A560088DC3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,10 +173,10 @@
 		7F5ADCEA21875B9200275E4D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7F5ADCE921875B9200275E4D /* DIKit.framework */,
 				7F5ADD2921875C7B00275E4D /* dikitgen */,
 				7FCD1234218760DD003255E5 /* DIGenKit.framework */,
 				7FCD123C218760DD003255E5 /* DIGenKitTests.xctest */,
+				7FEF8C7122635A560088DC3B /* DIKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,15 +337,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		7F5ADCE421875B9200275E4D /* Headers */ = {
+		7FCD122F218760DD003255E5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F5ADCFA21875B9200275E4D /* DIKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7FCD122F218760DD003255E5 /* Headers */ = {
+		7FEF8C6C22635A560088DC3B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -363,24 +354,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7F5ADCE821875B9200275E4D /* DIKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7F5ADCFD21875B9200275E4D /* Build configuration list for PBXNativeTarget "DIKit" */;
-			buildPhases = (
-				7F5ADCE421875B9200275E4D /* Headers */,
-				7F5ADCE521875B9200275E4D /* Sources */,
-				7F5ADCE621875B9200275E4D /* Frameworks */,
-				7F5ADCE721875B9200275E4D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DIKit;
-			productName = DIKit;
-			productReference = 7F5ADCE921875B9200275E4D /* DIKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		7F5ADD2821875C7B00275E4D /* dikitgen */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F5ADD2D21875C7B00275E4D /* Build configuration list for PBXNativeTarget "dikitgen" */;
@@ -428,13 +401,30 @@
 			buildRules = (
 			);
 			dependencies = (
-				7F8F1B84218782BF0001ABE7 /* PBXTargetDependency */,
 				7FCD123F218760DD003255E5 /* PBXTargetDependency */,
 			);
 			name = DIGenKitTests;
 			productName = DIGenKitTests;
 			productReference = 7FCD123C218760DD003255E5 /* DIGenKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7FEF8C7022635A560088DC3B /* DIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FEF8C7622635A560088DC3B /* Build configuration list for PBXNativeTarget "DIKit" */;
+			buildPhases = (
+				7FEF8C6C22635A560088DC3B /* Headers */,
+				7FEF8C6D22635A560088DC3B /* Sources */,
+				7FEF8C6E22635A560088DC3B /* Frameworks */,
+				7FEF8C6F22635A560088DC3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DIKit;
+			productName = DIKit;
+			productReference = 7FEF8C7122635A560088DC3B /* DIKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -446,10 +436,6 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Yosuke Ishikawa";
 				TargetAttributes = {
-					7F5ADCE821875B9200275E4D = {
-						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1020;
-					};
 					7F5ADD2821875C7B00275E4D = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1020;
@@ -461,6 +447,9 @@
 					7FCD123B218760DD003255E5 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1020;
+					};
+					7FEF8C7022635A560088DC3B = {
+						CreatedOnToolsVersion = 10.2;
 					};
 				};
 			};
@@ -476,22 +465,15 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7F5ADCE821875B9200275E4D /* DIKit */,
 				7F5ADD2821875C7B00275E4D /* dikitgen */,
 				7FCD1233218760DD003255E5 /* DIGenKit */,
 				7FCD123B218760DD003255E5 /* DIGenKitTests */,
+				7FEF8C7022635A560088DC3B /* DIKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7F5ADCE721875B9200275E4D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7FCD1232218760DD003255E5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,18 +488,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		7F5ADCE521875B9200275E4D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		7FEF8C6F22635A560088DC3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F5ADD0721875BFF00275E4D /* Injectable.swift in Sources */,
-				7F5ADD0821875BFF00275E4D /* Resolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		7F5ADD2521875C7B00275E4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -570,6 +550,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FEF8C6D22635A560088DC3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FEF8C7922635A800088DC3B /* Injectable.swift in Sources */,
+				7FEF8C7A22635A800088DC3B /* Resolver.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -577,11 +566,6 @@
 			isa = PBXTargetDependency;
 			target = 7FCD1233218760DD003255E5 /* DIGenKit */;
 			targetProxy = 7F5408512262BD6F00507132 /* PBXContainerItemProxy */;
-		};
-		7F8F1B84218782BF0001ABE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7F5ADCE821875B9200275E4D /* DIKit */;
-			targetProxy = 7F8F1B83218782BF0001ABE7 /* PBXContainerItemProxy */;
 		};
 		7FCD123F218760DD003255E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -719,61 +703,6 @@
 			};
 			name = Release;
 		};
-		7F5ADCFE21875B9200275E4D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/DIKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.ishkawa.DIKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
-			};
-			name = Debug;
-		};
-		7F5ADCFF21875B9200275E4D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/DIKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.ishkawa.DIKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
-			};
-			name = Release;
-		};
 		7F5ADD2E21875C7B00275E4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -894,6 +823,60 @@
 			};
 			name = Release;
 		};
+		7FEF8C7722635A560088DC3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/DIKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.ishkawa.DIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7FEF8C7822635A560088DC3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/DIKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.ishkawa.DIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -902,15 +885,6 @@
 			buildConfigurations = (
 				7F5ADCFB21875B9200275E4D /* Debug */,
 				7F5ADCFC21875B9200275E4D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7F5ADCFD21875B9200275E4D /* Build configuration list for PBXNativeTarget "DIKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7F5ADCFE21875B9200275E4D /* Debug */,
-				7F5ADCFF21875B9200275E4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -938,6 +912,15 @@
 			buildConfigurations = (
 				7FCD1249218760DE003255E5 /* Debug */,
 				7FCD124A218760DE003255E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FEF8C7622635A560088DC3B /* Build configuration list for PBXNativeTarget "DIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FEF8C7722635A560088DC3B /* Debug */,
+				7FEF8C7822635A560088DC3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
