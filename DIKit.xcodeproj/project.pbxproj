@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F134B5822636545009B96B2 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEF8C7122635A560088DC3B /* DIKit.framework */; };
 		7F5ADD2C21875C7B00275E4D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD2B21875C7B00275E4D /* main.swift */; };
 		7F5ADD5921875CE700275E4D /* StandardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ADD5821875CE700275E4D /* StandardError.swift */; };
 		7FCD123D218760DD003255E5 /* DIGenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FCD1234218760DD003255E5 /* DIGenKit.framework */; };
@@ -144,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F134B5822636545009B96B2 /* DIKit.framework in Frameworks */,
 				7FCD123D218760DD003255E5 /* DIGenKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
