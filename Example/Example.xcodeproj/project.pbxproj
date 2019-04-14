@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F4C2CAE2189ED1000F28104 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4C2CAD2189ED1000F28104 /* DIKit.framework */; };
 		7F764D441F800C3A00E983DF /* Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F764D431F800C3A00E983DF /* Multiplier.swift */; };
 		7FA64D9E1F6E11C600DA45A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA64D9D1F6E11C600DA45A2 /* AppDelegate.swift */; };
 		7FA64DA51F6E11C600DA45A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA64DA41F6E11C600DA45A2 /* Assets.xcassets */; };
 		7FA64DA81F6E11C600DA45A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA64DA61F6E11C600DA45A2 /* LaunchScreen.storyboard */; };
+		7FDACB26226362B6006BA114 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDACB25226362B6006BA114 /* DIKit.framework */; };
 		7FFDA19E1F785DAA0098BA9D /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FFDA19D1F785DAA0098BA9D /* List.storyboard */; };
 		7FFDA1A21F785F040098BA9D /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FFDA1A11F785F040098BA9D /* Detail.storyboard */; };
 		7FFE8A261F6E4D8A00910CFD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE8A251F6E4D8A00910CFD /* ListViewController.swift */; };
@@ -41,6 +41,7 @@
 		7FA64DA41F6E11C600DA45A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FA64DA71F6E11C600DA45A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FA64DA91F6E11C600DA45A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FDACB25226362B6006BA114 /* DIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFDA19D1F785DAA0098BA9D /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		7FFDA1A11F785F040098BA9D /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		7FFE8A251F6E4D8A00910CFD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F4C2CAE2189ED1000F28104 /* DIKit.framework in Frameworks */,
+				7FDACB26226362B6006BA114 /* DIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +65,7 @@
 		7F4C2CAC2189ED1000F28104 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7FDACB25226362B6006BA114 /* DIKit.framework */,
 				7F4C2CAD2189ED1000F28104 /* DIKit.framework */,
 			);
 			name = Frameworks;
