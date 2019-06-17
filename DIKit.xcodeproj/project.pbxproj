@@ -826,6 +826,7 @@
 		7FEF8C7722635A560088DC3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -853,6 +854,7 @@
 		7FEF8C7822635A560088DC3B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
