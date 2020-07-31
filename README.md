@@ -6,11 +6,11 @@ A statically typed dependency injector for Swift.
 
 ## Overview
 
-DIKit provides interfaces to express dependency graph. A code generator named `dikitgen` finds implementations of the interfaces, and generate codes which satisfies dependency graph.
+DIKit provides interfaces to express a dependency graph. A code generator named `dikitgen` finds implementations of the interfaces, and generates code which satisfies the dependency graph.
 
 The main parts of DIKit are injectable types and provider methods, and both of them are to declare dependencies of types.
 
-Injectable types are types that conform to `Injectable` protocol.
+Injectable types are types that conform to the `Injectable` protocol.
 
 ```swift
 public protocol Injectable {
@@ -19,7 +19,7 @@ public protocol Injectable {
 }
 ```
 
-A conformer of `Injectable` protocol must have associated type `Dependency` as a struct. You declare dependencies of the `Injectable` conformer as stored properties of `Dependency` type. For example, suppose we have `ProfileViewController` class, and its dependencies are `User`, `APIClient` and `Database`. Following example code illustrates how to declare dependencies by conforming `Injectable` protocol.
+A conformer of the `Injectable` protocol must have associated type `Dependency` as a struct. You declare dependencies of the `Injectable` conformer as stored properties of the `Dependency` type. For example, suppose we have a `ProfileViewController` class, and its dependencies are `User`, `APIClient` and `Database`. The following example code illustrates how to declare dependencies by conforming to the `Injectable` protocol.
 
 ```swift
 final class ProfileViewController: Injectable {
@@ -33,13 +33,13 @@ final class ProfileViewController: Injectable {
 }
 ```
 
-Provider methods are methods of inheritor of `Resolver` protocol, which is a marker protocol for code generation.
+Provider methods are methods of inheritors of the `Resolver` protocol, which is a marker protocol for code generation.
 
 ```swift
 public protocol Resolver {}
 ```
 
-Provider methods declares that which non-injectable types can be instantiated automatically. In the example above, `APIClient` and `Database` are non-injectable type, but they can be provided in the same ways in most cases. In this situation, define provider methods for the types in an inheritor of `Resolver` protocol, so that instances of the types are provided automatically.
+Provider methods declare which non-injectable types can be instantiated automatically. In the example above, `APIClient` and `Database` are non-injectable types, but they can be provided in the same ways in most cases. In this situation, define provider methods for the types in an inheritor of the `Resolver` protocol, so that instances of the types are provided automatically.
 
 ```swift
 protocol AppResolver: Resolver {
@@ -48,13 +48,13 @@ protocol AppResolver: Resolver {
 }
 ```
 
-In short, we have following situation so far:
+In short, we have the following situation so far:
 
 - Dependencies of `ProfileViewController` are `User`, `APIClient` and `Database`.
 - Instances of `APIClient` and `Database` are provided automatically.
 - An instance of `User` must be provided manually to instantiate `ProfileViewController`.
 
-`dikitgen` generates following code for the declarations:
+`dikitgen` generates the following code for the declarations:
 
 ```swift
 extension AppResolver {
@@ -74,7 +74,7 @@ extension AppResolver {
 }
 ```
 
-To use generated code, you have to implement a concrete type of `AppResolver`.
+To use the generated code, you have to implement a concrete type of `AppResolver`.
 
 ```swift
 final class AppResolverImpl: AppResolver {
@@ -91,7 +91,7 @@ final class AppResolverImpl: AppResolver {
 }
 ```
 
-Since `AppResolver` is a protocol, all implementations of provider methods are checked at compile time. If you would like to create mock version of `AppResolver` for unit testing, define another concrete type of `AppResolver`. It can be used the same as `AppResolverImpl`.
+Since `AppResolver` is a protocol, all implementations of provider methods are checked at compile time. If you would like to create a mock version of `AppResolver` for unit testing, define another concrete type of `AppResolver`. It can be used in the same way as `AppResolverImpl`.
 
 Now, you can instantiate `ProfileViewController` like below:
 
@@ -124,12 +124,12 @@ cd DIKit
 make install
 ```
 
-Then, integrate DIKit.framework to your project. There are some option to install DIKit.framework.
+Then, integrate DIKit.framework to your project. There are some options to install DIKit.framework.
 
 - **Manual**: Clone this repository and add `DIKit.xcodeproj` to your project.
-- **Carthage**: Add a line `github "ishkawa/DIKIt"` to your Cartfile and run `carthage update`.
+- **Carthage**: Add the line `github "ishkawa/DIKIt"` to your Cartfile and run `carthage update`.
 
-Optionally, insert shell script running `dikitgen` to early part of build phases.
+Optionally, insert this shell script running `dikitgen` to an early part of the build phases.
 
 ```shell
 if which dikitgen >/dev/null; then
