@@ -8,7 +8,7 @@ A statically typed dependency injector for Swift.
 
 DIKit provides interfaces to express a dependency graph. A code generator named `dikitgen` finds implementations of the interfaces, and generates code which satisfies the dependency graph.
 
-The main parts of DIKit are injectable types and provider methods, and both of them are to declare dependencies of types.
+The main parts of DIKit are injectable types and provider methods, and both of them are for declaring dependencies of types.
 
 Injectable types are types that conform to the `Injectable` protocol.
 
@@ -33,13 +33,13 @@ final class ProfileViewController: Injectable {
 }
 ```
 
-Provider methods are methods of inheritors of the `Resolver` protocol, which is a marker protocol for code generation.
+Provider methods are methods of an implementation of the `Resolver` protocol, which is a marker protocol for code generation.
 
 ```swift
 public protocol Resolver {}
 ```
 
-Provider methods declare which non-injectable types can be instantiated automatically. In the example above, `APIClient` and `Database` are non-injectable types, but they can be provided in the same ways in most cases. In this situation, define provider methods for the types in an inheritor of the `Resolver` protocol, so that instances of the types are provided automatically.
+Provider methods declare which non-injectable types can be instantiated automatically. In the example above, suppose that `APIClient` and `Database` require no parameters or configuration and can be instantiated automatically. In this situation, define provider methods for the types in an implementation of the `Resolver` protocol, so that instances of the types are provided automatically.
 
 ```swift
 protocol AppResolver: Resolver {
@@ -74,7 +74,7 @@ extension AppResolver {
 }
 ```
 
-To use the generated code, you have to implement a concrete type of `AppResolver`.
+To use the generated code, you need a concrete implementation of `AppResolver`.
 
 ```swift
 final class AppResolverImpl: AppResolver {
@@ -91,7 +91,7 @@ final class AppResolverImpl: AppResolver {
 }
 ```
 
-Since `AppResolver` is a protocol, all implementations of provider methods are checked at compile time. If you would like to create a mock version of `AppResolver` for unit testing, define another concrete type of `AppResolver`. It can be used in the same way as `AppResolverImpl`.
+Since `AppResolver` is a protocol, all implementations of provider methods are checked at compile time. If you would like to create a mock version of `AppResolver` for unit testing, define another concrete implementation of `AppResolver`. It can be used in the same way as `AppResolverImpl`.
 
 Now, you can instantiate `ProfileViewController` like below:
 
@@ -124,12 +124,12 @@ cd DIKit
 make install
 ```
 
-Then, integrate DIKit.framework to your project. There are some options to install DIKit.framework.
+Then, integrate DIKit.framework to your project. There are two ways to install DIKit.framework.
 
 - **Manual**: Clone this repository and add `DIKit.xcodeproj` to your project.
 - **Carthage**: Add the line `github "ishkawa/DIKIt"` to your Cartfile and run `carthage update`.
 
-Optionally, insert this shell script running `dikitgen` to an early part of the build phases.
+Optionally, insert the following shell script running `dikitgen` at an early stage of your build phases.
 
 ```shell
 if which dikitgen >/dev/null; then
