@@ -20,8 +20,8 @@ struct Import {
                 }
 
                 let view = file.contents.utf8
-                let startIndex = view.index(view.startIndex, offsetBy: Int(token.offset))
-                let endIndex = view.index(startIndex, offsetBy: Int(token.length))
+                let startIndex = view.index(view.startIndex, offsetBy: Int(token.offset.value))
+                let endIndex = view.index(startIndex, offsetBy: Int(token.length.value))
                 let value = String(view[startIndex..<endIndex])!
                 return value == "import" ? index : nil
             }
@@ -39,8 +39,8 @@ struct Import {
                 }
 
                 let view = file.contents.utf8
-                let startIndex = view.index(view.startIndex, offsetBy: Int(token.offset))
-                let endIndex = view.index(startIndex, offsetBy: Int(token.length))
+                let startIndex = view.index(view.startIndex, offsetBy: Int(token.offset.value))
+                let endIndex = view.index(startIndex, offsetBy: Int(token.length.value))
                 return String(view[startIndex..<endIndex])!
             }
 
