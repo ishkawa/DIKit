@@ -21,7 +21,7 @@ let package = Package(
                 "DIKit",
                 .product(name: "SourceKittenFramework", package: "SourceKitten"),
             ]),
-    .target(name: "dikitgen", dependencies: ["DIGenKit"]),
+    .executableTarget(name: "dikitgen", dependencies: ["DIGenKit"]),
     .testTarget(name: "DIGenKitTests", dependencies: ["DIGenKit"])
   ],
   swiftLanguageVersions: [.v5]
