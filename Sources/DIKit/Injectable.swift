@@ -15,7 +15,7 @@ public protocol FactoryMethodInjectable {
     static func makeInstance(dependency: Dependency) -> Self
 }
 
-public protocol PropertyInjectable: class {
+public protocol PropertyInjectable: AnyObject {
     associatedtype Dependency
     var dependency: Dependency! { get set }
 }
