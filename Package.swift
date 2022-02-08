@@ -16,7 +16,11 @@ let package = Package(
   ],
   targets: [
     .target(name: "DIKit"),
-    .target(name: "DIGenKit", dependencies: ["DIKit", "SourceKittenFramework"]),
+    .target(name: "DIGenKit",
+            dependencies: [
+                "DIKit",
+                .product(name: "SourceKittenFramework", package: "SourceKitten"),
+            ]),
     .target(name: "dikitgen", dependencies: ["DIGenKit"]),
     .testTarget(name: "DIGenKitTests", dependencies: ["DIGenKit"])
   ],
