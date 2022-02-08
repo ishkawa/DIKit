@@ -12,7 +12,7 @@ let package = Package(
     .library(name: "DIGenKit", targets: ["DIGenKit"])
   ],
   dependencies: [
-    .package(url: "https://github.com/jpsim/SourceKitten.git", from: "0.23.0")
+    .package(url: "https://github.com/jpsim/SourceKitten.git", from: "0.31.1"),
   ],
   targets: [
     .target(name: "DIKit"),
